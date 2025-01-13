@@ -9,7 +9,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #6f42c1, #007bff);
+      background: #f9f9f9;
       color: #333;
     }
 
@@ -32,13 +32,18 @@
     }
 
     .pricing-plan {
-      background: #f4f4f4;
+      background: #ffffff;
       border-radius: 10px;
       text-align: center;
       padding: 20px;
       width: 30%;
       height: auto;
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+
+    .pricing-plan:hover {
+      transform: scale(1.05);
     }
 
     .pricing-plan h2 {
@@ -49,10 +54,11 @@
       font-size: 24px;
       font-weight: bold;
       margin: 10px 0;
+      color: #007bff;
     }
 
     .pricing-plan .description {
-      font-size: 16px;
+      font-size: 14px;
       color: #666;
       margin: 15px 0;
       text-align: left;
@@ -66,6 +72,7 @@
       border-radius: 5px;
       cursor: pointer;
       margin: 10px 5px;
+      font-size: 14px;
     }
 
     .pricing-plan button:hover {
@@ -82,26 +89,28 @@
     }
 
     .instagram-card {
-      background: #fff;
+      background: #ffffff;
       border-radius: 10px;
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
       width: 250px;
-      height: auto;
+      height: 300px;
       padding: 10px;
       text-align: center;
+      overflow: hidden;
     }
 
     .instagram-card iframe {
       width: 100%;
-      border-radius: 10px;
+      height: 100%;
       border: none;
+      border-radius: 10px;
     }
 
     footer {
       text-align: center;
       margin: 20px 0;
       font-size: 14px;
-      color: #fff;
+      color: #666;
     }
   </style>
 </head>

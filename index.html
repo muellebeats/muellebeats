@@ -17,12 +17,30 @@
             background-color: #121212;
             padding: 20px;
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         header h1 {
             margin: 0;
             font-size: 24px;
             color: #ff007f;
+        }
+
+        header .back-button {
+            background-color: #ff007f;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        header .back-button:hover {
+            background-color: #e60073;
         }
 
         .plans {
@@ -96,6 +114,40 @@
             background-color: #e60073;
         }
 
+        .login-section {
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        .login-section form {
+            margin: 20px auto;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .login-section form input {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            width: 250px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .login-section form button {
+            background-color: #ff007f;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-section form button:hover {
+            background-color: #e60073;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -112,6 +164,7 @@
 </head>
 <body>
     <header>
+        <button class="back-button" onclick="window.location.href='index.html'">Volver</button>
         <h1>Muelle Beats</h1>
     </header>
 
@@ -155,9 +208,17 @@
         <button onclick="window.location.href='player.html'">Acceder al Reproductor</button>
     </div>
 
+    <div class="login-section">
+        <h2>Iniciar Sesión</h2>
+        <form>
+            <input type="email" placeholder="Correo electrónico" required>
+            <input type="password" placeholder="Contraseña" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+    </div>
+
     <footer>
         <p>© 2025 Muelle Beats. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
-

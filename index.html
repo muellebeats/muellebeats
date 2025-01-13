@@ -4,221 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muelle Beats</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #1a1a1a;
-            color: white;
-        }
-
-        header {
-            background-color: #121212;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 24px;
-            color: #ff007f;
-        }
-
-        header .back-button {
-            background-color: #ff007f;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        header .back-button:hover {
-            background-color: #e60073;
-        }
-
-        .plans {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px;
-        }
-
-        .plan {
-            background-color: #292929;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        .plan h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .plan p {
-            font-size: 16px;
-            color: #ff007f;
-        }
-
-        .plan ul {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0;
-        }
-
-        .plan ul li {
-            margin: 5px 0;
-        }
-
-        .plan button {
-            background-color: #ff007f;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            margin: 5px;
-            border-radius: 5px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .plan button:hover {
-            background-color: #e60073;
-        }
-
-        .player-button {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .player-button button {
-            background-color: #ff007f;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .player-button button:hover {
-            background-color: #e60073;
-        }
-
-        .login-section {
-            margin: 40px auto;
-            text-align: center;
-        }
-
-        .login-section form {
-            margin: 20px auto;
-            display: inline-block;
-            text-align: left;
-        }
-
-        .login-section form input {
-            display: block;
-            margin: 10px 0;
-            padding: 10px;
-            width: 250px;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .login-section form button {
-            background-color: #ff007f;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .login-section form button:hover {
-            background-color: #e60073;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #121212;
-            margin-top: 20px;
-        }
-
-        footer p {
-            margin: 0;
-            color: #888;
-            font-size: 14px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <button class="back-button" onclick="window.location.href='index.html'">Volver</button>
         <h1>Muelle Beats</h1>
+        <nav>
+            <button onclick="window.location.href='auth.html'" class="button">Iniciar sesión</button>
+        </nav>
     </header>
 
-    <div class="plans">
-        <div class="plan">
-            <h3>6 meses</h3>
-            <p>$10/mes</p>
-            <ul>
-                <li>Acceso exclusivo</li>
-                <li>Soporte personalizado</li>
-                <li>Actualizaciones mensuales</li>
-            </ul>
-            <button onclick="window.open('https://mpago.la/1cuusaE', '_blank')">Comprar en MercadoPago</button>
-            <button onclick="window.open('https://www.paypal.me/dimeloagus/60', '_blank')">Comprar en PayPal</button>
-        </div>
-        <div class="plan">
-            <h3>1 año</h3>
-            <p>$25/mes</p>
-            <ul>
-                <li>Descuentos especiales</li>
-                <li>Acceso anticipado</li>
-                <li>Beneficios extra</li>
-            </ul>
-            <button onclick="window.open('https://mpago.la/1cuusaE', '_blank')">Comprar en MercadoPago</button>
-            <button onclick="window.open('https://www.paypal.me/dimeloagus/120', '_blank')">Comprar en PayPal</button>
-        </div>
-        <div class="plan">
-            <h3>Discord</h3>
-            <p>$50/mes</p>
-            <ul>
-                <li>Networking</li>
-                <li>Preguntas en vivo</li>
-                <li>Mentoría</li>
-            </ul>
-            <button onclick="window.open('https://mpago.la/1cuusaE', '_blank')">Comprar en MercadoPago</button>
-            <button onclick="window.open('https://www.paypal.me/dimeloagus/180', '_blank')">Comprar en PayPal</button>
-        </div>
-    </div>
+    <main>
+        <section id="plans">
+            <div class="plan">
+                <h2>6 meses</h2>
+                <p>$10/mes</p>
+                <ul>
+                    <li>Acceso exclusivo</li>
+                    <li>Soporte personalizado</li>
+                    <li>Actualizaciones mensuales</li>
+                </ul>
+                <button>Comprar en MercadoPago</button>
+                <button>Comprar en PayPal</button>
+            </div>
 
-    <div class="player-button">
-        <button onclick="window.location.href='player.html'">Acceder al Reproductor</button>
-    </div>
+            <div class="plan">
+                <h2>1 año</h2>
+                <p>$25/mes</p>
+                <ul>
+                    <li>Descuentos especiales</li>
+                    <li>Acceso anticipado</li>
+                    <li>Beneficios extra</li>
+                </ul>
+                <button>Comprar en MercadoPago</button>
+                <button>Comprar en PayPal</button>
+            </div>
 
-    <div class="login-section">
-        <h2>Iniciar Sesión</h2>
-        <form>
-            <input type="email" placeholder="Correo electrónico" required>
-            <input type="password" placeholder="Contraseña" required>
-            <button type="submit">Iniciar Sesión</button>
-        </form>
-    </div>
+            <div class="plan">
+                <h2>Discord</h2>
+                <p>$50/mes</p>
+                <ul>
+                    <li>Networking</li>
+                    <li>Preguntas en vivo</li>
+                    <li>Mentoría</li>
+                </ul>
+                <button>Comprar en MercadoPago</button>
+                <button>Comprar en PayPal</button>
+            </div>
+
+            <button onclick="window.location.href='player.html'" class="button">Acceder al Reproductor</button>
+        </section>
+    </main>
 
     <footer>
         <p>© 2025 Muelle Beats. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
+

@@ -178,3 +178,61 @@
   </footer>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autenticación</title>
+  <script type="module" src="./auth.js"></script>
+</head>
+<body>
+  <h1>Bienvenido a Muelle Beats</h1>
+
+  <div>
+    <h2>Estado de autenticación:</h2>
+    <p id="auth-status">Cargando...</p>
+  </div>
+
+  <div>
+    <h2>Registro</h2>
+    <input type="email" id="registerEmail" placeholder="Correo electrónico" />
+    <input type="password" id="registerPassword" placeholder="Contraseña" />
+    <button onclick="register()">Registrar</button>
+  </div>
+
+  <div>
+    <h2>Inicio de sesión</h2>
+    <input type="email" id="loginEmail" placeholder="Correo electrónico" />
+    <input type="password" id="loginPassword" placeholder="Contraseña" />
+    <button onclick="login()">Iniciar sesión</button>
+  </div>
+
+  <div>
+    <button onclick="logout()">Cerrar sesión</button>
+  </div>
+
+  <script type="module">
+    import { registerUser, loginUser, logoutUser } from "./auth.js";
+
+    // Función para el botón de registro
+    window.register = () => {
+      const email = document.getElementById("registerEmail").value;
+      const password = document.getElementById("registerPassword").value;
+      registerUser(email, password);
+    };
+
+    // Función para el botón de inicio de sesión
+    window.login = () => {
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+      loginUser(email, password);
+    };
+
+    // Función para el botón de cierre de sesión
+    window.logout = () => {
+      logoutUser();
+    };
+  </script>
+</body>
+</html>

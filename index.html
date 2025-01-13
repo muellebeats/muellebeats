@@ -1,120 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muelle Beats</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #000000, #ff0080);
-      color: white;
-      text-align: center;
-    }
-    .header {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px;
-      background-color: #121212;
-    }
-    .header a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-size: 18px;
-    }
-    .header a:hover {
-      color: #ff0080;
-    }
-    .plans-container {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 50px;
-    }
-    .plan-card {
-      background-color: #1a1a1a;
-      border: 1px solid #ff0080;
-      border-radius: 10px;
-      padding: 20px;
-      width: 250px;
-      box-shadow: 0px 0px 15px rgba(255, 0, 128, 0.5);
-    }
-    .plan-card h3, .plan-card p {
-      margin: 10px 0;
-    }
-    .plan-card button {
-      margin-top: 10px;
-      background-color: #ff0080;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    .plan-card button:hover {
-      background-color: #e60074;
-    }
-    footer {
-      margin-top: 50px;
-      color: #888;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muelle Beats</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        header {
+            background-color: #121212;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #ff007f;
+        }
+
+        .plans {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px;
+        }
+
+        .plan {
+            background-color: #292929;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .plan h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .plan p {
+            font-size: 16px;
+            color: #ff007f;
+        }
+
+        .plan ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .plan ul li {
+            margin: 5px 0;
+        }
+
+        .plan button {
+            background-color: #ff007f;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .plan button:hover {
+            background-color: #e60073;
+        }
+
+        .player-button {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .player-button button {
+            background-color: #ff007f;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .player-button button:hover {
+            background-color: #e60073;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #121212;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+            color: #888;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-  <header class="header">
-    <a href="index.html">Muelle Beats</a>
-    <nav>
-      <a href="#plans">Planes</a>
-      <a href="auth.html">Iniciar sesión</a>
-    </nav>
-  </header>
+    <header>
+        <h1>Muelle Beats</h1>
+    </header>
 
-  <main>
-    <section id="plans">
-      <h1>Planes</h1>
-      <div class="plans-container">
-        <div class="plan-card">
-          <h3>6 meses</h3>
-          <p>$10/mes</p>
-          <ul>
-            <li>Acceso exclusivo</li>
-            <li>Soporte personalizado</li>
-            <li>Actualizaciones mensuales</li>
-          </ul>
-          <button>Comprar en MercadoPago</button>
-          <button>Comprar en PayPal</button>
+    <div class="plans">
+        <div class="plan">
+            <h3>6 meses</h3>
+            <p>$10/mes</p>
+            <ul>
+                <li>Acceso exclusivo</li>
+                <li>Soporte personalizado</li>
+                <li>Actualizaciones mensuales</li>
+            </ul>
+            <button onclick="window.open('https://mpago.la/1cuusaE', '_blank')">Comprar en MercadoPago</button>
+            <button onclick="window.open('https://www.paypal.me/dimeloagus/60', '_blank')">Comprar en PayPal</button>
         </div>
-        <div class="plan-card">
-          <h3>1 año</h3>
-          <p>$25/mes</p>
-          <ul>
-            <li>Descuentos especiales</li>
-            <li>Acceso anticipado</li>
-            <li>Beneficios extra</li>
-          </ul>
-          <button>Comprar en MercadoPago</button>
-          <button>Comprar en PayPal</button>
+        <div class="plan">
+            <h3>1 año</h3>
+            <p>$25/mes</p>
+            <ul>
+                <li>Descuentos especiales</li>
+                <li>Acceso anticipado</li>
+                <li>Beneficios extra</li>
+            </ul>
+            <button onclick="window.open('https://mpago.la/1cuusaE', '_blank')">Comprar en MercadoPago</button>
+            <button onclick="window.open('https://www.paypal.me/dimeloagus/120', '_blank')">Comprar en PayPal</button>
         </div>
-        <div class="plan-card">
-          <h3>Discord</h3>
-          <p>$50/mes</p>
-          <ul>
-            <li>Networking</li>
-            <li>Preguntas en vivo</li>
-            <li>Mentoría</li>
-          </ul>
-          <button>Comprar en MercadoPago</button>
-          <button>Comprar en PayPal</button>
+        <div class="plan">
+            <h3>Discord</h3>
+            <p>$50/mes</p>
+            <ul>
+                <li>Networking</li>
+                <li>Preguntas en vivo</li>
+                <li>Mentoría</li>
+            </ul>
+            <button onclick="window.open('https://mpago.la/1cuusaE', '_blank')">Comprar en MercadoPago</button>
+            <button onclick="window.open('https://www.paypal.me/dimeloagus/180', '_blank')">Comprar en PayPal</button>
         </div>
-      </div>
-    </section>
-  </main>
+    </div>
 
-  <footer>
-    © 2025 Muelle Beats. Todos los derechos reservados.
-  </footer>
+    <div class="player-button">
+        <button onclick="window.location.href='player.html'">Acceder al Reproductor</button>
+    </div>
+
+    <footer>
+        <p>© 2025 Muelle Beats. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
 

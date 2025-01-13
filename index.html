@@ -3,10 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Sitio Web</title>
+    <title>Planes de Precios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            gap: 20px;
+            padding: 20px;
+        }
+        .pricing-plan {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            width: 300px;
+        }
+        .pricing-plan h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .pricing-plan p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .pricing-plan .price {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .pricing-plan button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .pricing-plan button:hover {
+            background: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>¡Bienvenido a mi sitio web!</h1>
-    <p>Este es mi primer sitio web creado con GitHub Pages.</p>
+    <div class="pricing-container">
+        <!-- Plan Básico -->
+        <div class="pricing-plan">
+            <h2>Básico</h2>
+            <p>Para usuarios individuales</p>
+            <div class="price">$10/mes</div>
+            <button>Comenzar</button>
+        </div>
+
+        <!-- Plan Estándar -->
+        <div class="pricing-plan">
+            <h2>Estándar</h2>
+            <p>Para pequeños equipos</p>
+            <div class="price">$25/mes</div>
+            <button>Comenzar</button>
+        </div>
+
+        <!-- Plan Pro -->
+        <div class="pricing-plan">
+            <h2>Pro</h2>
+            <p>Para empresas y profesionales</p>
+            <div class="price">$50/mes</div>
+            <button>Comenzar</button>
+        </div>
+    </div>
 </body>
 </html>

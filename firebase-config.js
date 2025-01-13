@@ -4,13 +4,13 @@ import { getAnalytics } from "firebase/analytics";
 
 // Configuración de Firebase
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "TU_AUTH_DOMAIN",
-  projectId: "TU_PROJECT_ID",
-  storageBucket: "TU_STORAGE_BUCKET",
-  messagingSenderId: "TU_MESSAGING_SENDER_ID",
-  appId: "TU_APP_ID",
-  measurementId: "TU_MEASUREMENT_ID",
+  apiKey: "AIzaSyBXeISiEa-PZlH9YIX67uM7AOMtA98H01w",
+  authDomain: "muelle-beats.firebaseapp.com",
+  projectId: "muelle-beat",
+  storageBucket: "muelle-beats.firebasestorage.app",
+  messagingSenderId: "35536559976",
+  appId: "1:35536559976:web:95d9c4b69b644c54a3c0dd",
+  measurementId: "G-S9FCEXTHXC",
 };
 
 // Inicializar Firebase

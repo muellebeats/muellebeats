@@ -52,6 +52,50 @@
         .pricing-plan button:hover {
             background-color: #0056b3;
         }
+
+        /* Estilo para el carrusel */
+        .carousel-container {
+            margin-top: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .carousel img {
+            width: 200px;
+            height: 200px;
+            margin: 0 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-controls button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .carousel-controls button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
     </style>
 </head>
 <body>
@@ -81,5 +125,32 @@
         <br><br>
         <button onclick="window.open('https://www.paypal.me/dimeloagus/50', '_blank')">Comprar en PayPal</button>
     </div>
+
+    <!-- Carrusel de imágenes -->
+    <div class="carousel-container">
+        <div class="carousel" id="carousel">
+            <img src="https://via.placeholder.com/200?text=Imagen+1" alt="Imagen 1">
+            <img src="https://via.placeholder.com/200?text=Imagen+2" alt="Imagen 2">
+            <img src="https://via.placeholder.com/200?text=Imagen+3" alt="Imagen 3">
+            <img src="https://via.placeholder.com/200?text=Imagen+4" alt="Imagen 4">
+        </div>
+        <div class="carousel-controls">
+            <button onclick="moveCarousel(-1)">&#10094;</button>
+            <button onclick="moveCarousel(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+
+        function moveCarousel(direction) {
+            const carousel = document.getElementById('carousel');
+            const items = carousel.children.length;
+            const itemWidth = carousel.children[0].offsetWidth + 20; // Ancho de la imagen + margen
+            currentIndex = (currentIndex + direction + items) % items;
+            carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        }
+    </script>
 </body>
 </html>
+

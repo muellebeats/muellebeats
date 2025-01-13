@@ -1,84 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Audio Player</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #121212;
-      color: #fff;
-      margin: 0;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    h1 {
-      color: #ff79c6;
-    }
-    .player {
-      background: #1e1e1e;
-      border-radius: 10px;
-      padding: 20px;
-      width: 100%;
-      max-width: 600px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    }
-    audio {
-      width: 100%;
-      margin-top: 10px;
-      outline: none;
-    }
-    .track {
-      margin: 10px 0;
-    }
-    .track h3 {
-      margin: 0;
-      font-size: 18px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Reproductor de Audio</h1>
-  <div class="player">
-    <div class="track">
-      <h3>Barcelona</h3>
-      <audio controls>
-        <source src="assets/audio/barcelona.mp3" type="audio/mp3">
-        Tu navegador no soporta el reproductor de audio.
-      </audio>
-    </div>
-    <div class="track">
-      <h3>Dubai Arena</h3>
-      <audio controls>
-        <source src="assets/audio/dubai arena.mp3" type="audio/mp3">
-        Tu navegador no soporta el reproductor de audio.
-      </audio>
-    </div>
-    <div class="track">
-      <h3>Oslo Norway</h3>
-      <audio controls>
-        <source src="assets/audio/oslo norway.mp3" type="audio/mp3">
-        Tu navegador no soporta el reproductor de audio.
-      </audio>
-    </div>
-    <div class="track">
-      <h3>Home Hogar</h3>
-      <audio controls>
-        <source src="assets/audio/home hogar.mp3" type="audio/mp3">
-        Tu navegador no soporta el reproductor de audio.
-      </audio>
-    </div>
-    <div class="track">
-      <h3>Login Indonesia</h3>
-      <audio controls>
-        <source src="assets/audio/login indonesia.mp3" type="audio/mp3">
-        Tu navegador no soporta el reproductor de audio.
-      </audio>
-    </div>
-  </div>
+    <header>
+        <button onclick="window.location.href='index.html'" class="button">Volver atrás</button>
+    </header>
+
+    <main>
+        <h1>Reproductor MP3</h1>
+        <div id="player">
+            <audio controls>
+                <source src="assets/audio/barcelona.mp3" type="audio/mpeg">
+                Tu navegador no soporta el reproductor de audio.
+            </audio>
+            <audio controls>
+                <source src="assets/audio/dubai_arena.mp3" type="audio/mpeg">
+                Tu navegador no soporta el reproductor de audio.
+            </audio>
+            <audio controls>
+                <source src="assets/audio/home_hogar.mp3" type="audio/mpeg">
+                Tu navegador no soporta el reproductor de audio.
+            </audio>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Muelle Beats. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
+

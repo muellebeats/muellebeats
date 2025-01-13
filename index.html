@@ -1,126 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planes de Precios</title>
   <style>
-  .pricing-section {
-    background: white;
-    border-radius: 15px;
-    padding: 20px;
-    margin: 30px auto;
-    max-width: 90%;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #6f42c1, #007bff);
+      color: #333;
+    }
 
-  .pricing-container {
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-  }
+    .pricing-section {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 40px auto;
+      gap: 20px;
+      padding: 20px;
+    }
 
-  .pricing-plan {
-    background: #f4f4f4;
-    border-radius: 10px;
-    text-align: center;
-    padding: 20px;
-    width: 30%;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  }
+    .pricing-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      width: 90%;
+      max-width: 1200px;
+    }
 
-  .pricing-plan h2 {
-    margin-bottom: 10px;
-  }
+    .pricing-plan {
+      background: #f4f4f4;
+      border-radius: 10px;
+      text-align: center;
+      padding: 20px;
+      width: 30%;
+      height: auto;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-  .pricing-plan .price {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 10px 0;
-  }
-</style>
+    .pricing-plan h2 {
+      margin-bottom: 10px;
+    }
 
-<div class="pricing-section">
-  <div class="pricing-container">
-    <div class="pricing-plan">
-      <h2>6 meses</h2>
-      <p>Para usuarios individuales</p>
-      <div class="price">$10/mes</div>
-      <button onclick="window.open('https://mpago.la/1cuusaE', '_blank')">Comprar en MercadoPago</button>
-      <button onclick="window.open('https://www.paypal.me/dimeloagus/106', '_blank')">Comprar en PayPal</button>
-    </div>
+    .pricing-plan .price {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
 
-    <div class="pricing-plan">
-      <h2>1 año</h2>
-      <p>Para pequeños equipos</p>
-      <div class="price">$25/mes</div>
-      <button onclick="window.open('https://mpago.la/1cuusaE', '_blank')">Comprar en MercadoPago</button>
-      <button onclick="window.open('https://www.paypal.me/dimeloagus/106', '_blank')">Comprar en PayPal</button>
-    </div>
+    .pricing-plan .description {
+      font-size: 16px;
+      color: #666;
+      margin: 15px 0;
+      text-align: left;
+    }
 
-    <div class="pricing-plan">
-      <h2>Discord</h2>
-      <p>Acceso exclusivo y profesional</p>
-      <div class="price">$50/mes</div>
-      <button onclick="window.open('https://mpago.la/1cuusaE', '_blank')">Comprar en MercadoPago</button>
-      <button onclick="window.open('https://www.paypal.me/dimeloagus/106', '_blank')">Comprar en PayPal</button>
+    .pricing-plan button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px 5px;
+    }
+
+    .pricing-plan button:hover {
+      background: #0056b3;
+    }
+
+    .carousel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 40px auto;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .instagram-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      height: auto;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .instagram-card iframe {
+      width: 100%;
+      border-radius: 10px;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 14px;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="pricing-section">
+    <div class="pricing-container">
+      <div class="pricing-plan">
+        <h2>6 meses</h2>
+        <p>Para usuarios individuales</p>
+        <div class="price">$10/mes</div>
+        <div class="description">
+          <ul>
+            <li>Acceso a contenido exclusivo</li>
+            <li>Soporte personalizado por email</li>
+            <li>Actualizaciones mensuales</li>
+          </ul>
+        </div>
+        <button onclick="window.open('https://mpago.la/1cuusaE', '_blank')">Comprar en MercadoPago</button>
+        <button onclick="window.open('https://www.paypal.me/dimeloagus/106', '_blank')">Comprar en PayPal</button>
+      </div>
+
+      <div class="pricing-plan">
+        <h2>1 año</h2>
+        <p>Para pequeños equipos</p>
+        <div class="price">$25/mes</div>
+        <div class="description">
+          <ul>
+            <li>Todos los beneficios del plan de 6 meses</li>
+            <li>Descuentos especiales para equipos</li>
+            <li>Acceso anticipado a nuevos lanzamientos</li>
+          </ul>
+        </div>
+        <button onclick="window.open('https://mpago.la/1cuusaE', '_blank')">Comprar en MercadoPago</button>
+        <button onclick="window.open('https://www.paypal.me/dimeloagus/106', '_blank')">Comprar en PayPal</button>
+      </div>
+
+      <div class="pricing-plan">
+        <h2>Discord</h2>
+        <p>Acceso exclusivo y profesional</p>
+        <div class="price">$50/mes</div>
+        <div class="description">
+          <ul>
+            <li>Canales exclusivos de networking</li>
+            <li>Sesiones de preguntas y respuestas en vivo</li>
+            <li>Acceso a expertos y mentores</li>
+          </ul>
+        </div>
+        <button onclick="window.open('https://mpago.la/1cuusaE', '_blank')">Comprar en MercadoPago</button>
+        <button onclick="window.open('https://www.paypal.me/dimeloagus/106', '_blank')">Comprar en PayPal</button>
+      </div>
     </div>
   </div>
-</div>
 
-
-
-        </div>
+  <div class="carousel">
+    <div class="instagram-card">
+      <iframe src="https://www.instagram.com/p/DBP-c3fND9T/embed" frameborder="0"></iframe>
     </div>
+    <div class="instagram-card">
+      <iframe src="https://www.instagram.com/p/DAjfkASyw1O/embed" frameborder="0"></iframe>
+    </div>
+  </div>
 
-    <script>
-        let currentIndex = 0;
-
-        function moveCarousel(direction) {
-            const carousel = document.getElementById('carousel');
-            const items = carousel.children.length;
-            const itemWidth = carousel.children[0].offsetWidth + 20; // Ancho del iframe + margen
-            currentIndex = (currentIndex + direction + items) % items;
-            carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-        }
-    </script>
+  <footer>
+    &copy; 2025 Muelle Beats. Todos los derechos reservados.
+  </footer>
 </body>
 </html>
-<style>
-  .carousel-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 20px;
-  }
-
-  .carousel {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    overflow: hidden;
-    width: 80%; /* Ajusta según sea necesario */
-  }
-
-  .carousel-item {
-    flex: 0 0 auto;
-    text-align: center;
-  }
-
-  /* Ocultar flechas de navegación */
-  .carousel-control-prev,
-  .carousel-control-next {
-    display: none;
-  }
-</style>
-<div class="carousel-container">
-  <div class="carousel">
-    <div class="carousel-item">
-      <iframe src="https://www.instagram.com/p/DBP-c3fND9T/embed" width="300" height="400" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-    </div>
-    <div class="carousel-item">
-      <iframe src="https://www.instagram.com/p/DAjfkASyw1O/embed" width="300" height="400" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-    </div>
-  </div>
-</div>
-

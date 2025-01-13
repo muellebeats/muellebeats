@@ -31,18 +31,26 @@
       color: #fff;
       text-decoration: none;
       margin: 0 15px;
+      cursor: pointer;
     }
     .container {
       margin-top: 100px;
       padding: 20px;
     }
+    .plans-wrapper {
+      background: #ffffff;
+      color: #000;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      margin-bottom: 50px;
+    }
     .pricing-plans {
       display: flex;
       justify-content: space-around;
-      margin-bottom: 50px;
     }
     .pricing-card {
-      background: #ffffff;
+      background: #f9f9f9;
       color: #000;
       border-radius: 12px;
       padding: 20px;
@@ -83,12 +91,13 @@
       text-align: center;
     }
     .auth-section {
+      display: none;
       background: #ffffff;
       color: #000;
       border-radius: 12px;
       padding: 20px;
       max-width: 400px;
-      margin: 0 auto;
+      margin: 20px auto;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
     .auth-section input {
@@ -99,6 +108,18 @@
       border: 1px solid #ddd;
       border-radius: 5px;
     }
+    #toggle-auth {
+      text-align: center;
+      margin: 20px;
+    }
+    #toggle-auth button {
+      background: #2a5298;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -108,7 +129,7 @@
     <span><strong>Muelle Beats</strong></span>
     <div>
       <a href="#plans">Planes</a>
-      <a href="#auth">Iniciar sesión</a>
+      <a onclick="toggleAuth()">Iniciar sesión</a>
       <a href="#contact">Contacto</a>
     </div>
   </nav>
@@ -117,39 +138,41 @@
 <div class="container">
   <!-- Planes de suscripción -->
   <section id="plans">
-    <div class="pricing-plans">
-      <div class="pricing-card">
-        <h2>6 meses</h2>
-        <p>$10/mes</p>
-        <ul>
-          <li>Acceso exclusivo</li>
-          <li>Soporte personalizado</li>
-          <li>Actualizaciones mensuales</li>
-        </ul>
-        <button>Comprar en MercadoPago</button>
-        <button>Comprar en PayPal</button>
-      </div>
-      <div class="pricing-card">
-        <h2>1 año</h2>
-        <p>$25/mes</p>
-        <ul>
-          <li>Descuentos especiales</li>
-          <li>Acceso anticipado</li>
-          <li>Beneficios extras</li>
-        </ul>
-        <button>Comprar en MercadoPago</button>
-        <button>Comprar en PayPal</button>
-      </div>
-      <div class="pricing-card">
-        <h2>Discord</h2>
-        <p>$50/mes</p>
-        <ul>
-          <li>Networking</li>
-          <li>Preguntas en vivo</li>
-          <li>Mentoría</li>
-        </ul>
-        <button>Comprar en MercadoPago</button>
-        <button>Comprar en PayPal</button>
+    <div class="plans-wrapper">
+      <div class="pricing-plans">
+        <div class="pricing-card">
+          <h2>6 meses</h2>
+          <p>$10/mes</p>
+          <ul>
+            <li>Acceso exclusivo</li>
+            <li>Soporte personalizado</li>
+            <li>Actualizaciones mensuales</li>
+          </ul>
+          <button>Comprar en MercadoPago</button>
+          <button>Comprar en PayPal</button>
+        </div>
+        <div class="pricing-card">
+          <h2>1 año</h2>
+          <p>$25/mes</p>
+          <ul>
+            <li>Descuentos especiales</li>
+            <li>Acceso anticipado</li>
+            <li>Beneficios extras</li>
+          </ul>
+          <button>Comprar en MercadoPago</button>
+          <button>Comprar en PayPal</button>
+        </div>
+        <div class="pricing-card">
+          <h2>Discord</h2>
+          <p>$50/mes</p>
+          <ul>
+            <li>Networking</li>
+            <li>Preguntas en vivo</li>
+            <li>Mentoría</li>
+          </ul>
+          <button>Comprar en MercadoPago</button>
+          <button>Comprar en PayPal</button>
+        </div>
       </div>
     </div>
   </section>
@@ -161,21 +184,31 @@
     <img src="https://via.placeholder.com/200" alt="Publicación 3">
   </section>
 
-  <!-- Inicio de sesión -->
-  <section id="auth" class="auth-section">
+  <!-- Inicio de sesión (oculto por defecto) -->
+  <div id="auth-section" class="auth-section">
     <h2>Iniciar sesión</h2>
     <form>
       <input type="email" placeholder="Correo electrónico" required>
       <input type="password" placeholder="Contraseña" required>
       <button type="submit">Iniciar sesión</button>
     </form>
-  </section>
+  </div>
 </div>
 
 <footer>
   © 2025 Muelle Beats. Todos los derechos reservados.
 </footer>
 
+<script>
+  function toggleAuth() {
+    const authSection = document.getElementById('auth-section');
+    if (authSection.style.display === 'none' || !authSection.style.display) {
+      authSection.style.display = 'block';
+    } else {
+      authSection.style.display = 'none';
+    }
+  }
+</script>
+
 </body>
 </html>
-

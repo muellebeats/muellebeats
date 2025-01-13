@@ -151,4 +151,42 @@
     </script>
 </body>
 </html>
+<style>
+  .carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .carousel {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    overflow: hidden;
+    width: 80%; /* Ajusta según sea necesario */
+  }
+
+  .carousel-item {
+    flex: 0 0 auto;
+    text-align: center;
+  }
+
+  /* Ocultar flechas de navegación */
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: none;
+  }
+</style>
+<div class="carousel-container">
+  <div class="carousel">
+    <div class="carousel-item">
+      <iframe src="https://www.instagram.com/p/DBP-c3fND9T/embed" width="300" height="400" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+    </div>
+    <div class="carousel-item">
+      <iframe src="https://www.instagram.com/p/DAjfkASyw1O/embed" width="300" height="400" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+    </div>
+  </div>
+</div>
 

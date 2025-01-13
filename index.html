@@ -66,9 +66,7 @@
             width: 100%;
         }
 
-        .carousel img {
-            width: 200px;
-            height: 200px;
+        .carousel iframe {
             margin: 0 10px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -126,13 +124,13 @@
         <button onclick="window.open('https://www.paypal.me/dimeloagus/50', '_blank')">Comprar en PayPal</button>
     </div>
 
-    <!-- Carrusel de imágenes -->
+    <!-- Carrusel de publicaciones de Instagram -->
     <div class="carousel-container">
         <div class="carousel" id="carousel">
-            <img src="https://www.instagram.com/p/DAjfkASyw1O/=Imagen+1" alt="Imagen 1">
-            <img src="https://www.instagram.com/p/DBP-c3fND9T/=Imagen+2" alt="Imagen 2">
-            <img src="https://via.placeholder.com/200?text=Imagen+3" alt="Imagen 3">
-            <img src="https://via.placeholder.com/200?text=Imagen+4" alt="Imagen 4">
+            <!-- Publicación de Instagram 1 -->
+            <iframe src="https://www.instagram.com/p/DBP-c3fND9T/embed" width="300" height="400" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+            <!-- Publicación de Instagram 2 -->
+            <iframe src="https://www.instagram.com/p/DAjfkASyw1O/embed" width="300" height="400" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
         </div>
         <div class="carousel-controls">
             <button onclick="moveCarousel(-1)">&#10094;</button>
@@ -146,14 +144,10 @@
         function moveCarousel(direction) {
             const carousel = document.getElementById('carousel');
             const items = carousel.children.length;
-            const itemWidth = carousel.children[0].offsetWidth + 20; // Ancho de la imagen + margen
+            const itemWidth = carousel.children[0].offsetWidth + 20; // Ancho del iframe + margen
             currentIndex = (currentIndex + direction + items) % items;
             carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
         }
-    </script>
-</body>
-</html>
-
     </script>
 </body>
 </html>

@@ -1,146 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planes de Precios</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, #4b6cb7, #182848);
-            color: #333;
-        }
-        .container {
-            width: 90%;
-            margin: 0 auto;
-            max-width: 1200px;
-        }
-        .pricing {
-            display: flex;
-            justify-content: space-around;
-            margin: 40px 0;
-            text-align: center;
-        }
-        .plan {
-            background: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 30%;
-        }
-        .plan h2 {
-            margin: 0;
-            font-size: 24px;
-            color: #333;
-        }
-        .plan p {
-            margin: 10px 0;
-            font-size: 16px;
-            color: #666;
-        }
-        .plan button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 15px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        .plan button:hover {
-            background-color: #0056b3;
-        }
-        .instagram-carousel {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 40px 0;
-        }
-        .instagram-carousel iframe {
-            border: none;
-            border-radius: 10px;
-            width: 300px;
-            height: 400px;
-        }
-        .auth-section {
-            background: #f9f9f9;
-            padding: 40px;
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin: 40px 0;
-        }
-        .auth-section h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        .auth-section input {
-            padding: 10px;
-            margin: 10px 0;
-            width: 80%;
-            max-width: 400px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        .auth-section button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .auth-section button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muelle Beats</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #1e3c72, #2a5298);
+      color: #fff;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #1e3c72;
+      color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 10px 20px;
+      z-index: 10;
+    }
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+    .container {
+      margin-top: 100px;
+      padding: 20px;
+    }
+    .pricing-plans {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 50px;
+    }
+    .pricing-card {
+      background: #ffffff;
+      color: #000;
+      border-radius: 12px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    .pricing-card h2 {
+      margin-bottom: 10px;
+    }
+    .pricing-card button {
+      margin-top: 10px;
+      background: #1e3c72;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .pricing-card button:hover {
+      background: #2a5298;
+    }
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 15px;
+      padding: 10px;
+    }
+    .carousel img {
+      border-radius: 12px;
+      height: 200px;
+      flex-shrink: 0;
+    }
+    footer {
+      background: #1e3c72;
+      padding: 10px;
+      text-align: center;
+    }
+    .auth-section {
+      background: #ffffff;
+      color: #000;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 400px;
+      margin: 0 auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .auth-section input {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="pricing">
-            <div class="plan">
-                <h2>6 meses</h2>
-                <p>$10/mes</p>
-                <button>Comprar en MercadoPago</button>
-                <button>Comprar en PayPal</button>
-            </div>
-            <div class="plan">
-                <h2>1 año</h2>
-                <p>$25/mes</p>
-                <button>Comprar en MercadoPago</button>
-                <button>Comprar en PayPal</button>
-            </div>
-            <div class="plan">
-                <h2>Discord</h2>
-                <p>$50/mes</p>
-                <button>Comprar en MercadoPago</button>
-                <button>Comprar en PayPal</button>
-            </div>
-        </div>
 
-        <div class="instagram-carousel">
-            <iframe src="https://www.instagram.com/p/DBP-c3fND9T/embed"></iframe>
-            <iframe src="https://www.instagram.com/p/DAjfkASyw1O/embed"></iframe>
-        </div>
-
-        <div class="auth-section">
-            <h2>Bienvenido a Muelle Beats</h2>
-            <p>Estado de autenticación: <span id="auth-status">Cargando...</span></p>
-            <form id="register-form">
-                <h3>Registro</h3>
-                <input type="email" placeholder="Correo electrónico" required>
-                <input type="password" placeholder="Contraseña" required>
-                <button type="submit">Registrar</button>
-            </form>
-            <form id="login-form">
-                <h3>Inicio de sesión</h3>
-                <input type="email" placeholder="Correo electrónico" required>
-                <input type="password" placeholder="Contraseña" required>
-                <button type="submit">Iniciar sesión</button>
-            </form>
-        </div>
+<header>
+  <nav>
+    <span><strong>Muelle Beats</strong></span>
+    <div>
+      <a href="#plans">Planes</a>
+      <a href="#auth">Iniciar sesión</a>
+      <a href="#contact">Contacto</a>
     </div>
+  </nav>
+</header>
+
+<div class="container">
+  <!-- Planes de suscripción -->
+  <section id="plans">
+    <div class="pricing-plans">
+      <div class="pricing-card">
+        <h2>6 meses</h2>
+        <p>$10/mes</p>
+        <ul>
+          <li>Acceso exclusivo</li>
+          <li>Soporte personalizado</li>
+          <li>Actualizaciones mensuales</li>
+        </ul>
+        <button>Comprar en MercadoPago</button>
+        <button>Comprar en PayPal</button>
+      </div>
+      <div class="pricing-card">
+        <h2>1 año</h2>
+        <p>$25/mes</p>
+        <ul>
+          <li>Descuentos especiales</li>
+          <li>Acceso anticipado</li>
+          <li>Beneficios extras</li>
+        </ul>
+        <button>Comprar en MercadoPago</button>
+        <button>Comprar en PayPal</button>
+      </div>
+      <div class="pricing-card">
+        <h2>Discord</h2>
+        <p>$50/mes</p>
+        <ul>
+          <li>Networking</li>
+          <li>Preguntas en vivo</li>
+          <li>Mentoría</li>
+        </ul>
+        <button>Comprar en MercadoPago</button>
+        <button>Comprar en PayPal</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carrusel -->
+  <section class="carousel">
+    <img src="https://via.placeholder.com/200" alt="Publicación 1">
+    <img src="https://via.placeholder.com/200" alt="Publicación 2">
+    <img src="https://via.placeholder.com/200" alt="Publicación 3">
+  </section>
+
+  <!-- Inicio de sesión -->
+  <section id="auth" class="auth-section">
+    <h2>Iniciar sesión</h2>
+    <form>
+      <input type="email" placeholder="Correo electrónico" required>
+      <input type="password" placeholder="Contraseña" required>
+      <button type="submit">Iniciar sesión</button>
+    </form>
+  </section>
+</div>
+
+<footer>
+  © 2025 Muelle Beats. Todos los derechos reservados.
+</footer>
+
 </body>
 </html>
+

@@ -85,11 +85,17 @@ section {
     margin-bottom: 30px;
 }
 
-.upload-btn, .community-link, .settings-btn {
+.upload-btn, .btn-primary, .settings-btn {
     background-color: #ff007f;
     color: #ffffff;
     border: none;
     padding: 10px 15px;
     text-decoration: none;
     cursor: pointer;
+}
+
+iframe {
+    border: none;
+    margin-top: 10px;
+    border-radius: 5px;
 }

@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muelle Beats</title>
- <link rel="stylesheet" href="assets/css/styles.css">
-
-
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
     <header>
-        <h1>Muelle Beats</h1>
-        <nav>
-            <button onclick="location.href='auth.html'">Iniciar sesión</button>
-            <button onclick="location.href='player.html'">Reproductor</button>
-        </nav>
+        <div class="navbar">
+            <h1>Muelle Beats</h1>
+            <div class="buttons">
+                <a href="auth.html" class="btn">Iniciar sesión</a>
+                <a href="player.html" class="btn">Reproductor</a>
+            </div>
+        </div>
     </header>
     <main>
-        <section id="plans">
-            <div class="plan">
+        <div class="pricing-container">
+            <div class="pricing-card">
                 <h2>6 meses</h2>
                 <p>$10/mes</p>
                 <ul>
@@ -29,7 +29,7 @@
                 <button>Comprar en MercadoPago</button>
                 <button>Comprar en PayPal</button>
             </div>
-            <div class="plan">
+            <div class="pricing-card">
                 <h2>1 año</h2>
                 <p>$25/mes</p>
                 <ul>
@@ -40,7 +40,7 @@
                 <button>Comprar en MercadoPago</button>
                 <button>Comprar en PayPal</button>
             </div>
-            <div class="plan">
+            <div class="pricing-card">
                 <h2>Discord</h2>
                 <p>$50/mes</p>
                 <ul>
@@ -51,7 +51,7 @@
                 <button>Comprar en MercadoPago</button>
                 <button>Comprar en PayPal</button>
             </div>
-        </section>
+        </div>
     </main>
     <footer>
         <p>© 2025 Muelle Beats. Todos los derechos reservados.</p>

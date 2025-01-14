@@ -1,69 +1,64 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Muelle Beats</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-  <header class="header">
-    <h1 class="title">Muelle Beats</h1>
-    <nav class="nav">
-      <a href="#">Iniciar sesión</a>
-      <a href="#">Reproductor</a>
-    </nav>
-  </header>
-  <main>
-    <section class="planes">
-      <!-- Plan 6 meses -->
-      <div class="plan">
-        <h2>6 meses</h2>
-        <p class="precio">$10/mes</p>
-        <ul>
-          <li>Acceso exclusivo</li>
-          <li>Soporte personalizado</li>
-          <li>Actualizaciones mensuales</li>
-        </ul>
-        <div class="botones">
-          <button>Comprar en MercadoPago</button>
-          <button>Comprar en PayPal</button>
-        </div>
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Muelle Beats</h1>
+      <div class="nav-buttons">
+        <a href="./auth.html" class="btn">Iniciar sesión</a>
+        <a href="./player.html" class="btn">Reproductor</a>
       </div>
+    </header>
 
-      <!-- Plan 1 año -->
-      <div class="plan">
-        <h2>1 año</h2>
-        <p class="precio">$25/mes</p>
-        <ul>
-          <li>Descuentos especiales</li>
-          <li>Acceso anticipado</li>
-          <li>Beneficios extra</li>
-        </ul>
-        <div class="botones">
+    <main class="main">
+      <section class="plans">
+        <div class="plan-card">
+          <h2>6 meses</h2>
+          <p>$10/mes</p>
+          <ul>
+            <li>Acceso exclusivo</li>
+            <li>Soporte personalizado</li>
+            <li>Actualizaciones mensuales</li>
+          </ul>
           <button>Comprar en MercadoPago</button>
           <button>Comprar en PayPal</button>
         </div>
-      </div>
 
-      <!-- Plan Discord -->
-      <div class="plan">
-        <h2>Discord</h2>
-        <p class="precio">$50/mes</p>
-        <ul>
-          <li>Networking</li>
-          <li>Preguntas en vivo</li>
-          <li>Mentoría</li>
-        </ul>
-        <div class="botones">
+        <div class="plan-card">
+          <h2>1 año</h2>
+          <p>$25/mes</p>
+          <ul>
+            <li>Descuentos especiales</li>
+            <li>Acceso anticipado</li>
+            <li>Beneficios extra</li>
+          </ul>
           <button>Comprar en MercadoPago</button>
           <button>Comprar en PayPal</button>
         </div>
-      </div>
-    </section>
-  </main>
-  <footer>
-    <p>© 2025 Muelle Beats. Todos los derechos reservados.</p>
-  </footer>
+
+        <div class="plan-card">
+          <h2>Discord</h2>
+          <p>$50/mes</p>
+          <ul>
+            <li>Networking</li>
+            <li>Preguntas en vivo</li>
+            <li>Mentoría</li>
+          </ul>
+          <button>Comprar en MercadoPago</button>
+          <button>Comprar en PayPal</button>
+        </div>
+      </section>
+    </main>
+    
+    <footer class="footer">
+      <p>© 2025 Muelle Beats. Todos los derechos reservados.</p>
+    </footer>
+  </div>
 </body>
 </html>

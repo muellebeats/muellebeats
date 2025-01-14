@@ -3,175 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Calendario</title>
+    <title>Dashboard - Muelle Beats</title>
     <link rel="stylesheet" href="./assets/css/dashboard-styles.css">
-    <style>
-        /* Estilo para el calendario */
-        .calendar-container {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #1e1e1e;
-            border-radius: 8px;
-            color: #ffffff;
-            text-align: center;
-        }
-
-        .calendar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .calendar-header button {
-            background-color: #ff007f;
-            border: none;
-            color: #ffffff;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-            margin-top: 10px;
-        }
-
-        .calendar-day {
-            background-color: #2a2a2a;
-            padding: 10px;
-            border-radius: 4px;
-            text-align: center;
-        }
-
-        .calendar-day-header {
-            font-weight: bold;
-            color: #ff007f;
-        }
-
-        .calendar-day:not(.calendar-day-header):hover {
-            background-color: #ff007f;
-            color: #ffffff;
-            cursor: pointer;
-        }
-
-        .telegram-btn {
-            margin-top: 20px;
-            display: inline-block;
-            background-color: #0088cc;
-            color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 4px;
-            text-decoration: none;
-        }
-
-        .telegram-btn:hover {
-            background-color: #006699;
-        }
-    </style>
 </head>
 <body>
     <div class="dashboard">
         <aside class="sidebar">
-            <h2 class="sidebar-title">Muelle Beats</h2>
-            <ul class="sidebar-menu">
-                <li><a href="#overview">Overview</a></li>
-                <li><a href="#my-tracks">My Tracks</a></li>
-                <li><a href="#calendar" class="active">Calendario</a></li>
-                <li><a href="#settings">Configuración</a></li>
-            </ul>
-            <button class="logout-btn">Cerrar Sesión</button>
+            <h1>Muelle Beats</h1>
+            <nav>
+                <ul>
+                    <li><a href="#overview" class="active">Overview</a></li>
+                    <li><a href="#my-tracks">My Tracks</a></li>
+                    <li><a href="#settings">Settings</a></li>
+                </ul>
+            </nav>
+            <button class="logout-btn">Logout</button>
         </aside>
 
         <main class="main-content">
-            <header class="main-header">
-                <h1>Bienvenido, [Usuario]</h1>
-                <div class="region-info">🇲🇽 México</div>
+            <header>
+                <h2>Welcome, [Username]</h2>
             </header>
 
-            <section id="calendar">
-                <h2>Agendar una llamada 1:1</h2>
-                <div class="calendar-container">
-                    <div class="calendar-header">
-                        <button id="prevMonth">Anterior</button>
-                        <h3 id="monthYear"></h3>
-                        <button id="nextMonth">Siguiente</button>
-                    </div>
-                    <div class="calendar-grid" id="calendarGrid"></div>
-                </div>
-                <a href="https://t.me/+8cg12FtioyAxOWMx" class="telegram-btn">Unirme a Telegram</a>
+            <section id="overview">
+                <h3>Overview</h3>
+                <p>Explora recursos, sube tus pistas y conecta con otros creadores.</p>
+            </section>
+
+            <section id="my-tracks">
+                <h3>My Tracks</h3>
+                <p>Aquí podrás subir y gestionar tus pistas.</p>
+                <button class="btn">Upload New Track</button>
+            </section>
+
+            <section id="community">
+                <h3>Community</h3>
+                <p>Conecta con creadores de toda América Latina, México y España.</p>
+                <button class="btn" onclick="window.open('https://t.me/+8cg12FtioyAxOWMx', '_blank')">Únete en Telegram</button>
+            </section>
+
+            <section id="calendar-section">
+                <h3>Agendar una llamada 1:1</h3>
+                <label for="calendar">Selecciona una fecha:</label>
+                <input type="date" id="calendar" required>
+                <br>
+                <label for="time">Selecciona un horario:</label>
+                <input type="time" id="time" required>
+                <br><br>
+                <button class="btn" onclick="handleSchedule()">Agendar</button>
             </section>
         </main>
     </div>
 
-    <script>
-        // JavaScript para manejar el calendario en español
-        const monthNames = [
-            "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-            "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-        ];
-
-        const dayHeaders = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
-
-        let currentMonth = new Date().getMonth();
-        let currentYear = 2025;
-
-        function renderCalendar(month, year) {
-            const calendarGrid = document.getElementById("calendarGrid");
-            const monthYear = document.getElementById("monthYear");
-            calendarGrid.innerHTML = ""; // Limpiar el calendario
-
-            const firstDay = new Date(year, month, 1).getDay();
-            const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-            monthYear.textContent = `${monthNames[month]} ${year}`;
-
-            // Agregar encabezados de días
-            dayHeaders.forEach(day => {
-                const dayHeader = document.createElement("div");
-                dayHeader.classList.add("calendar-day", "calendar-day-header");
-                dayHeader.textContent = day;
-                calendarGrid.appendChild(dayHeader);
-            });
-
-            // Espacios en blanco antes del primer día
-            for (let i = 0; i < firstDay; i++) {
-                const blankDay = document.createElement("div");
-                blankDay.classList.add("calendar-day");
-                calendarGrid.appendChild(blankDay);
-            }
-
-            // Días del mes
-            for (let day = 1; day <= daysInMonth; day++) {
-                const dayDiv = document.createElement("div");
-                dayDiv.classList.add("calendar-day");
-                dayDiv.textContent = day;
-                calendarGrid.appendChild(dayDiv);
-            }
-        }
-
-        document.getElementById("prevMonth").addEventListener("click", () => {
-            currentMonth--;
-            if (currentMonth < 0) {
-                currentMonth = 11;
-                currentYear--;
-            }
-            renderCalendar(currentMonth, currentYear);
-        });
-
-        document.getElementById("nextMonth").addEventListener("click", () => {
-            currentMonth++;
-            if (currentMonth > 11) {
-                currentMonth = 0;
-                currentYear++;
-            }
-            renderCalendar(currentMonth, currentYear);
-        });
-
-        // Renderizar el calendario inicial
-        renderCalendar(currentMonth, currentYear);
-    </script>
+    <script src="./assets/js/notifications.js"></script>
 </body>
 </html>

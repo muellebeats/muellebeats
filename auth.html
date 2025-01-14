@@ -1,70 +1,36 @@
-<style>
-    body {
-        margin: 0;
-        font-family: 'Arial', sans-serif;
-        background-color: black;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Muelle Beats</title>
+    <link rel="stylesheet" href="./assets/css/auth-styles.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <h1 class="auth-title">LOGIN TO MUELLE BEATS</h1>
+            <form>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember Me</label>
+                </div>
+                <button type="submit" class="btn login-btn">LOGIN</button>
+            </form>
+            <div class="auth-footer">
+                <button class="btn secondary-btn">SIGN UP</button>
+                <button class="btn secondary-btn">RESET PASSWORD</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
 
-    .auth-container {
-        text-align: center;
-    }
-
-    .auth-title {
-        font-size: 4rem;
-        margin-bottom: 2rem;
-        color: #ff007f;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    }
-
-    .auth-form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .auth-input {
-        width: 300px;
-        padding: 0.8rem;
-        border: none;
-        border-radius: 5px;
-        font-size: 1rem;
-        background-color: #333;
-        color: white;
-    }
-
-    .auth-button {
-        width: 300px;
-        padding: 0.8rem;
-        background-color: #ff007f;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    .auth-button:hover {
-        background-color: #ff4da6;
-    }
-
-    .auth-text {
-        margin-top: 1rem;
-        font-size: 1rem;
-    }
-
-    .auth-link {
-        color: #ff007f;
-        text-decoration: none;
-    }
-
-    .auth-link:hover {
-        text-decoration: underline;
-    }
-</style>

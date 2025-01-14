@@ -94,3 +94,33 @@ body {
     font-size: 0.9rem;
     margin-bottom: 1rem;
 }
+.large-btn {
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 6px;
+    text-align: center;
+    display: inline-block;
+    margin: 10px;
+}
+
+.large-btn.btn-primary {
+    background-color: #ff007f;
+    color: #ffffff;
+    border: none;
+}
+
+.large-btn.btn-primary:hover {
+    background-color: #e6006e;
+    text-decoration: none;
+}
+
+.large-btn.btn-secondary {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+.large-btn.btn-secondary:hover {
+    background-color: #f0f0f0;
+    text-decoration: none;
+}

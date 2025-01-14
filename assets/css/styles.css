@@ -1,6 +1,6 @@
-/* General Styles */
+/* Estilo general */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #121212;
@@ -8,14 +8,15 @@ body {
   text-align: center;
 }
 
-header {
+.header {
+  background-color: #1e1e1e;
   padding: 20px;
-  background-color: #1f1f1f;
 }
 
-h1 {
+.title {
   font-size: 2.5rem;
   margin: 0;
+  color: #ffcc00;
 }
 
 main {
@@ -23,70 +24,95 @@ main {
 }
 
 footer {
-  background-color: #1f1f1f;
+  background-color: #1e1e1e;
   padding: 10px;
   font-size: 0.9rem;
+  color: #fff;
 }
 
-/* Plan Styles */
-.plans {
+/* Estilos de los planes */
+.planes {
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .plan {
-  background-color: #1f1f1f;
+  background-color: #292929;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 10px;
   width: 300px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
   text-align: center;
+  transition: transform 0.2s;
+}
+
+.plan:hover {
+  transform: scale(1.05);
 }
 
 .plan h2 {
   font-size: 1.8rem;
+  color: #ffcc00;
   margin-bottom: 10px;
 }
 
-.plan p {
-  font-size: 1.2rem;
+.precio {
+  font-size: 1.4rem;
+  font-weight: bold;
   margin-bottom: 15px;
+  color: #4caf50;
 }
 
-.plan ul {
+.detalles {
   list-style: none;
   padding: 0;
-  margin: 0 0 20px 0;
+  margin: 0 0 20px;
 }
 
-.plan ul li {
+.detalles li {
   margin: 5px 0;
 }
 
-.buttons {
+/* Botones */
+.botones {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
 
-button {
-  background-color: #6200ea;
-  color: #fff;
-  border: none;
+.btn {
   padding: 10px 15px;
+  border: none;
   border-radius: 5px;
-  cursor: pointer;
   font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-button:hover {
-  background-color: #3700b3;
+.btn.mercado {
+  background-color: #ff5722;
+  color: #fff;
 }
 
+.btn.mercado:hover {
+  background-color: #e64a19;
+}
+
+.btn.paypal {
+  background-color: #008cba;
+  color: #fff;
+}
+
+.btn.paypal:hover {
+  background-color: #005f8c;
+}
+
+/* Responsividad */
 @media (max-width: 768px) {
-  .plans {
+  .planes {
     flex-direction: column;
     align-items: center;
   }

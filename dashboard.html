@@ -4,11 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muelle Beats Dashboard</title>
-    <head>
     <link rel="stylesheet" href="./assets/css/dashboard-styles.css">
-
-</head>
-
 </head>
 <body>
     <div class="sidebar">
@@ -62,12 +58,12 @@
             }
 
             const message = `Nueva solicitud de llamada 1:1\nFecha: ${fecha}\nHora: ${hora}`;
-            const telegramUrl = `https://api.telegram.org/bot${7612936738:AAHUa8exFi8XHQHQOatCmx4NyHawJxzIzU}/sendMessage`;
+           const telegramUrl = `https://api.telegram.org/bot${7612936738:AAHUa8exFi8XHQHQOatCmx4NyHawJxzIzU}/sendMessage`;
 
             fetch(telegramUrl, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ chat_id: chatId, text: message }),
+                body: JSON.stringify({ chat_id: 7384706778, text: message }),
             })
                 .then(response => response.json())
                 .then(data => {

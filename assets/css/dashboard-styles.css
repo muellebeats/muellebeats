@@ -1,37 +1,95 @@
-/* Aumentar margen entre las secciones */
-.section {
-    margin-bottom: 50px; /* Aumentamos el margen para mayor aire */
-}
-
-/* Mejorar estilo de los botones */
-button, .btn {
-    margin-top: 15px; /* Espaciado más cómodo */
-    padding: 12px 25px; /* Tamaño ajustado para mejor usabilidad */
-    background-color: #ff007a;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
     color: white;
-    border: none;
-    border-radius: 8px; /* Bordes más suaves */
-    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard {
+    display: flex;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #1F1F1F;
+    padding: 20px;
+    height: 100vh;
+}
+
+.sidebar h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+    font-size: 18px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Animación suave al hover */
 }
 
-button:hover, .btn:hover {
-    background-color: #ff3399;
+.sidebar ul li:hover {
+    color: #6C63FF;
 }
 
-/* Agregar aire a los campos de entrada */
-input[type="date"], input[type="time"] {
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    width: calc(100% - 22px); /* Para evitar que sobresalgan del contenedor */
+.main-content {
+    width: 80%;
+    padding: 20px;
 }
 
-/* Centrar el texto en los botones */
-button, .btn {
-    display: inline-block;
+header {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    background-color: #1F1F1F;
+    padding: 20px;
+    border-radius: 10px;
     text-align: center;
+    flex: 1;
 }
+
+.card h3 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.card p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.card button {
+    background-color: #6C63FF;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #845EC2;
+}
+
+.chart-section {
+    margin-top: 40px;
+}
+
+.chart-section canvas {
+    background-color: #1F1F1F;
+    border-radius: 10px;
+    padding: 20px;
+}
+

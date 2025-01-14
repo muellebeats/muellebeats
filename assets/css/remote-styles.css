@@ -1,0 +1,113 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background-color: #111;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #000;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e91e63;
+    text-decoration: none;
+}
+
+header .nav a {
+    margin: 0 1rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+header .nav a.active {
+    color: #e91e63;
+    font-weight: bold;
+}
+
+.hero {
+    text-align: center;
+    padding: 5rem 1rem;
+    background: url('./assets/images/remote-work-bg.jpg') no-repeat center center/cover;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.hero .cta-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    color: #fff;
+    background: #e91e63;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.overview {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: #222;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.benefit-card {
+    background: #333;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.success-stories {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: #111;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.testimonial-card {
+    background: #222;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cta-section {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(135deg, #e91e63, #f44336);
+    color: #fff;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: #000;
+    color: #888;
+}

@@ -1,21 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Muelle Beats</title>
-  <link rel="stylesheet" href="./assets/css/auth-styles.css">
+<style>
+    body {
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+        background-color: black;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
 
-</head>
-<body>
-    <div class="auth-container">
-        <h1 class="auth-title">WE'RE SO BACK!</h1>
-        <form class="auth-form">
-            <input type="email" placeholder="Email" class="auth-input" required>
-            <input type="password" placeholder="Password" class="auth-input" required>
-            <button type="submit" class="auth-button">Log In</button>
-        </form>
-        <p class="auth-text">Don't have an account? <a href="register.html" class="auth-link">Register Here</a></p>
-    </div>
-</body>
-</html>
+    .auth-container {
+        text-align: center;
+    }
+
+    .auth-title {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+        color: #ff007f;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .auth-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .auth-input {
+        width: 300px;
+        padding: 0.8rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        background-color: #333;
+        color: white;
+    }
+
+    .auth-button {
+        width: 300px;
+        padding: 0.8rem;
+        background-color: #ff007f;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .auth-button:hover {
+        background-color: #ff4da6;
+    }
+
+    .auth-text {
+        margin-top: 1rem;
+        font-size: 1rem;
+    }
+
+    .auth-link {
+        color: #ff007f;
+        text-decoration: none;
+    }
+
+    .auth-link:hover {
+        text-decoration: underline;
+    }
+</style>

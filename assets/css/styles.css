@@ -1,15 +1,18 @@
-/* General body styles */
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    color: white;
-    background-color: black;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #fff;
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
     overflow: hidden;
 }
 
-/* Video background */
 #background-video {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -18,52 +21,76 @@ body {
     z-index: -1;
 }
 
-/* Overlay to darken the video */
 .overlay {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 0;
-}
-
-/* Hero Content */
-.hero-content {
-    position: relative;
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+}
+
+.content {
+    position: relative;
     text-align: center;
-    height: 100vh;
-    color: white;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
 }
 
-.hero-title {
-    font-size: 4rem;
-    font-weight: bold;
-    margin: 0;
+.content h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
 }
 
-.hero-subtitle {
+.content p {
     font-size: 1.5rem;
-    margin: 1rem 0;
+    margin-bottom: 1rem;
 }
 
-.hero-btn {
-    padding: 1rem 2rem;
-    background-color: #ff007f;
-    color: white;
+.cta-btn {
+    padding: 0.8rem 1.5rem;
+    margin: 0 0.5rem;
+    font-size: 1rem;
+    color: #fff;
+    background: #e91e63;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.hero-btn:hover {
-    background-color: #ff4da6;
+.cta-btn.secondary {
+    background: #000;
+    border: 2px solid #e91e63;
+}
+
+.events {
+    padding: 2rem;
+    background: #111;
+    text-align: center;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.event-card {
+    background: #222;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.event-card h3 {
+    margin-bottom: 1rem;
+    color: #e91e63;
+}
+
+.event-card p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
 }

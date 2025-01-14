@@ -3,75 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentication - Muelle Beats</title>
+    <title>Login - Muelle Beats</title>
     <link rel="stylesheet" href="./assets/css/auth-styles.css">
 </head>
 <body>
     <div class="auth-container">
         <div class="auth-card">
-            <h1 class="auth-title" id="authTitle">Log In</h1>
-            <form id="authForm" action="/submit_auth" method="POST">
-                <!-- Username Field (Only visible in Register mode) -->
-                <div class="input-group" id="usernameField" style="display: none;">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="Enter your username">
-                </div>
-
-                <!-- Email Field -->
+            <h1 class="auth-title">LOGIN TO MUELLE BEATS</h1>
+            <form>
                 <div class="input-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <input type="email" id="email" placeholder="Enter your email" required>
                 </div>
-
-                <!-- Password Field -->
                 <div class="input-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <input type="password" id="password" placeholder="Enter your password" required>
                 </div>
-
-                <!-- Confirm Password Field (Only visible in Register mode) -->
-                <div class="input-group" id="confirmPasswordField" style="display: none;">
-                    <label for="confirm-password">Confirm Password</label>
-                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember Me</label>
                 </div>
-
-                <button type="submit" class="btn login-btn" id="authButton">Log In</button>
+                <button type="submit" class="btn login-btn">LOGIN</button>
             </form>
             <div class="auth-footer">
-                <p id="toggleText">
-                    Don't have an account? <a href="#" class="link" id="toggleAuthMode">Register Here</a>
-                </p>
+                <button class="btn secondary-btn">SIGN UP</button>
+                <button class="btn secondary-btn">RESET PASSWORD</button>
             </div>
         </div>
     </div>
-
-    <script>
-        // Script to toggle between Login and Register modes
-        const toggleAuthMode = document.getElementById("toggleAuthMode");
-        const authTitle = document.getElementById("authTitle");
-        const usernameField = document.getElementById("usernameField");
-        const confirmPasswordField = document.getElementById("confirmPasswordField");
-        const authButton = document.getElementById("authButton");
-        const toggleText = document.getElementById("toggleText");
-
-        toggleAuthMode.addEventListener("click", (e) => {
-            e.preventDefault();
-            if (authTitle.textContent === "Log In") {
-                // Switch to Register mode
-                authTitle.textContent = "Register";
-                usernameField.style.display = "block";
-                confirmPasswordField.style.display = "block";
-                authButton.textContent = "Register";
-                toggleText.innerHTML = `Already have an account? <a href="#" class="link" id="toggleAuthMode">Log In</a>`;
-            } else {
-                // Switch to Log In mode
-                authTitle.textContent = "Log In";
-                usernameField.style.display = "none";
-                confirmPasswordField.style.display = "none";
-                authButton.textContent = "Log In";
-                toggleText.innerHTML = `Don't have an account? <a href="#" class="link" id="toggleAuthMode">Register Here</a>`;
-            }
-        });
-    </script>
 </body>
 </html>

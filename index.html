@@ -4,77 +4,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Muelle Beats</title>
-  <link rel="stylesheet" href="./assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-  <div class="container">
-    <header class="header">
-      <h1 class="title">Muelle Beats</h1>
-      <div class="nav-buttons">
-        <a href="./auth.html" class="btn">Iniciar sesión</a>
-        <a href="./player.html" class="btn">Reproductor</a>
-      </div>
-    </header>
+  <header>
+    <h1>MUELLE BEATS</h1>
+    <div class="nav-buttons">
+      <button onclick="location.href='auth.html'">Iniciar sesión</button>
+      <button onclick="location.href='player.html'">Reproductor</button>
+    </div>
+  </header>
 
-    <main class="main">
-      <section class="plans">
-        <div class="plan-card">
-          <h2>6 meses</h2>
-          <p>$10/mes</p>
-          <ul>
-            <li>Acceso exclusivo</li>
-            <li>Soporte personalizado</li>
-            <li>Actualizaciones mensuales</li>
-          </ul>
-          <button>Comprar en MercadoPago</button>
-          <button>Comprar en PayPal</button>
-        </div>
+  <section class="cards-section">
+    <div class="card">
+      <h2>6 meses</h2>
+      <p>$10/mes</p>
+      <ul>
+        <li>Acceso exclusivo</li>
+        <li>Soporte personalizado</li>
+        <li>Actualizaciones mensuales</li>
+      </ul>
+      <button>Comprar en MercadoPago</button>
+      <button>Comprar en PayPal</button>
+    </div>
+    <div class="card">
+      <h2>1 año</h2>
+      <p>$25/mes</p>
+      <ul>
+        <li>Descuentos especiales</li>
+        <li>Acceso anticipado</li>
+        <li>Beneficios extra</li>
+      </ul>
+      <button>Comprar en MercadoPago</button>
+      <button>Comprar en PayPal</button>
+    </div>
+    <div class="card">
+      <h2>Discord</h2>
+      <p>$50/mes</p>
+      <ul>
+        <li>Networking</li>
+        <li>Preguntas en vivo</li>
+        <li>Mentoría</li>
+      </ul>
+      <button>Comprar en MercadoPago</button>
+      <button>Comprar en PayPal</button>
+    </div>
+  </section>
 
-        <div class="plan-card">
-          <h2>1 año</h2>
-          <p>$25/mes</p>
-          <ul>
-            <li>Descuentos especiales</li>
-            <li>Acceso anticipado</li>
-            <li>Beneficios extra</li>
-          </ul>
-          <button>Comprar en MercadoPago</button>
-          <button>Comprar en PayPal</button>
-        </div>
-
-        <div class="plan-card">
-          <h2>Discord</h2>
-          <p>$50/mes</p>
-          <ul>
-            <li>Networking</li>
-            <li>Preguntas en vivo</li>
-            <li>Mentoría</li>
-          </ul>
-          <button>Comprar en MercadoPago</button>
-          <button>Comprar en PayPal</button>
-        </div>
-      </section>
-    </main>
-<div class="video-section">
+  <section class="video-section">
     <div class="video-card">
-        <video autoplay muted loop>
-            <source src="./assets/video/20250110_1415_Rooftop%20Office%20Vibes_simple_compose_01jh8kcbrcf8z97sqvdmznwtta.mp4" type="video/mp4">
-            Tu navegador no soporta la reproducción de videos.
-        </video>
+      <video autoplay loop muted>
+        <source src="assets/video/video1.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
     </div>
     <div class="video-card">
-        <video autoplay muted loop>
-            <source src="./assets/video/20250110_1547_Mural%20Blooms%20Alive_simple_compose_01jh8rnbkyf4dv6a153cp60xyy.mp4" type="video/mp4">
-            Tu navegador no soporta la reproducción de videos.
-        </video>
+      <video autoplay loop muted>
+        <source src="assets/video/video2.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
     </div>
-</div>
+  </section>
 
-
-    
-    <footer class="footer">
-      <p>© 2025 Muelle Beats. Todos los derechos reservados.</p>
-    </footer>
-  </div>
+  <footer>
+    © 2025 Muelle Beats. Todos los derechos reservados.
+  </footer>
 </body>
 </html>
+

@@ -1,81 +1,83 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #121212;
-    color: #fff;
-}
-
-.dashboard {
-    display: flex;
-    height: 100vh;
-}
-
-.sidebar {
-    background-color: #1f1f1f;
-    padding: 20px;
-    width: 250px;
-}
-
-.sidebar h1 {
-    color: #e91e63;
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.sidebar nav ul {
-    list-style: none;
+    color: #ffffff;
+    margin: 0;
     padding: 0;
 }
 
-.sidebar nav ul li {
-    margin-bottom: 15px;
-}
-
-.sidebar nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.sidebar nav ul li a.active {
-    color: #e91e63;
-}
-
-.sidebar .logout-btn {
-    background-color: #e91e63;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 30px;
-}
-
-.main-content {
-    flex-grow: 1;
+.container {
     padding: 20px;
-    background-color: #181818;
 }
 
-.main-content header h2 {
-    margin: 0;
-    font-size: 28px;
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: #1f1f1f;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
 }
 
-section {
-    margin-bottom: 40px;
-}
-
-section h3 {
-    color: #e91e63;
+.sidebar a {
+    text-decoration: none;
+    color: #f50057;
+    display: block;
     margin-bottom: 10px;
 }
 
-section .btn {
-    background-color: #e91e63;
-    color: #fff;
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Styles */
+.main-content {
+    margin-left: 270px;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #f50057;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #f50057;
+    color: white;
+    padding: 10px 20px;
     border: none;
-    padding: 10px 15px;
     cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #d4004b;
+}
+
+input[type="date"], input[type="time"] {
+    padding: 5px;
+    margin-top: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    color: #000;
+}
+
+input[type="submit"] {
+    background-color: #f50057;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+    background-color: #d4004b;
 }

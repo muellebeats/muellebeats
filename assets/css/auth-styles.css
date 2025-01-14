@@ -74,13 +74,19 @@ body {
 
 /* Buttons */
 .btn {
-    display: inline-block;
-    padding: 0.7rem 1.5rem;
+    background: #fff;
+    color: #000;
     border: none;
+    padding: 0.75rem 1.5rem;
     border-radius: 4px;
-    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #ccc;
+    color: #000;
 }
 
 .login-btn {

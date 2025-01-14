@@ -5,7 +5,7 @@ const chatId = "7384706778";
 // Función para enviar notificaciones a Telegram
 function sendTelegramNotification(date, time) {
     const message = `Nueva solicitud de llamada 1:1.\nFecha: ${date}\nHorario: ${time}`;
-    const url = `https://api.telegram.org/bot${7612936738:AAHUa8exFi8XHQHQOatCmx4NyHawJxzIzU}/sendMessage?chat_id=${7384706778}&text=${encodeURIComponent(message)}`;
+    const url = `https://api.telegram.org/bot7612936738:AAHUa8exFi8XHQHQOatCmx4NyHawJxzIzU/sendMessage?chat_id=${7384706778}&text=${encodeURIComponent(message)}`;
 
     fetch(url)
         .then(response => {

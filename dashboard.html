@@ -5,90 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muelle Beats Dashboard</title>
     <link rel="stylesheet" href="./assets/css/dashboard-styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="dashboard">
-        <aside class="sidebar">
-            <h1>Muelle Beats</h1>
-            <nav>
-                <ul>
-                    <li><a href="#overview">Overview</a></li>
-                    <li><a href="#my-tracks">My Tracks</a></li>
-                    <li><a href="#community">Community</a></li>
-                    <li><a href="#call">Agendar Llamada</a></li>
-                </ul>
-            </nav>
-            <button class="btn" onclick="logout()">Logout</button>
-        </aside>
+    <div class="sidebar">
+        <h2>Muelle Beats</h2>
+        <a href="#overview" class="active-link">Overview</a>
+        <a href="#my-tracks">My Tracks</a>
+        <a href="#call">Agendar Llamada</a>
+        <button class="btn btn-secondary" onclick="logout()">Logout</button>
+    </div>
 
-        <main class="main-content">
-            <header>
-                <h2>¡Bienvenido, Usuario!</h2>
-            </header>
-            <section id="overview" class="cards">
+    <div class="main-content">
+        <h1>¡Bienvenido, Usuario!</h1>
+        <section id="overview">
+            <div class="dashboard-cards">
                 <div class="card">
                     <h3>42</h3>
                     <p>Tareas Activas</p>
-                    <button>Ver Detalles</button>
+                    <button class="btn btn-primary">Ver Detalles</button>
                 </div>
                 <div class="card">
                     <h3>21</h3>
                     <p>Reseñas de Clientes</p>
                 </div>
-            </section>
-
-            <section id="my-tracks">
-                <h2>My Tracks</h2>
-                <p>Aquí podrás subir y gestionar tus pistas.</p>
-                <button class="btn">Subir Nueva Pista</button>
-            </section>
-
-            <section id="community">
-                <h2>Community</h2>
-                <p>Conecta con creadores de toda América Latina, México y España.</p>
-                <a href="https://t.me/+8cg12FtioyAxOWMx" target="_blank" class="btn">Únete en Telegram</a>
-            </section>
-
-            <section id="call">
-                <h2>Agendar una llamada 1:1</h2>
-                <form id="agendaForm">
-                    <label for="fecha">Selecciona una fecha:</label>
-                    <input type="date" id="fecha" required><br>
-                    <label for="hora">Selecciona un horario:</label>
-                    <input type="time" id="hora" required><br>
-                    <button type="submit" class="btn">Agendar</button>
-                </form>
-            </section>
-
-            <section id="chart-section" class="chart-section">
-                <h3>Revenue Forecast</h3>
-                <canvas id="revenueChart"></canvas>
-            </section>
-        </main>
+            </div>
+        </section>
+        <section id="my-tracks">
+            <h2>My Tracks</h2>
+            <p>Aquí podrás subir y gestionar tus pistas.</p>
+            <button class="btn btn-primary">Subir Nueva Pista</button>
+        </section>
+        <section id="call">
+            <h2>Agendar una llamada 1:1</h2>
+            <form id="agendaForm">
+                <label for="fecha">Selecciona una fecha:</label>
+                <input type="date" id="fecha" class="input" required><br>
+                <label for="hora">Selecciona un horario:</label>
+                <input type="time" id="hora" class="input" required><br>
+                <button type="submit" class="btn btn-primary">Agendar</button>
+            </form>
+        </section>
     </div>
 
-    <script>
-        // Configuración del gráfico
-        const ctx = document.getElementById('revenueChart').getContext('2d');
-        const revenueChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
-                datasets: [{
-                    label: 'Ingresos',
-                    data: [1000, 2000, 3000, 4000, 5000, 6000],
-                    backgroundColor: ['#6C63FF', '#FF6B6B', '#FFD93D', '#6BCB77', '#4D96FF', '#845EC2']
-                }]
-            },
-            options: {
-                plugins: {
-                    legend: { display: false },
-                }
-            }
-        });
+    <footer>
+        © 2025 Muelle Beats. All rights reserved.
+    </footer>
 
-        // Envío del formulario a Telegram
+    <script>
+        const botToken = "7612936738:AAEi17YoMyDBAOEEXPOTx41tPWVdIhhpZ5c";
+        const chatId = "7384706778";
+
         document.getElementById("agendaForm").addEventListener("submit", function(e) {
             e.preventDefault();
             const fecha = document.getElementById("fecha").value;
@@ -100,7 +66,7 @@
             }
 
             const message = `Nueva solicitud de llamada 1:1\nFecha: ${fecha}\nHora: ${hora}`;
-            const url = `https://api.telegram.org/bot7612936738:AAEi17YoMyDBAOEEXPOTx41tPWVdIhhpZ5c/sendMessage?chat_id=7384706778&text=${encodeURIComponent(message)}`;
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
 
             fetch(url)
                 .then(response => response.json())

@@ -4,86 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Muelle Beats</title>
-    <link rel="stylesheet" href="./assets/css/dashboard-styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
     <div class="dashboard">
         <aside class="sidebar">
-            <h1>Muelle Beats</h1>
+            <h2>Muelle Beats</h2>
             <nav>
                 <ul>
                     <li><a href="#overview" class="active">Overview</a></li>
-                    <li><a href="#my-tracks">My Tracks</a></li>
+                    <li><a href="#tracks">My Tracks</a></li>
                     <li><a href="#settings">Settings</a></li>
                 </ul>
             </nav>
-            <button class="logout-btn">Logout</button>
+            <button class="btn btn-primary" id="logout">Logout</button>
         </aside>
-
-        <main class="main-content">
+        <main class="content">
             <header>
-                <h2>Welcome, [Username]</h2>
+                <h1>Welcome, [Username]</h1>
             </header>
-
             <section id="overview">
-                <h3>Overview</h3>
+                <h2>Overview</h2>
                 <p>Explora recursos, sube tus pistas y conecta con otros creadores.</p>
             </section>
-
-            <section id="my-tracks">
-                <h3>My Tracks</h3>
+            <section id="tracks">
+                <h2>My Tracks</h2>
                 <p>Aquí podrás subir y gestionar tus pistas.</p>
-                <button class="btn">Upload New Track</button>
+                <button class="btn btn-primary">Upload New Track</button>
             </section>
-
             <section id="community">
-                <h3>Community</h3>
+                <h2>Community</h2>
                 <p>Conecta con creadores de toda América Latina, México y España.</p>
-                <button class="btn" onclick="window.open('https://t.me/+8cg12FtioyAxOWMx', '_blank')">Únete en Telegram</button>
+                <a href="https://t.me/+8cg12FtioyAxOWMx" class="btn btn-primary" target="_blank">Únete en Telegram</a>
             </section>
+            <section id="schedule">
+                <h2>Agendar una llamada 1:1</h2>
+                <form id="scheduleForm">
+                    <label for="fecha">Selecciona una fecha:</label>
+                    <input type="date" id="fecha" required />
+                    <br />
+                    <label for="hora">Selecciona un horario:</label>
+                    <input type="time" id="hora" required />
+                    <br />
+                    <button id="agendarBtn" type="button" class="btn btn-primary">Agendar</button>
+                </form>
+            </section>
+        </main>
+    </div>
 
-            <section id="calendar-section">
-               <script>
-<button id="agendarBtn" class="btn btn-primary">Agendar</button>
+    <script>
+        document.getElementById("agendarBtn").addEventListener("click", function () {
+            const fechaSeleccionada = document.getElementById("fecha").value;
+            const horaSeleccionada = document.getElementById("hora").value;
 
-    const fechaSeleccionada = document.getElementById("fecha").value;
-    const horaSeleccionada = document.getElementById("hora").value;
+            if (!fechaSeleccionada || !horaSeleccionada) {
+                alert("Por favor selecciona una fecha y un horario.");
+                return;
+            }
 
-    // Verifica que se hayan seleccionado fecha y hora
-    if (!fechaSeleccionada || !horaSeleccionada) {
-      alert("Por favor selecciona una fecha y un horario.");
-      return;
-    }
+            const mensaje = `Nueva solicitud de llamada 1:1\nFecha: ${fechaSeleccionada}\nHora: ${horaSeleccionada}`;
+            const botToken = "7612936738:AAHUa8exFi8XHQHQOatCmx4NyHawJxzIzU";
+            const chatId = "7384706778";
 
-    const mensaje = `Nueva solicitud de llamada 1:1\nFecha: ${fechaSeleccionada}\nHora: ${horaSeleccionada}`;
+            const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
-    // Token del bot y chat_id de Telegram
-    const botToken = "7612936738:AAHUa8exxFi8XHQHQ0atCmx4NyHawJxzIzU"; // Reemplaza esto con el token real de tu bot
-    const chatId = "7384706778"; // Reemplaza esto con tu chat_id
-
-    const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
-
-    // Enviar el mensaje a Telegram
-    fetch(telegramUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: mensaje,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.ok) {
-          alert("Solicitud enviada con éxito.");
-        } else {
-          alert("Hubo un error al enviar la solicitud. Por favor intenta nuevamente.");
-          console.error("Error en la respuesta de Telegram:", data);
-        }
-      })
-      .catch((error) => {
-        alert("Hubo un error al enviar la solicitud. Por favor intenta nuevamente.");
-        console.error("Error en la solicitud:", error);
-      });
-  });
-</script>
+            // Enviar el mensaje a Telegram
+            fetch(telegramUrl, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: mensaje,
+                }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.ok) {
+                        alert("Solicitud enviada con éxito.");
+                    } else {
+                        alert("Hubo un error al enviar la solicitud. Por favor intenta nuevamente.");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error al enviar la solicitud:", error);
+                    alert("Error al enviar la solicitud.");
+                });
+        });
+    </script>
+</body>
+</html>

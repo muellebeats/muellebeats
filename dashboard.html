@@ -3,14 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Dashboard - Muelle Beats</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-    <div class="dashboard">
-        <h1>Welcome to Muelle Beats!</h1>
-        <p>You are now registered and logged in.</p>
-        <button onclick="window.location.href='index.html';">Go to Homepage</button>
+    <div class="dashboard-container">
+        <div class="welcome-card">
+            <h1>Welcome to Muelle Beats!</h1>
+            <p>You are now registered and logged in as:</p>
+            <p><strong>Username:</strong> <span id="username"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <a href="index.html" class="btn">Go to Homepage</a>
+        </div>
     </div>
+
+    <script>
+        // Obtener los parámetros de la URL
+        const params = new URLSearchParams(window.location.search);
+        const username = params.get("username");
+        const email = params.get("email");
+
+        // Mostrar los datos en el dashboard
+        document.getElementById("username").textContent = username;
+        document.getElementById("email").textContent = email;
+    </script>
 </body>
 </html>

@@ -3,53 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Muelle Beats</title>
+    <title>Dashboard - Calendar</title>
     <link rel="stylesheet" href="./assets/css/dashboard-styles.css">
+    <style>
+        /* Estilo para el calendario */
+        .calendar-container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .calendar-header button {
+            background-color: #ff007f;
+            border: none;
+            color: #ffffff;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .calendar-day {
+            background-color: #2a2a2a;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .calendar-day-header {
+            font-weight: bold;
+            color: #ff007f;
+        }
+
+        .calendar-day:not(.calendar-day-header):hover {
+            background-color: #ff007f;
+            color: #ffffff;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <div class="dashboard">
-        <!-- Menú lateral -->
         <aside class="sidebar">
             <h2 class="sidebar-title">Muelle Beats</h2>
             <ul class="sidebar-menu">
-                <li><a href="#overview" class="active">Overview</a></li>
+                <li><a href="#overview">Overview</a></li>
                 <li><a href="#my-tracks">My Tracks</a></li>
-                <li><a href="#community">Community</a></li>
+                <li><a href="#calendar" class="active">Schedule Call</a></li>
                 <li><a href="#settings">Settings</a></li>
             </ul>
             <button class="logout-btn">Logout</button>
         </aside>
 
-        <!-- Contenido principal -->
         <main class="main-content">
             <header class="main-header">
                 <h1>Welcome, [Username]</h1>
                 <div class="region-info">🇲🇽 Mexico</div>
             </header>
 
-            <section id="overview">
-                <h2>Overview</h2>
-                <p>Explora recursos, sube tus pistas y conecta con otros creadores.</p>
-            </section>
-
-            <section id="my-tracks">
-                <h2>My Tracks</h2>
-                <p>Aquí podrás subir y gestionar tus pistas.</p>
-                <button class="upload-btn">Upload New Track</button>
-            </section>
-
-            <section id="community">
-                <h2>Community</h2>
-                <p>Conecta con creadores de toda América Latina, México y España.</p>
-                <a href="#" class="community-link">Join the Community</a>
-            </section>
-
-            <section id="settings">
-                <h2>Settings</h2>
-                <p>Actualiza tu perfil y tus preferencias.</p>
-                <button class="settings-btn">Edit Profile</button>
+            <section id="calendar">
+                <h2>Schedule a 1:1 Call</h2>
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button id="prevMonth">Previous</button>
+                        <h3 id="monthYear"></h3>
+                        <button id="nextMonth">Next</button>
+                    </div>
+                    <div class="calendar-grid" id="calendarGrid"></div>
+                </div>
             </section>
         </main>
     </div>
+
+    <script>
+        // JavaScript para manejar el calendario
+        const monthNames = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+
+        let currentMonth = new Date().getMonth();
+        let currentYear = 2025;
+
+        function renderCalendar(month, year) {
+            const calendarGrid = document.getElementById("calendarGrid");
+            const monthYear = document.getElementById("monthYear");
+            calendarGrid.innerHTML = ""; // Limpiar el calendario
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            monthYear.textContent = `${monthNames[month]} ${year}`;
+
+            // Agregar encabezados de días
+            const dayHeaders = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            dayHeaders.forEach(day => {
+                const dayHeader = document.createElement("div");
+                dayHeader.classList.add("calendar-day", "calendar-day-header");
+                dayHeader.textContent = day;
+                calendarGrid.appendChild(dayHeader);
+            });
+
+            // Espacios en blanco antes del primer día
+            for (let i = 0; i < firstDay; i++) {
+                const blankDay = document.createElement("div");
+                blankDay.classList.add("calendar-day");
+                calendarGrid.appendChild(blankDay);
+            }
+
+            // Días del mes
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayDiv = document.createElement("div");
+                dayDiv.classList.add("calendar-day");
+                dayDiv.textContent = day;
+                calendarGrid.appendChild(dayDiv);
+            }
+        }
+
+        document.getElementById("prevMonth").addEventListener("click", () => {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            renderCalendar(currentMonth, currentYear);
+        });
+
+        document.getElementById("nextMonth").addEventListener("click", () => {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            renderCalendar(currentMonth, currentYear);
+        });
+
+        // Renderizar el calendario inicial
+        renderCalendar(currentMonth, currentYear);
+    </script>
 </body>
 </html>

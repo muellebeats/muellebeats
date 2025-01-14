@@ -43,18 +43,46 @@
             </section>
 
             <section id="calendar-section">
-                <h3>Agendar una llamada 1:1</h3>
-                <label for="calendar">Selecciona una fecha:</label>
-                <input type="date" id="calendar" required>
-                <br>
-                <label for="time">Selecciona un horario:</label>
-                <input type="time" id="time" required>
-                <br><br>
-                <button class="btn" onclick="handleSchedule()">Agendar</button>
-            </section>
-        </main>
-    </div>
+               <script>
+  document.getElementById("agendarBtn").addEventListener("click", function () {
+    const fechaSeleccionada = document.getElementById("fecha").value;
+    const horaSeleccionada = document.getElementById("hora").value;
 
-    <script src="./assets/js/notifications.js"></script>
-</body>
-</html>
+    // Verifica que se hayan seleccionado fecha y hora
+    if (!fechaSeleccionada || !horaSeleccionada) {
+      alert("Por favor selecciona una fecha y un horario.");
+      return;
+    }
+
+    const mensaje = `Nueva solicitud de llamada 1:1\nFecha: ${fechaSeleccionada}\nHora: ${horaSeleccionada}`;
+
+    // Token del bot y chat_id de Telegram
+    const botToken = "7612936738:AAHUa8exxFi8XHQHQ0atCmx4NyHawJxzIzU"; // Reemplaza esto con el token real de tu bot
+    const chatId = "7384706778"; // Reemplaza esto con tu chat_id
+
+    const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+    // Enviar el mensaje a Telegram
+    fetch(telegramUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: mensaje,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.ok) {
+          alert("Solicitud enviada con éxito.");
+        } else {
+          alert("Hubo un error al enviar la solicitud. Por favor intenta nuevamente.");
+          console.error("Error en la respuesta de Telegram:", data);
+        }
+      })
+      .catch((error) => {
+        alert("Hubo un error al enviar la solicitud. Por favor intenta nuevamente.");
+        console.error("Error en la solicitud:", error);
+      });
+  });
+</script>

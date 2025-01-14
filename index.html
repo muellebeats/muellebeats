@@ -1,74 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muelle Beats</title>
-  <link rel="stylesheet" href="assets/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muelle Beats</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-  <header>
-    <h1>MUELLE BEATS</h1>
-    <div class="nav-buttons">
-      <button onclick="location.href='auth.html'">Iniciar sesión</button>
-      <button onclick="location.href='player.html'">Reproductor</button>
+    <div class="hero">
+        <video autoplay muted loop id="background-video">
+            <source src="./assets/video/20250110_1415_Rooftop%20Office%20Vibes_simple_compose_01jh8kcbrcf8z97sqvdmznwtta.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+        <div class="content">
+            <h1 class="title">MUELLE BEATS</h1>
+            <p class="subtitle">The Fastest Growing Music Community in the World</p>
+            <button class="btn">Join Us</button>
+        </div>
     </div>
-  </header>
 
-  <section class="cards-section">
-    <div class="card">
-      <h2>6 meses</h2>
-      <p>$10/mes</p>
-      <ul>
-        <li>Acceso exclusivo</li>
-        <li>Soporte personalizado</li>
-        <li>Actualizaciones mensuales</li>
-      </ul>
-      <button>Comprar en MercadoPago</button>
-      <button>Comprar en PayPal</button>
-    </div>
-    <div class="card">
-      <h2>1 año</h2>
-      <p>$25/mes</p>
-      <ul>
-        <li>Descuentos especiales</li>
-        <li>Acceso anticipado</li>
-        <li>Beneficios extra</li>
-      </ul>
-      <button>Comprar en MercadoPago</button>
-      <button>Comprar en PayPal</button>
-    </div>
-    <div class="card">
-      <h2>Discord</h2>
-      <p>$50/mes</p>
-      <ul>
-        <li>Networking</li>
-        <li>Preguntas en vivo</li>
-        <li>Mentoría</li>
-      </ul>
-      <button>Comprar en MercadoPago</button>
-      <button>Comprar en PayPal</button>
-    </div>
-  </section>
-
-  <section class="video-section">
-    <div class="video-card">
-      <video autoplay loop muted>
-        <source src="assets/video/video1.mp4" type="video/mp4">
-        Tu navegador no soporta el video.
-      </video>
-    </div>
-    <div class="video-card">
-      <video autoplay loop muted>
-        <source src="assets/video/video2.mp4" type="video/mp4">
-        Tu navegador no soporta el video.
-      </video>
-    </div>
-  </section>
-
-  <footer>
-    © 2025 Muelle Beats. Todos los derechos reservados.
-  </footer>
+    <section class="ecosystem">
+        <h2>Our Ecosystem</h2>
+        <p>We aim to be the largest decentralized music network focused on creativity, collaboration, and growth.</p>
+    </section>
 </body>
 </html>
+
 

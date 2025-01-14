@@ -1,66 +1,81 @@
-/* Player Page Styles */
-.player-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+/* General SoundCloud Style */
+body.soundcloud-style {
+  font-family: 'Arial', sans-serif;
   background-color: #121212;
   color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
-.player-container {
+header {
   text-align: center;
-  max-width: 800px;
-  width: 90%;
-  margin: 0 auto;
+  padding: 20px;
+  background-color: #1e1e1e;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.player-title {
+.title {
   font-size: 36px;
-  margin-bottom: 20px;
   color: #ff4081;
-}
-
-.audio-player-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.audio-card {
-  background: #1e1e1e;
-  padding: 15px;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.audio-title {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-audio {
-  width: 100%;
-  border-radius: 5px;
+  margin: 0;
 }
 
 .back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
   background-color: #ff4081;
   color: white;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
-  font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 20px;
 }
 
 .back-button:hover {
   background-color: #e6376e;
 }
 
+.track-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 900px;
+  margin: 20px auto;
 }
+
+.track {
+  display: flex;
+  align-items: center;
+  background: #1e1e1e;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.track-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.track-info {
+  padding: 20px;
+  flex: 1;
+}
+
+.track-title {
+  font-size: 18px;
+  color: #ff4081;
+  margin-bottom: 10px;
+}
+
+.audio-player {
+  width: 100%;
+  margin-top: 10px;
+}
+

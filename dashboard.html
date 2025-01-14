@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Calendar</title>
+    <title>Dashboard - Calendario</title>
     <link rel="stylesheet" href="./assets/css/dashboard-styles.css">
     <style>
         /* Estilo para el calendario */
@@ -56,6 +56,20 @@
             color: #ffffff;
             cursor: pointer;
         }
+
+        .telegram-btn {
+            margin-top: 20px;
+            display: inline-block;
+            background-color: #0088cc;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .telegram-btn:hover {
+            background-color: #006699;
+        }
     </style>
 </head>
 <body>
@@ -65,38 +79,41 @@
             <ul class="sidebar-menu">
                 <li><a href="#overview">Overview</a></li>
                 <li><a href="#my-tracks">My Tracks</a></li>
-                <li><a href="#calendar" class="active">Schedule Call</a></li>
-                <li><a href="#settings">Settings</a></li>
+                <li><a href="#calendar" class="active">Calendario</a></li>
+                <li><a href="#settings">Configuración</a></li>
             </ul>
-            <button class="logout-btn">Logout</button>
+            <button class="logout-btn">Cerrar Sesión</button>
         </aside>
 
         <main class="main-content">
             <header class="main-header">
-                <h1>Welcome, [Username]</h1>
-                <div class="region-info">🇲🇽 Mexico</div>
+                <h1>Bienvenido, [Usuario]</h1>
+                <div class="region-info">🇲🇽 México</div>
             </header>
 
             <section id="calendar">
-                <h2>Schedule a 1:1 Call</h2>
+                <h2>Agendar una llamada 1:1</h2>
                 <div class="calendar-container">
                     <div class="calendar-header">
-                        <button id="prevMonth">Previous</button>
+                        <button id="prevMonth">Anterior</button>
                         <h3 id="monthYear"></h3>
-                        <button id="nextMonth">Next</button>
+                        <button id="nextMonth">Siguiente</button>
                     </div>
                     <div class="calendar-grid" id="calendarGrid"></div>
                 </div>
+                <a href="https://t.me/+8cg12FtioyAxOWMx" class="telegram-btn">Unirme a Telegram</a>
             </section>
         </main>
     </div>
 
     <script>
-        // JavaScript para manejar el calendario
+        // JavaScript para manejar el calendario en español
         const monthNames = [
-            "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
+            "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+            "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
         ];
+
+        const dayHeaders = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
 
         let currentMonth = new Date().getMonth();
         let currentYear = 2025;
@@ -112,7 +129,6 @@
             monthYear.textContent = `${monthNames[month]} ${year}`;
 
             // Agregar encabezados de días
-            const dayHeaders = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
             dayHeaders.forEach(day => {
                 const dayHeader = document.createElement("div");
                 dayHeader.classList.add("calendar-day", "calendar-day-header");

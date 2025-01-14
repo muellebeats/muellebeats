@@ -4,44 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muelle Beats Dashboard</title>
-    <link rel="stylesheet" href="./assets/css/dashboard-styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-    <div class="sidebar">
-        <h2>Muelle Beats</h2>
-        <a href="#overview">Overview</a>
-        <a href="#my-tracks">My Tracks</a>
-        <a href="#settings">Settings</a>
-        <button class="btn" onclick="logout()">Logout</button>
+    <div class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Muelle Beats</a>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#my-tracks">My Tracks</a></li>
+                <li><a href="#settings">Settings</a></li>
+                <li><button class="btn btn-primary" onclick="logout()">Logout</button></li>
+            </ul>
+        </div>
     </div>
 
-    <div class="main-content">
-        <h1>Bienvenido [Username]</h1>
-        <section id="overview">
+    <div class="dashboard container">
+        <h1 class="title">Bienvenido, [Username]</h1>
+
+        <section id="overview" class="section">
             <h2>Overview</h2>
             <p>Explora recursos, sube tus pistas y conecta con otros creadores.</p>
         </section>
-        <section id="my-tracks">
+
+        <section id="my-tracks" class="section">
             <h2>My Tracks</h2>
             <p>Aquí podrás subir y gestionar tus pistas.</p>
-            <button class="btn">Upload New Track</button>
+            <button class="btn btn-secondary">Upload New Track</button>
         </section>
-        <section id="community">
+
+        <section id="community" class="section">
             <h2>Community</h2>
             <p>Conecta con creadores de toda América Latina, México y España.</p>
-            <a href="https://t.me/+8cg12FtioyAxOWMx" target="_blank" class="btn">Únete en Telegram</a>
+            <a href="https://t.me/+8cg12FtioyAxOWMx" target="_blank" class="btn btn-secondary">Únete en Telegram</a>
         </section>
-        <section id="call">
+
+        <section id="call" class="section">
             <h2>Agendar una llamada 1:1</h2>
             <form id="agendaForm">
                 <label for="fecha">Selecciona una fecha:</label>
-                <input type="date" id="fecha" required><br>
+                <input type="date" id="fecha" class="input" required><br>
                 <label for="hora">Selecciona un horario:</label>
-                <input type="time" id="hora" required><br>
-                <input type="submit" value="Agendar">
+                <input type="time" id="hora" class="input" required><br>
+                <button type="submit" class="btn btn-primary">Agendar</button>
             </form>
         </section>
     </div>
+
+    <footer>
+        <p>© 2025 Muelle Beats. All rights reserved.</p>
+    </footer>
 
     <script>
         const botToken = "7612936738:AAHUa8exFi8XHQHQOatCmx4NyHawJxzIzU";
@@ -58,12 +70,12 @@
             }
 
             const message = `Nueva solicitud de llamada 1:1\nFecha: ${fecha}\nHora: ${hora}`;
-           const telegramUrl = `https://api.telegram.org/bot${7612936738:AAHUa8exFi8XHQHQOatCmx4NyHawJxzIzU}/sendMessage`;
+            const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
             fetch(telegramUrl, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ chat_id: 7384706778, text: message }),
+                body: JSON.stringify({ chat_id: chatId, text: message }),
             })
                 .then(response => response.json())
                 .then(data => {

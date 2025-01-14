@@ -6,40 +6,55 @@
   <title>Reproductor MP3</title>
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body class="player-body">
-  <div class="player-container">
+<body class="soundcloud-style">
+  <header>
     <button class="back-button" onclick="location.href='index.html'">Volver atrás</button>
-    <h1 class="player-title">Reproductor MP3</h1>
-    <div class="audio-player-grid">
-      <div class="audio-card">
-        <h3 class="audio-title">Track 1</h3>
-        <audio controls>
-          <source src="assets/audio/barcelona.mp3" type="audio/mp3">
-          Tu navegador no soporta audio HTML5.
-        </audio>
+    <h1 class="title">Reproductor MP3</h1>
+  </header>
+  <main>
+    <div class="track-list">
+      <div class="track">
+        <img src="assets/images/track1.jpg" alt="Track 1" class="track-image">
+        <div class="track-info">
+          <h2 class="track-title">Track 1 - Barcelona</h2>
+          <audio controls class="audio-player">
+            <source src="assets/audio/barcelona.mp3" type="audio/mp3">
+            Tu navegador no soporta audio HTML5.
+          </audio>
+        </div>
       </div>
-      <div class="audio-card">
-        <h3 class="audio-title">Track 2</h3>
-        <audio controls>
-          <source src="assets/audio/dubai arena.mp3" type="audio/mp3">
-          Tu navegador no soporta audio HTML5.
-        </audio>
+      <div class="track">
+        <img src="assets/images/track2.jpg" alt="Track 2" class="track-image">
+        <div class="track-info">
+          <h2 class="track-title">Track 2 - Dubai Arena</h2>
+          <audio controls class="audio-player">
+            <source src="assets/audio/dubai arena.mp3" type="audio/mp3">
+            Tu navegador no soporta audio HTML5.
+          </audio>
+        </div>
       </div>
-      <div class="audio-card">
-        <h3 class="audio-title">Track 3</h3>
-        <audio controls>
-          <source src="assets/audio/oslo norway.mp3" type="audio/mp3">
-          Tu navegador no soporta audio HTML5.
-        </audio>
+      <div class="track">
+        <img src="assets/images/track3.jpg" alt="Track 3" class="track-image">
+        <div class="track-info">
+          <h2 class="track-title">Track 3 - Oslo Norway</h2>
+          <audio controls class="audio-player">
+            <source src="assets/audio/oslo norway.mp3" type="audio/mp3">
+            Tu navegador no soporta audio HTML5.
+          </audio>
+        </div>
       </div>
-      <div class="audio-card">
-        <h3 class="audio-title">Track 4</h3>
-        <audio controls>
-          <source src="assets/audio/home hogar.mp3" type="audio/mp3">
-          Tu navegador no soporta audio HTML5.
-        </audio>
+      <div class="track">
+        <img src="assets/images/track4.jpg" alt="Track 4" class="track-image">
+        <div class="track-info">
+          <h2 class="track-title">Track 4 - Home Hogar</h2>
+          <audio controls class="audio-player">
+            <source src="assets/audio/home hogar.mp3" type="audio/mp3">
+            Tu navegador no soporta audio HTML5.
+          </audio>
+        </div>
       </div>
     </div>
-  </div>
+  </main>
 </body>
 </html>
+

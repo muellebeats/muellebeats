@@ -3,8 +3,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #000;
-    color: #fff;
+    background-color: #1c1a1a; /* Fondo cálido oscuro */
+    color: #f5e6cc; /* Texto cálido */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,10 +22,10 @@ body {
 
 /* Card */
 .auth-card {
-    background-color: #1a1a1a;
+    background-color: #2a1f1f; /* Fondo cálido oscuro */
     border-radius: 8px;
     padding: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     text-align: center;
     width: 90%;
     max-width: 400px;
@@ -36,6 +36,7 @@ body {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
     font-weight: bold;
+    color: #d18b47; /* Título cálido */
 }
 
 /* Input Group */
@@ -48,7 +49,7 @@ body {
     font-size: 0.9rem;
     display: block;
     margin-bottom: 0.5rem;
-    color: #aaa;
+    color: #f0c987; /* Etiqueta cálida */
 }
 
 .input-group input {
@@ -56,8 +57,8 @@ body {
     padding: 0.5rem;
     border-radius: 4px;
     border: none;
-    background-color: #333;
-    color: #fff;
+    background-color: #3a2b2b; /* Fondo cálido oscuro */
+    color: #f5e6cc;
     font-size: 1rem;
 }
 
@@ -79,7 +80,7 @@ body {
     font-size: 16px;
     font-weight: bold;
     color: #fff;
-    background-color: #000;
+    background-color: #d18b47; /* Botón cálido */
     border: none;
     border-radius: 5px;
     text-align: center;
@@ -89,38 +90,34 @@ body {
 }
 
 .btn:hover {
-    background-color: #444;
-}
-
-
-.btn:hover {
-    background: #ccc;
-    color: #000;
+    background-color: #e6a267; /* Hover cálido */
 }
 
 .login-btn {
-    background-color: #fff;
-    color: #000;
+    background-color: #d18b47; /* Botón cálido */
+    color: white;
     margin-bottom: 1rem;
 }
 
 .login-btn:hover {
-    background-color: #ccc;
+    background-color: #e6a267; /* Hover cálido */
 }
 
 .secondary-btn {
     background-color: transparent;
-    color: #fff;
-    border: 1px solid #fff;
+    color: #f5e6cc;
+    border: 1px solid #f0c987;
     margin: 0.5rem;
 }
 
 .secondary-btn:hover {
-    background-color: #333;
-    border-color: #ccc;
+    background-color: #3a2b2b; /* Hover cálido oscuro */
+    border-color: #d18b47;
 }
 
 /* Footer */
 .auth-footer {
     margin-top: 1.5rem;
+    color: #f0c987; /* Texto cálido */
 }
+

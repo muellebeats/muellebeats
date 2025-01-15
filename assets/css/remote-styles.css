@@ -87,3 +87,41 @@ body {
 .footer a:hover {
     color: #e15a4f; /* Hover cálido */
 }
+/* Estilo para Key Features */
+.key-features {
+    background-color: #1f1f1f;
+    padding: 2rem 1rem;
+    color: #fff;
+}
+
+.key-features h2 {
+    color: #ff0077;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.key-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
+    line-height: 1.8;
+}
+
+.key-features ul li {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    padding-left: 20px;
+    text-indent: -20px;
+}
+
+.key-features ul li strong {
+    color: #ff0077;
+}
+
+.key-features ul ul {
+    margin-top: 0.5rem;
+    padding-left: 20px;
+    list-style: disc;
+}

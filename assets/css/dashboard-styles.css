@@ -3,15 +3,15 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #121212;
-    color: #fff;
+    background-color: #1c1a1a; /* Fondo cálido */
+    color: #f5e6cc; /* Texto cálido */
 }
 
 /* Barra lateral */
 .sidebar {
     width: 150px; /* Ajuste del ancho */
-    background-color: #1e1e1e;
-    color: white;
+    background-color: #2a1f1f; /* Fondo cálido oscuro */
+    color: #f5e6cc;
     height: 100vh;
     padding: 15px;
     position: fixed;
@@ -21,12 +21,13 @@ body {
 .sidebar h2 {
     font-size: 16px;
     margin-bottom: 15px;
+    color: #ffb347; /* Tono cálido */
 }
 
 .sidebar a {
     display: block;
     text-decoration: none;
-    color: #a6a6a6;
+    color: #f0c987; /* Texto cálido */
     margin-bottom: 10px;
     font-size: 14px;
     padding: 5px 10px;
@@ -34,12 +35,12 @@ body {
 }
 
 .sidebar a.active-link {
-    background-color: #ff007a;
+    background-color: #d18b47; /* Activo cálido */
     color: white;
 }
 
 .sidebar a:hover {
-    background-color: #ff3399;
+    background-color: #e6a267; /* Hover cálido */
     color: white;
 }
 
@@ -50,13 +51,13 @@ body {
     padding: 8px;
     font-size: 12px;
     border-radius: 5px;
-    background-color: #343434;
-    color: white;
+    background-color: #3a2b2b; /* Botón cálido oscuro */
+    color: #f5e6cc;
     text-decoration: none;
 }
 
 .sidebar .btn:hover {
-    background-color: #4a4a4a;
+    background-color: #4d3939; /* Hover cálido oscuro */
 }
 
 /* Contenido principal */
@@ -68,6 +69,7 @@ body {
 .main-content h1 {
     font-size: 24px;
     margin-bottom: 20px;
+    color: #ffb347; /* Título cálido */
 }
 
 /* Dashboard Cards */
@@ -77,32 +79,42 @@ body {
 }
 
 .card {
-    background-color: #1e1e1e;
+    background-color: #2a1f1f; /* Fondo cálido oscuro */
     padding: 15px;
     border-radius: 5px;
     text-align: center;
     flex: 1;
-    color: white;
+    color: #f5e6cc;
 }
 
 .card h3 {
     margin: 0;
     font-size: 24px;
+    color: #d18b47; /* Títulos cálidos */
 }
 
 .card p {
     margin: 5px 0 15px;
     font-size: 14px;
+    color: #f0c987;
 }
 
 .card .btn {
     font-size: 12px;
     padding: 8px 12px;
+    background-color: #d18b47; /* Botón cálido */
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.card .btn:hover {
+    background-color: #e6a267;
 }
 
 /* Botones */
 .btn-primary {
-    background-color: #ff007a;
+    background-color: #d18b47;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -112,12 +124,12 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #ff3399;
+    background-color: #e6a267;
 }
 
 .btn-secondary {
-    background-color: #343434;
-    color: white;
+    background-color: #3a2b2b;
+    color: #f5e6cc;
     padding: 8px 10px;
     font-size: 12px;
     border-radius: 5px;
@@ -125,7 +137,7 @@ body {
 }
 
 .btn-secondary:hover {
-    background-color: #4a4a4a;
+    background-color: #4d3939;
 }
 
 /* Inputs */
@@ -133,15 +145,15 @@ body {
     width: 100%;
     padding: 8px;
     margin: 10px 0;
-    border: 1px solid #333;
-    background-color: #1e1e1e;
-    color: white;
+    border: 1px solid #4d3939;
+    background-color: #2a1f1f;
+    color: #f5e6cc;
     border-radius: 4px;
 }
 
 .input:focus {
     outline: none;
-    border-color: #ff007a;
+    border-color: #d18b47;
 }
 
 /* Formularios */
@@ -153,6 +165,7 @@ form label {
     display: block;
     font-size: 14px;
     margin-bottom: 5px;
+    color: #f0c987;
 }
 
 /* Footer */
@@ -160,7 +173,7 @@ footer {
     margin-top: 20px;
     text-align: center;
     font-size: 12px;
-    color: #a6a6a6;
+    color: #f0c987;
 }
 
 /* Ajustes Responsivos */

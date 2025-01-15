@@ -87,41 +87,37 @@ body {
 .footer a:hover {
     color: #e15a4f; /* Hover cálido */
 }
-/* Estilo para Key Features */
 .key-features {
-    background-color: #1f1f1f;
-    padding: 2rem 1rem;
-    color: #fff;
+    background-color: #121212; /* Fondo oscuro uniforme */
+    padding: 3rem 1.5rem;
+    color: #ffffff; /* Texto blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    margin: 2rem auto; /* Espaciado automático */
+    max-width: 800px; /* Ancho máximo */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
 }
 
 .key-features h2 {
-    color: #ff0077;
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    color: #ff0077; /* Color destacado */
     text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
 }
 
 .key-features ul {
-    list-style: none;
+    list-style: none; /* Quitar puntos */
     padding: 0;
-    margin: 0 auto;
-    max-width: 800px;
-    line-height: 1.8;
 }
 
 .key-features ul li {
     margin-bottom: 1rem;
     font-size: 1rem;
-    padding-left: 20px;
+    line-height: 1.8;
     text-indent: -20px;
+    padding-left: 20px; /* Espaciado para texto alineado */
+    color: #e0e0e0; /* Color ligeramente gris */
 }
 
 .key-features ul li strong {
-    color: #ff0077;
-}
-
-.key-features ul ul {
-    margin-top: 0.5rem;
-    padding-left: 20px;
-    list-style: disc;
+    color: #ff0077; /* Resalta elementos clave */
 }

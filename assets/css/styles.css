@@ -3,8 +3,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #000;
-    color: #fff;
+    background-color: #1a1212; /* Fondo cálido oscuro */
+    color: #f5e6cc; /* Texto en tono crema */
 }
 
 .navbar {
@@ -12,11 +12,11 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #111;
+    background-color: #2b1d1d; /* Fondo cálido */
 }
 
 .navbar .logo {
-    color: #f50057;
+    color: #ff9478; /* Tono ámbar/rosado */
     text-decoration: none;
     font-size: 24px;
 }
@@ -28,9 +28,13 @@ body {
 }
 
 .nav-links a {
-    color: #fff;
+    color: #f5e6cc; /* Texto cálido */
     text-decoration: none;
     font-size: 16px;
+}
+
+.nav-links a:hover {
+    color: #ffb295; /* Hover cálido más claro */
 }
 
 .hero {
@@ -55,7 +59,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(26, 18, 18, 0.7); /* Fondo semitransparente cálido */
     z-index: 1;
 }
 
@@ -68,13 +72,13 @@ body {
 
 .hero-title {
     font-size: 48px;
-    color: #f50057;
+    color: #ff9478; /* Tono ámbar */
     margin-bottom: 10px;
 }
 
 .hero-subtitle {
     font-size: 24px;
-    color: #fff;
+    color: #f5e6cc; /* Texto cálido */
     margin-bottom: 20px;
 }
 
@@ -88,20 +92,28 @@ body {
 }
 
 .hero-buttons .btn-primary {
-    background-color: #f50057;
-    color: #fff;
+    background-color: #ff9478; /* Botón cálido */
+    color: #1a1212; /* Texto oscuro */
+}
+
+.hero-buttons .btn-primary:hover {
+    background-color: #ffb295; /* Botón cálido más claro */
 }
 
 .hero-buttons .btn-secondary {
-    background-color: #fff;
-    color: #000;
+    background-color: #f5e6cc; /* Botón claro */
+    color: #1a1212; /* Texto oscuro */
+}
+
+.hero-buttons .btn-secondary:hover {
+    background-color: #ffe0c5; /* Hover cálido más claro */
 }
 
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #111;
-    color: #fff;
+    background-color: #2b1d1d; /* Fondo cálido */
+    color: #f5e6cc; /* Texto cálido */
     font-size: 14px;
 }
 
@@ -114,23 +126,23 @@ footer {
 }
 
 .event-card {
-    background-color: #222;
+    background-color: #3b2a2a; /* Fondo cálido oscuro */
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    color: #fff;
+    color: #f5e6cc; /* Texto cálido */
     width: 300px;
 }
 
 .event-card h3 {
-    color: #f50057;
+    color: #ff9478; /* Tono ámbar */
     margin-bottom: 10px;
 }
 
 .event-card .btn {
     margin-top: 10px;
-    background-color: #f50057;
-    color: #fff;
+    background-color: #ff9478; /* Botón cálido */
+    color: #1a1212; /* Texto oscuro */
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -139,8 +151,12 @@ footer {
     font-size: 14px;
 }
 
+.event-card .btn:hover {
+    background-color: #ffb295; /* Botón cálido más claro */
+}
+
 .navbar {
-    background-color: #111; /* Oscuro */
+    background-color: #2b1d1d; /* Oscuro cálido */
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -156,7 +172,7 @@ footer {
 }
 
 .logo {
-    color: #ff0077; /* Color del logo */
+    color: #ff9478; /* Color cálido */
     font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
@@ -169,13 +185,12 @@ footer {
 }
 
 .nav-links .nav-link {
-    color: #fff;
+    color: #f5e6cc; /* Texto cálido */
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s ease;
 }
 
 .nav-links .nav-link:hover {
-    color: #ff0077; /* Hover color */
+    color: #ffb295; /* Hover cálido */
 }
-

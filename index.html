@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muelle Beats</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
+    <style>
+        /* Estilo para el contador de fases lunares */
+        #moon-counter {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #fff;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -30,6 +41,67 @@
             </div>
         </div>
     </div>
+
+    <!-- Moon Phase Counter -->
+    <div id="moon-counter"></div>
+
+    <script>
+        // Fechas de las fases lunares en 2025
+        const moonPhases = [
+            { type: 'Luna Llena', date: new Date('2025-01-13T23:27:00') },
+            { type: 'Luna Nueva', date: new Date('2025-01-29T00:00:00') },
+            { type: 'Luna Llena', date: new Date('2025-02-12T00:00:00') },
+            { type: 'Luna Nueva', date: new Date('2025-02-27T00:00:00') },
+            { type: 'Luna Llena', date: new Date('2025-03-14T00:00:00') },
+            { type: 'Luna Nueva', date: new Date('2025-03-29T00:00:00') },
+            { type: 'Luna Llena', date: new Date('2025-04-12T00:00:00') },
+            { type: 'Luna Nueva', date: new Date('2025-04-28T00:00:00') },
+            { type: 'Luna Llena', date: new Date('2025-05-12T00:00:00') },
+            { type: 'Luna Nueva', date: new Date('2025-05-28T00:00:00') },
+            { type: 'Luna Llena', date: new Date('2025-06-11T00:00:00') },
+            { type: 'Luna Nueva', date: new Date('2025-06-26T00:00:00') },
+            { type: 'Luna Llena', date: new Date('2025-07-11T00:00:00') },
+            { type: 'Luna Nueva', date: new Date('2025-07-26T00:00:00') },
+            { type: 'Luna Llena', date: new Date('2025-08-09T00:00:00') },
+            { type: 'Luna Nueva', date: new Date('2025-08-24T00:00:00') },
+            { type: 'Luna Llena', date: new Date('2025-09-07T00:00:00') },
+            { type: 'Luna Nueva', date: new Date('2025-09-22T00:00:00') },
+            { type: 'Luna Llena', date: new Date('2025-10-07T00:00:00') },
+            { type: 'Luna Nueva', date: new Date('2025-10-22T00:00:00') },
+            { type: 'Luna Llena', date: new Date('2025-11-05T00:00:00') },
+            { type: 'Luna Nueva', date: new Date('2025-11-20T00:00:00') },
+            { type: 'Luna Llena', date: new Date('2025-12-05T00:00:00') },
+            { type: 'Luna Nueva', date: new Date('2025-12-20T00:00:00') }
+        ];
+
+        // Función para calcular el tiempo restante
+        function getRemainingTime(date) {
+            const now = new Date();
+            const diff = date - now;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            return { days, hours, minutes };
+        }
+
+        // Función para mostrar el contador
+        function showMoonCounter() {
+            const now = new Date();
+            const nextPhase = moonPhases.find(phase => phase.date > now);
+
+            if (nextPhase) {
+                const { days, hours, minutes } = getRemainingTime(nextPhase.date);
+                const counterElement = document.getElementById('moon-counter');
+                counterElement.innerHTML = `
+                    <h2>Próxima Fase Lunar</h2>
+                    <p><strong>${nextPhase.type}</strong> en ${days} días, ${hours} horas y ${minutes} minutos.</p>
+                `;
+            }
+        }
+
+        // Actualizar el contador cada minuto
+        showMoonCounter();
+        setInterval(showMoonCounter, 60000);
+    </script>
 </body>
 </html>
-

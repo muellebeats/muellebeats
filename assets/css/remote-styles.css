@@ -1,49 +1,101 @@
-/* Estilo para las secciones flotantes */
-.floating-section {
-    background-color: #1e1e1e; /* Fondo oscuro */
-    padding: 20px;
-    margin: 20px auto;
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra */
-    max-width: 800px; /* Anchura máxima */
-}
-
-/* Títulos de las secciones */
-.floating-section h2 {
-    color: #ff007a; /* Color de los títulos */
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-/* Texto dentro de las secciones */
-.floating-section p,
-.floating-section ul {
-    font-size: 1rem;
-    color: #e0e0e0; /* Texto ligeramente gris */
+/* General Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #212529;
     line-height: 1.6;
 }
 
-/* Estilo de los enlaces */
-.floating-section a {
-    color: #ff007a;
+/* Header */
+.header {
+    background: linear-gradient(135deg, #4A90E2, #9013FE);
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.header .logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.header .subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #fff;
+    border-bottom: 1px solid #e9ecef;
+    padding: 1rem 0;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar a {
+    color: #212529;
     text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
 }
 
-.floating-section a:hover {
-    color: #ff3399;
+.navbar a:hover {
+    color: #9013FE;
 }
 
-/* Botón dentro de las secciones */
-.btn-primary {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #ff007a;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
+/* Main Content */
+.content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 }
 
-.btn-primary:hover {
-    background-color: #ff3399;
+.section {
+    width: 100%;
+    max-width: 800px;
+}
+
+.card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    color: #4A90E2;
+    margin-bottom: 1rem;
+}
+
+.card ul {
+    padding-left: 1rem;
+}
+
+.card ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+.footer {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 2rem;
 }

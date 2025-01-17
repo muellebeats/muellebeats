@@ -39,15 +39,15 @@
             .attr("width", width)
             .attr("height", height);
 
-        // Datos del mapa conceptual
+        // Datos del mapa conceptual con descripciones
         const nodes = [
-            { id: "Segmentación", group: 1 },
-            { id: "Contenido Relevante", group: 2 },
-            { id: "Prueba Social", group: 2 },
-            { id: "Ofertas Irresistibles", group: 3 },
-            { id: "Embudo de Conversión", group: 3 },
-            { id: "Remarketing", group: 4 },
-            { id: "Retargeting", group: 4 }
+            { id: "Segmentación", group: 1, description: "Identifica a tu audiencia según intereses, datos demográficos y comportamiento." },
+            { id: "Contenido Relevante", group: 2, description: "Crea contenido que ofrezca valor educativo, emocional o práctico." },
+            { id: "Prueba Social", group: 2, description: "Usa testimonios, métricas y casos de éxito para generar confianza." },
+            { id: "Ofertas Irresistibles", group: 3, description: "Crea descuentos, acceso exclusivo o beneficios únicos por tiempo limitado." },
+            { id: "Embudo de Conversión", group: 3, description: "Guía a los usuarios desde el interés hasta la acción con un flujo claro." },
+            { id: "Remarketing", group: 4, description: "Impacta a usuarios interesados pero que no compraron con anuncios personalizados." },
+            { id: "Retargeting", group: 4, description: "Impacta a clientes previos para ofrecerles upgrades o nuevos productos." }
         ];
 
         const links = [
@@ -104,7 +104,7 @@
 
         node.on("mouseover", (event, d) => {
             tooltip.style("opacity", 1)
-                .html(`Estrategia: <b>${d.id}</b>`)
+                .html(`<strong>${d.id}</strong><br>${d.description}`)
                 .style("left", `${event.pageX + 10}px`)
                 .style("top", `${event.pageY + 10}px`);
         }).on("mouseout", () => {

@@ -1,0 +1,40 @@
+<form id="registerForm">
+  <label for="phone">Número de teléfono:</label>
+  <input type="tel" id="phone" name="phone" placeholder="+1234567890" required>
+  <button type="button" onclick="sendOTP()">Enviar Código</button>
+</form>
+
+<form id="otpForm" style="display: none;">
+  <label for="otp">Código de verificación:</label>
+  <input type="text" id="otp" name="otp" required>
+  <button type="button" onclick="verifyOTP()">Verificar</button>
+</form>
+
+<script>
+  async function sendOTP() {
+    const phone = document.getElementById('phone').value;
+    const response = await fetch('/send-otp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ phone })
+    });
+    if (response.ok) {
+      alert('Código enviado al número proporcionado.');
+      document.getElementById('otpForm').style.display = 'block';
+    }
+  }
+
+  async function verifyOTP() {
+    const otp = document.getElementById('otp').value;
+    const response = await fetch('/verify-otp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ otp })
+    });
+    if (response.ok) {
+      alert('Número verificado con éxito.');
+    } else {
+      alert('Error al verificar el código.');
+    }
+  }
+</script>

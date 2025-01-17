@@ -1,0 +1,40 @@
+from flask import Flask, request, jsonify
+from twilio.rest import Client
+import random
+
+app = Flask(__name__)
+otp_storage = {}  # Diccionario temporal para almacenar OTPs
+
+# Configura Twilio
+account_sid = 'TU_ACCOUNT_SID'
+auth_token = 'TU_AUTH_TOKEN'
+client = Client(account_sid, auth_token)
+
+@app.route('/send-otp', methods=['POST'])
+def send_otp():
+    data = request.json
+    phone = data['phone']
+    otp = str(random.randint(100000, 999999))
+    otp_storage[phone] = otp
+
+    # Enviar SMS
+    message = client.messages.create(
+        body=f'Tu código de verificación es: {otp}',
+        from_='+1234567890',  # Número de Twilio
+        to=phone
+    )
+    return jsonify({'message': 'OTP enviado.'}), 200
+
+@app.route('/verify-otp', methods=['POST'])
+def verify_otp():
+    data = request.json
+    phone = data['phone']
+    otp = data['otp']
+
+    if otp_storage.get(phone) == otp:
+        return jsonify({'message': 'Verificación exitosa.'}), 200
+    else:
+        return jsonify({'message': 'Código incorrecto.'}), 400
+
+if __name__ == '__main__':
+    app.run(debug=True)

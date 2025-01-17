@@ -1,97 +1,53 @@
-/* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
     background-color: #121212;
-    color: #fff;
-    line-height: 1.6;
+    color: #ffffff;
 }
 
-/* Header Styles */
 .header {
-    background-color: #1e1e1e;
-    padding: 20px;
     text-align: center;
+    padding: 20px;
+    background-color: #1f1f1f;
 }
 
 .header h1 {
     margin: 0;
-    font-size: 2.5rem;
-    color: #ff007a;
+    color: #ff6f61;
 }
 
 .header p {
-    font-size: 1rem;
-    color: #ccc;
+    margin: 0;
+    color: #cccccc;
 }
 
-/* Content Section */
 .content {
-    max-width: 800px;
-    margin: 20px auto;
     padding: 20px;
-    background-color: #1e1e1e;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    margin: auto;
 }
 
-/* Roadmap Section */
-#roadmap h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    color: #ff007a;
+.intro h2 {
+    color: #ff6f61;
 }
 
-#roadmap p {
-    font-size: 1rem;
-    margin-bottom: 15px;
-    color: #ccc;
+.features h3 {
+    color: #ff6f61;
 }
 
-#roadmap h3 {
-    font-size: 1.5rem;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: #ff007a;
-}
-
-#roadmap ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin-top: 10px;
-}
-
-#roadmap ul li {
-    font-size: 1rem;
-    margin-bottom: 10px;
-    position: relative;
-    padding-left: 20px;
-}
-
-#roadmap ul li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #ff007a;
-    font-size: 1.5rem;
-}
-
-#roadmap ul ul {
+ul {
+    list-style-type: disc;
     margin-left: 20px;
-    margin-top: 10px;
 }
 
-#roadmap ul ul li {
-    font-size: 0.9rem;
-    color: #ccc;
+ul ul {
+    list-style-type: circle;
 }
 
-/* Footer Styles */
-footer {
+.footer {
     text-align: center;
     padding: 20px;
-    background-color: #1e1e1e;
-    color: #ccc;
-    font-size: 0.9rem;
+    background-color: #1f1f1f;
+    color: #cccccc;
 }

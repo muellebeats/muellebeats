@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual Interactivo</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        .tooltip {
+            position: absolute;
+            text-align: center;
+            padding: 8px;
+            font-size: 0.9rem;
+            background: #333;
+            color: #fff;
+            border-radius: 5px;
+            pointer-events: none;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="tooltip" class="tooltip"></div>
+    <script>
+        // Configuración del SVG
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        const svg = d3.select("body")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        // Datos del mapa conceptual
+        const nodes = [
+            { id: "Segmentación", group: 1 },
+            { id: "Contenido Relevante", group: 2 },
+            { id: "Prueba Social", group: 2 },
+            { id: "Ofertas Irresistibles", group: 3 },
+            { id: "Embudo de Conversión", group: 3 },
+            { id: "Remarketing", group: 4 },
+            { id: "Retargeting", group: 4 }
+        ];
+
+        const links = [
+            { source: "Segmentación", target: "Contenido Relevante" },
+            { source: "Segmentación", target: "Prueba Social" },
+            { source: "Contenido Relevante", target: "Ofertas Irresistibles" },
+            { source: "Prueba Social", target: "Embudo de Conversión" },
+            { source: "Ofertas Irresistibles", target: "Remarketing" },
+            { source: "Embudo de Conversión", target: "Retargeting" }
+        ];
+
+        // Configuración de la simulación de fuerzas
+        const simulation = d3.forceSimulation(nodes)
+            .force("link", d3.forceLink(links).id(d => d.id).distance(150))
+            .force("charge", d3.forceManyBody().strength(-500))
+            .force("center", d3.forceCenter(width / 2, height / 2));
+
+        // Crear enlaces
+        const link = svg.append("g")
+            .selectAll("line")
+            .data(links)
+            .enter()
+            .append("line")
+            .attr("stroke", "#888")
+            .attr("stroke-width", 2);
+
+        // Crear nodos
+        const node = svg.append("g")
+            .selectAll("circle")
+            .data(nodes)
+            .enter()
+            .append("circle")
+            .attr("r", 20)
+            .attr("fill", d => {
+                const colors = ["#ff6f61", "#ffab40", "#6fcf97", "#56ccf2"];
+                return colors[d.group - 1];
+            })
+            .call(drag(simulation));
+
+        // Añadir etiquetas
+        const label = svg.append("g")
+            .selectAll("text")
+            .data(nodes)
+            .enter()
+            .append("text")
+            .text(d => d.id)
+            .attr("font-size", "12px")
+            .attr("fill", "#fff")
+            .attr("text-anchor", "middle")
+            .attr("dy", 4);
+
+        // Tooltip
+        const tooltip = d3.select("#tooltip");
+
+        node.on("mouseover", (event, d) => {
+            tooltip.style("opacity", 1)
+                .html(`Estrategia: <b>${d.id}</b>`)
+                .style("left", `${event.pageX + 10}px`)
+                .style("top", `${event.pageY + 10}px`);
+        }).on("mouseout", () => {
+            tooltip.style("opacity", 0);
+        });
+
+        // Actualizar posiciones
+        simulation.on("tick", () => {
+            link.attr("x1", d => d.source.x)
+                .attr("y1", d => d.source.y)
+                .attr("x2", d => d.target.x)
+                .attr("y2", d => d.target.y);
+
+            node.attr("cx", d => d.x)
+                .attr("cy", d => d.y);
+
+            label.attr("x", d => d.x)
+                .attr("y", d => d.y);
+        });
+
+        // Función para arrastrar nodos
+        function drag(simulation) {
+            return d3.drag()
+                .on("start", event => {
+                    if (!event.active) simulation.alphaTarget(0.3).restart();
+                    event.subject.fx = event.subject.x;
+                    event.subject.fy = event.subject.y;
+                })
+                .on("drag", event => {
+                    event.subject.fx = event.x;
+                    event.subject.fy = event.y;
+                })
+                .on("end", event => {
+                    if (!event.active) simulation.alphaTarget(0);
+                    event.subject.fx = null;
+                    event.subject.fy = null;
+                });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifesto Section</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .manifesto-section {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .manifesto-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .manifesto-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ff6f61;
+            margin: 0;
+        }
+
+        .manifesto-header p {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            margin-top: 10px;
+        }
+
+        .conversion-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .conversion-table th,
+        .conversion-table td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #333;
+        }
+
+        .conversion-table th {
+            background-color: #ff6f61;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .conversion-table td {
+            background-color: #2a2a2a;
+        }
+
+        .highlight {
+            color: #ff6f61;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .manifesto-header h1 {
+                font-size: 2rem;
+            }
+
+            .manifesto-header p {
+                font-size: 1rem;
+            }
+
+            .conversion-table th,
+            .conversion-table td {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="manifesto-section">
+        <div class="manifesto-header">
+            <h1>Impacto de Conversión en Audiencia Premium</h1>
+            <p>Calculamos el alcance potencial de suscriptores anuales en nuestra comunidad.</p>
+        </div>
+        <table class="conversion-table">
+            <thead>
+                <tr>
+                    <th>Conversión (%)</th>
+                    <th>Clientes Convertidos (1M Audiencia)</th>
+                    <th>Ingresos ($100/suscripción)</th>
+                    <th>Ingresos ($500/suscripción)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0.1%</td>
+                    <td>1,000</td>
+                    <td>$100,000</td>
+                    <td>$500,000</td>
+                </tr>
+                <tr>
+                    <td>0.5%</td>
+                    <td>5,000</td>
+                    <td class="highlight">$500,000</td>
+                    <td class="highlight">$2,500,000</td>
+                </tr>
+                <tr>
+                    <td>1%</td>
+                    <td>10,000</td>
+                    <td>$1,000,000</td>
+                    <td>$5,000,000</td>
+                </tr>
+                <tr>
+                    <td>2%</td>
+                    <td>20,000</td>
+                    <td>$2,000,000</td>
+                    <td>$10,000,000</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

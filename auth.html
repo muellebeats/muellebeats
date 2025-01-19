@@ -10,7 +10,7 @@
     <div class="auth-container">
         <div class="auth-card">
             <h1 class="auth-title">LOGIN TO MUELLE BEATS</h1>
-            <form id="loginForm" onsubmit="handleLogin(event)">
+            <form id="loginForm" onsubmit="redirectToDashboard(event)">
                 <!-- Email Field -->
                 <div class="input-group">
                     <label for="email">Email</label>
@@ -39,41 +39,17 @@
                 </p>
             </div>
         </div>
-
-        <!-- Contenedor adicional para mostrar el token generado -->
-        <div id="tokenOutput" style="margin-top: 20px; color: white; font-size: 16px;"></div>
     </div>
 
     <script>
-        // Manejar el login y conectar con el backend
-        async function handleLogin(event) {
+        // Redirigir al dashboard con los datos del formulario
+        function redirectToDashboard(event) {
             event.preventDefault(); // Evita la acción predeterminada del formulario
-
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
-            try {
-                // Enviar datos al backend para validación
-                const response = await fetch('auth.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: `action=login&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
-                });
-
-                const data = await response.json();
-
-                if (data.success) {
-                    // Mostrar el token en pantalla
-                    const token = data.token;
-                    alert(`Login exitoso. Token: ${token}`);
-                    document.getElementById('tokenOutput').innerText = `Token generado: ${token}`;
-                } else {
-                    alert('Login fallido: ' + data.message);
-                }
-            } catch (error) {
-                console.error('Error durante el login:', error);
-                alert('Ha ocurrido un error. Intenta nuevamente.');
-            }
+            // Redirigir al dashboard con los datos del usuario
+            window.location.href = `dashboard.html?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
         }
     </script>
 </body>

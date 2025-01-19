@@ -1,34 +1,33 @@
 <?php
-// Generar un token único
 function generateToken($length = 64) {
-    return bin2hex(random_bytes($length / 2)); // Token único
+    return bin2hex(random_bytes($length / 2));
 }
 
-// Validar el token (ejemplo simple)
-function validateToken($token) {
-    // Simulando una base de datos con un token válido
-    $validTokens = ['123abc456def', 'valid-token-example']; // Cambia por tu lógica de base de datos
-
-    if (in_array($token, $validTokens)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-// Lógica para manejar la solicitud
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['action']) && $_POST['action'] === 'generate') {
-        // Generar token y devolverlo
-        $token = generateToken();
-        echo json_encode(['token' => $token]);
-    } elseif (isset($_POST['action']) && $_POST['action'] === 'validate') {
-        // Validar token
-        $token = $_POST['token'] ?? '';
-        if (validateToken($token)) {
-            echo json_encode(['valid' => true, 'message' => 'Token válido']);
+    $action = $_POST['action'] ?? '';
+
+    if ($action === 'login') {
+        $email = $_POST['email'] ?? '';
+        $password = $_POST['password'] ?? '';
+
+        // Simula un usuario de prueba
+        $validUser = [
+            'email' => 'user@example.com',
+            'password' => '123456' // Esto debería estar cifrado en la base de datos
+        ];
+
+        // Validar las credenciales
+        if ($email === $validUser['email'] && $password === $validUser['password']) {
+            $token = generateToken();
+
+            // Guardar el token en la base de datos o sesión (simulación)
+            file_put_contents('tokens.txt', "$email:$token\n", FILE_APPEND);
+
+            // Respuesta de éxito
+            echo json_encode(['success' => true, 'token' => $token]);
         } else {
-            echo json_encode(['valid' => false, 'message' => 'Token inválido']);
+            // Respuesta de error
+            echo json_encode(['success' => false, 'message' => 'Invalid email or password']);
         }
     }
 }

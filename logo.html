@@ -27,11 +27,12 @@
         }
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             padding: 20px;
             width: 100%;
             max-width: 1200px;
+            box-sizing: border-box;
         }
         .gallery img {
             width: 100%;
@@ -44,11 +45,20 @@
             transform: scale(1.05);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
     </style>
 </head>
 <body>
     <h1>Logo</h1>
     <p>Nuestras motivaciones desde lo visual y funcional vienen de Aphex Twin, visualmente de marcas como Kappa y de los circuitos de Fórmula 1.</p>
+    <div class="button-container" style="margin: 20px; text-align: center;">
+        <a href="index.html" style="text-decoration: none; display: inline-block; margin: 10px auto; padding: 15px 30px; background-color: #007BFF; color: #fff; border-radius: 5px; font-size: 18px; font-weight: bold; transition: background-color 0.3s ease, transform 0.2s ease; text-align: center;">Volver a Inicio</a>
+    </div>
+
     <div class="gallery">
         <!-- Imagen 1 -->
         <img src="https://github.com/muellebeats/pradeep-/blob/main/image/jpgblack.png?raw=true" alt="Imagen 1">

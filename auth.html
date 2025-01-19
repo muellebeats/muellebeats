@@ -10,7 +10,7 @@
     <div class="auth-container">
         <div class="auth-card">
             <h1 class="auth-title">LOGIN TO MUELLE BEATS</h1>
-            <form id="loginForm" onsubmit="redirectToDashboard(event)">
+            <form id="loginForm" onsubmit="handleLogin(event)">
                 <!-- Email Field -->
                 <div class="input-group">
                     <label for="email">Email</label>
@@ -42,16 +42,35 @@
     </div>
 
     <script>
-        // Redirigir al dashboard con los datos del formulario
-        function redirectToDashboard(event) {
+        // Manejar el login y conectar con el backend
+        async function handleLogin(event) {
             event.preventDefault(); // Evita la acción predeterminada del formulario
+
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
-            // Redirigir al dashboard con los datos del usuario
-            window.location.href = `dashboard.html?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
+            try {
+                // Enviar datos al backend para validación
+                const response = await fetch('auth.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: `action=login&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Redirigir al dashboard con el token
+                    const token = data.token;
+                    window.location.href = `dashboard.html?token=${encodeURIComponent(token)}`;
+                } else {
+                    alert('Login failed: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+                alert('An error occurred. Please try again.');
+            }
         }
     </script>
 </body>
 </html>
-

@@ -39,6 +39,9 @@
                 </p>
             </div>
         </div>
+
+        <!-- Contenedor adicional para mostrar el token generado -->
+        <div id="tokenOutput" style="margin-top: 20px; color: white; font-size: 16px;"></div>
     </div>
 
     <script>
@@ -60,15 +63,16 @@
                 const data = await response.json();
 
                 if (data.success) {
-                    // Redirigir al dashboard con el token
+                    // Mostrar el token en pantalla
                     const token = data.token;
-                    window.location.href = `dashboard.html?token=${encodeURIComponent(token)}`;
+                    alert(`Login exitoso. Token: ${token}`);
+                    document.getElementById('tokenOutput').innerText = `Token generado: ${token}`;
                 } else {
-                    alert('Login failed: ' + data.message);
+                    alert('Login fallido: ' + data.message);
                 }
             } catch (error) {
-                console.error('Error during login:', error);
-                alert('An error occurred. Please try again.');
+                console.error('Error durante el login:', error);
+                alert('Ha ocurrido un error. Intenta nuevamente.');
             }
         }
     </script>

@@ -5,6 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roadmap - Muelle Beats</title>
     <link rel="stylesheet" href="./assets/css/roadmap-styles.css">
+    <style>
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .content-section {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -14,12 +40,13 @@
         </div>
     </header>
     <main class="content">
-        <section class="intro">
-            <h2>Roadmap</h2>
-            <p><strong>Introducción:</strong> Inspirado en bandas, solistas, artistas, maisons, casas de comida rápida, sociedades sin fines de lucro y whitepapers de criptomonedas, nace Muelle Beats revolucionando la forma en que los creadores conectan y colaboran en América Latina, México y España.</p>
+        <section>
+            <h2>Introducción</h2>
+            <p>Inspirado en bandas, solistas, artistas, maisons, casas de comida rápida, sociedades sin fines de lucro y whitepapers de criptomonedas, nace Muelle Beats revolucionando la forma en que los creadores conectan y colaboran en América Latina, México y España.</p>
         </section>
-        <section class="features">
-            <h3>Características Claves</h3>
+
+        <section>
+            <h2>Características Claves</h2>
             <ul>
                 <li><strong>Absorber o indexarse:</strong> Nos alineamos con otros grupos o asociaciones similares que compartan nuestros mismos gustos y objetivos.</li>
                 <li><strong>Nombre y Visión:</strong> Consideramos un nombre con "una letra griega + markets", con apertura a modificarlo en el futuro.</li>
@@ -36,9 +63,48 @@
                 <li><strong>Filosofía de Nicho:</strong> Crearemos para un público específico y no para el mundo.</li>
             </ul>
         </section>
+
+        <div class="button-container">
+            <button onclick="showContent('fines')">Fines</button>
+            <button onclick="showContent('principios')">Principios</button>
+            <button onclick="showContent('bases')">Bases</button>
+            <button onclick="showContent('objetivos')">Objetivos</button>
+        </div>
+
+        <section id="fines" class="content-section">
+            <h2>Fines</h2>
+            <p>Descripción de los fines del proyecto...</p>
+        </section>
+
+        <section id="principios" class="content-section">
+            <h2>Principios</h2>
+            <p>Descripción de los principios del proyecto...</p>
+        </section>
+
+        <section id="bases" class="content-section">
+            <h2>Bases</h2>
+            <p>Descripción de las bases del proyecto...</p>
+        </section>
+
+        <section id="objetivos" class="content-section">
+            <h2>Objetivos</h2>
+            <p>Descripción de los objetivos del proyecto...</p>
+        </section>
     </main>
-    <footer class="footer">
+
+    <footer>
         <p>&copy; 2025 Muelle Beats. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        function showContent(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.style.display = 'none');
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>

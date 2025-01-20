@@ -194,3 +194,40 @@ footer {
 .nav-links .nav-link:hover {
     color: #ffb295; /* Hover cálido */
 }
+/* Estilos para los botones de la barra de navegación */
+.navbar .btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.navbar .btn-primary {
+    background-color: #ff9478; /* Botón cálido */
+    color: #1a1212; /* Texto oscuro */
+    border: none;
+}
+
+.navbar .btn-primary:hover {
+    background-color: #ffb295; /* Hover cálido más claro */
+    transform: scale(1.05);
+}
+
+.navbar .btn-secondary {
+    background-color: #f5e6cc; /* Botón claro */
+    color: #1a1212; /* Texto oscuro */
+    border: none;
+}
+
+.navbar .btn-secondary:hover {
+    background-color: #ffe0c5; /* Hover cálido más claro */
+    transform: scale(1.05);
+}
+
+.navbar .small-btn {
+    padding: 8px 12px; /* Tamaño más compacto para botones */
+    font-size: 13px;
+}

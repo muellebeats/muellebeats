@@ -1,3 +1,2 @@
 # pradeep-
-finanzas, crypto, deporte, moda y musica.
-reels y zodiacos chinos.
+finanzas, web3, crypto, deporte, moda y musica.

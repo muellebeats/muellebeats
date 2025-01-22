@@ -231,11 +231,70 @@ footer {
     padding: 8px 12px; /* Tamaño más compacto para botones */
     font-size: 13px;
 }
-#chart-container {
-    width: 100%;
-    max-width: 800px;
-    height: 400px;
-    margin: auto;
-    background-color: #1a1a1a;
-    border: 1px solid #333;
+// Contenedor del gráfico
+const container = document.getElementById('chart-container');
+
+// Opciones del gráfico
+const chartOptions = {
+    layout: {
+        textColor: 'white',
+        background: { type: 'solid', color: '#1a1a1a' },
+    },
+    grid: {
+        vertLines: { color: '#2c2c2c' },
+        horzLines: { color: '#2c2c2c' },
+    },
+    priceScale: {
+        borderColor: '#555555',
+    },
+    timeScale: {
+        borderColor: '#555555',
+    },
+};
+
+// Crear el gráfico
+const chart = LightweightCharts.createChart(container, chartOptions);
+
+// Crear la serie de velas
+const candlestickSeries = chart.addCandlestickSeries({
+    upColor: '#26a69a', // Color para velas alcistas
+    downColor: '#ef5350', // Color para velas bajistas
+    borderUpColor: '#26a69a',
+    borderDownColor: '#ef5350',
+    wickUpColor: '#26a69a',
+    wickDownColor: '#ef5350',
+});
+
+// Función para obtener datos en tiempo real
+async function fetchCandlestickData() {
+    try {
+        // Aquí puedes usar una API real como Binance o CoinGecko
+        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=ars');
+        const data = await response.json();
+
+        // Simulando datos de velas para el ejemplo
+        const price = data.tether.ars;
+        const currentTime = Math.floor(Date.now() / 1000);
+
+        const newCandle = {
+            time: currentTime, // Timestamp
+            open: price * 0.99, // Precio de apertura
+            high: price * 1.01, // Precio máximo
+            low: price * 0.98, // Precio mínimo
+            close: price, // Precio de cierre
+        };
+
+        // Actualizar el gráfico
+        candlestickSeries.update(newCandle);
+    } catch (error) {
+        console.error('Error obteniendo datos de CoinGecko:', error);
+    }
 }
+
+// Actualizar los datos cada 10 segundos
+setInterval(fetchCandlestickData, 10000);
+
+// Redimensionar el gráfico
+window.addEventListener('resize', () => {
+    chart.applyOptions({ width: container.clientWidth });
+});

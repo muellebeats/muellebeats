@@ -1,35 +1,39 @@
+// chart.js
 const chartContainer = document.getElementById('chart-container');
-const chart = createChart(chartContainer, {
-    width: 600,
+
+const chart = LightweightCharts.createChart(chartContainer, {
+    width: chartContainer.clientWidth,
     height: 400,
     layout: {
-        backgroundColor: '#ffffff',
-        textColor: '#333',
+        backgroundColor: '#1a1a1a',
+        textColor: '#ffffff',
     },
     grid: {
         vertLines: {
-            color: '#e1e1e1',
+            color: '#2c2c2c',
         },
         horzLines: {
-            color: '#e1e1e1',
+            color: '#2c2c2c',
         },
     },
     priceScale: {
-        borderColor: '#cccccc',
+        borderColor: '#555555',
     },
     timeScale: {
-        borderColor: '#cccccc',
+        borderColor: '#555555',
     },
 });
 
 const lineSeries = chart.addLineSeries({
-    color: 'blue',
+    color: 'lime',
     lineWidth: 2,
 });
 
 lineSeries.setData([
-    { time: '2023-01-01', value: 180 },
-    { time: '2023-01-02', value: 185 },
-    { time: '2023-01-03', value: 190 },
-    { time: '2023-01-04', value: 188 },
+    { time: '2023-01-01', value: 1.2 },
+    { time: '2023-01-02', value: 1.3 },
+    { time: '2023-01-03', value: 1.1 },
+    { time: '2023-01-04', value: 1.4 },
+    { time: '2023-01-05', value: 1.5 },
 ]);
+

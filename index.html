@@ -121,6 +121,41 @@
         // Actualizar el contador cada minuto
         showMoonCounter();
         setInterval(showMoonCounter, 60000);
+        /* Empieza el script del botón dinámico */
+
+// Lista de palabras que comienzan con "C"
+const words = ['Crypto', 'Currency', 'Cardano', 'Chainlink', 'Cake', 'Chia', 'Cosmos'];
+
+// Referencias al botón y al contenedor
+const button = document.getElementById('dynamic-button');
+const optionsContainer = document.getElementById('dynamic-options');
+
+// Función para mostrar las palabras dinámicas
+function showOptions() {
+  optionsContainer.innerHTML = ''; // Limpia las opciones previas
+  const filteredWords = words.filter(word => word.toLowerCase().startsWith('c')); // Filtra las palabras
+  filteredWords.forEach(word => {
+    const option = document.createElement('div'); // Crea una nueva opción
+    option.textContent = word; // Asigna el texto de la palabra
+    optionsContainer.appendChild(option); // Agrega la opción al contenedor
+  });
+  optionsContainer.classList.add('visible'); // Muestra el contenedor
+}
+
+// Ocultar las opciones cuando el cursor sale
+function hideOptions() {
+  optionsContainer.classList.remove('visible');
+}
+
+// Event listeners para mostrar y ocultar
+button.addEventListener('mouseover', showOptions);
+button.addEventListener('mouseout', hideOptions);
+optionsContainer.addEventListener('mouseout', hideOptions);
+
+/* Fin del script del botón dinámico */
+
+   
+    
     </script>
 </body>
 </html>

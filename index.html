@@ -142,7 +142,43 @@
 <div id="moon-counter"></div>
 
 <script>
-    // El script de las fases lunares y el botón dinámico permanece igual
+    // Fechas de las fases lunares en 2025
+    const moonPhases = [
+        { type: 'Luna Llena', date: new Date('2025-01-13T23:27:00') },
+        { type: 'Luna Nueva', date: new Date('2025-01-29T00:00:00') },
+        { type: 'Luna Llena', date: new Date('2025-02-12T00:00:00') },
+        { type: 'Luna Nueva', date: new Date('2025-02-27T00:00:00') },
+        { type: 'Luna Llena', date: new Date('2025-03-14T00:00:00') },
+        { type: 'Luna Nueva', date: new Date('2025-03-29T00:00:00') },
+        { type: 'Luna Llena', date: new Date('2025-04-12T00:00:00') },
+        { type: 'Luna Nueva', date: new Date('2025-04-28T00:00:00') }
+    ];
+
+    function getRemainingTime(date) {
+        const now = new Date();
+        const diff = date - now;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        return { days, hours, minutes };
+    }
+
+    function showMoonCounter() {
+        const now = new Date();
+        const nextPhase = moonPhases.find(phase => phase.date > now);
+
+        if (nextPhase) {
+            const { days, hours, minutes } = getRemainingTime(nextPhase.date);
+            const counterElement = document.getElementById('moon-counter');
+            counterElement.innerHTML = `
+                <h2>Próxima Fase Lunar</h2>
+                <p><strong>${nextPhase.type}</strong> en ${days} días, ${hours} horas y ${minutes} minutos.</p>
+            `;
+        }
+    }
+
+    showMoonCounter();
+    setInterval(showMoonCounter, 60000);
 </script>
 </body>
 </html>

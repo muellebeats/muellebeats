@@ -15,150 +15,155 @@
             color: #fff;
             border-radius: 8px;
         }
+
+        /* Estilo para los botones superiores */
+        .navbar .btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+        }
+
+        .navbar .btn-secondary {
+            background-color: #6c757d;
+        }
+
+        .navbar .btn-primary {
+            background-color: #f05a24;
+        }
+
+        .navbar .btn img {
+            height: 30px;
+            width: auto;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
 <!-- Navbar -->
 <nav class="navbar">
     <div class="container">
-       <!-- Botón con la imagen del logo redimensionada -->
-<a href="logo.html" class="btn btn-secondary small-btn">
-    <img src="./image/2jpg.png" alt="Logo Muelle Beats" style="height: 30px; width: auto; display: inline-block;">
-</a>
-
-        <a href="https://ceneka.net/muellebeats" class="btn btn-primary small-btn">Donar</a>
-        <!-- Botón para redirigir al gráfico -->
-<div style="text-align: center; margin-top: 20px;">
-    <a href="chart.html" class="btn btn-primary" style="padding: 10px 20px; background-color: #f05a24; color: white; text-decoration: none; border-radius: 5px;">
-        Ver Gráfico Completo
-    </a>
-</div>
-
+        <!-- Botón con la imagen del logo redimensionada -->
+        <a href="logo.html" class="btn btn-secondary">
+            <img src="./image/2jpg.png" alt="Logo Muelle Beats">
+        </a>
+        <!-- Botón de Donar -->
+        <a href="https://ceneka.net/muellebeats" class="btn btn-primary">Donar</a>
+        <!-- Botón para Ver Gráfico Completo -->
+        <a href="chart.html" class="btn btn-primary">Ver Gráfico Completo</a>
     </div>
 </nav>
 
-
-    <!-- Hero Section -->
-    <div class="hero">
-        <video autoplay muted loop id="background-video">
-            <source src="./assets/video/20250110_1415_Rooftop%20Office%20Vibes_simple_compose_01jh8kcbrcf8z97sqvdmznwtta.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">Muelle Beats</h1>
-            <p class="hero-subtitle"> Musica & Nautica, House & Hip Hop. </p>
-            <div class="hero-buttons">
-                <a href="roadmap.html" class="btn btn-primary large-btn">Remote</a>
-                <a href="auth.html" class="btn btn-secondary large-btn">Login</a>
-                <!-- Botón dinámico con opciones -->
-<div class="button-container">
-  <!-- Botón principal -->
-  <button id="dynamic-button">Crypto</button>
-  <!-- Contenedor de opciones dinámicas -->
-  <div id="dynamic-options" class="hidden"></div>
-</div>
-<!-- Fin del botón dinámico con opciones -->
-
+<!-- Hero Section -->
+<div class="hero">
+    <video autoplay muted loop id="background-video">
+        <source src="./assets/video/20250110_1415_Rooftop%20Office%20Vibes_simple_compose_01jh8kcbrcf8z97sqvdmznwtta.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <h1 class="hero-title">Muelle Beats</h1>
+        <p class="hero-subtitle">Musica & Nautica, House & Hip Hop.</p>
+        <div class="hero-buttons">
+            <a href="roadmap.html" class="btn btn-primary large-btn">Remote</a>
+            <a href="auth.html" class="btn btn-secondary large-btn">Login</a>
+            <!-- Botón dinámico con opciones -->
+            <div class="button-container">
+                <!-- Botón principal -->
+                <button id="dynamic-button" class="btn btn-primary">Crypto</button>
+                <!-- Contenedor de opciones dinámicas -->
+                <div id="dynamic-options" class="hidden"></div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Moon Phase Counter -->
-    <div id="moon-counter"></div>
+<!-- Moon Phase Counter -->
+<div id="moon-counter"></div>
 
-    <script>
-        // Fechas de las fases lunares en 2025
-        const moonPhases = [
-            { type: 'Luna Llena', date: new Date('2025-01-13T23:27:00') },
-            { type: 'Luna Nueva', date: new Date('2025-01-29T00:00:00') },
-            { type: 'Luna Llena', date: new Date('2025-02-12T00:00:00') },
-            { type: 'Luna Nueva', date: new Date('2025-02-27T00:00:00') },
-            { type: 'Luna Llena', date: new Date('2025-03-14T00:00:00') },
-            { type: 'Luna Nueva', date: new Date('2025-03-29T00:00:00') },
-            { type: 'Luna Llena', date: new Date('2025-04-12T00:00:00') },
-            { type: 'Luna Nueva', date: new Date('2025-04-28T00:00:00') },
-            { type: 'Luna Llena', date: new Date('2025-05-12T00:00:00') },
-            { type: 'Luna Nueva', date: new Date('2025-05-28T00:00:00') },
-            { type: 'Luna Llena', date: new Date('2025-06-11T00:00:00') },
-            { type: 'Luna Nueva', date: new Date('2025-06-26T00:00:00') },
-            { type: 'Luna Llena', date: new Date('2025-07-11T00:00:00') },
-            { type: 'Luna Nueva', date: new Date('2025-07-26T00:00:00') },
-            { type: 'Luna Llena', date: new Date('2025-08-09T00:00:00') },
-            { type: 'Luna Nueva', date: new Date('2025-08-24T00:00:00') },
-            { type: 'Luna Llena', date: new Date('2025-09-07T00:00:00') },
-            { type: 'Luna Nueva', date: new Date('2025-09-22T00:00:00') },
-            { type: 'Luna Llena', date: new Date('2025-10-07T00:00:00') },
-            { type: 'Luna Nueva', date: new Date('2025-10-22T00:00:00') },
-            { type: 'Luna Llena', date: new Date('2025-11-05T00:00:00') },
-            { type: 'Luna Nueva', date: new Date('2025-11-20T00:00:00') },
-            { type: 'Luna Llena', date: new Date('2025-12-05T00:00:00') },
-            { type: 'Luna Nueva', date: new Date('2025-12-20T00:00:00') }
-        ];
+<script>
+    // Fechas de las fases lunares en 2025
+    const moonPhases = [
+        { type: 'Luna Llena', date: new Date('2025-01-13T23:27:00') },
+        { type: 'Luna Nueva', date: new Date('2025-01-29T00:00:00') },
+        { type: 'Luna Llena', date: new Date('2025-02-12T00:00:00') },
+        { type: 'Luna Nueva', date: new Date('2025-02-27T00:00:00') },
+        { type: 'Luna Llena', date: new Date('2025-03-14T00:00:00') },
+        { type: 'Luna Nueva', date: new Date('2025-03-29T00:00:00') },
+        { type: 'Luna Llena', date: new Date('2025-04-12T00:00:00') },
+        { type: 'Luna Nueva', date: new Date('2025-04-28T00:00:00') },
+        { type: 'Luna Llena', date: new Date('2025-05-12T00:00:00') },
+        { type: 'Luna Nueva', date: new Date('2025-05-28T00:00:00') },
+        { type: 'Luna Llena', date: new Date('2025-06-11T00:00:00') },
+        { type: 'Luna Nueva', date: new Date('2025-06-26T00:00:00') },
+        { type: 'Luna Llena', date: new Date('2025-07-11T00:00:00') },
+        { type: 'Luna Nueva', date: new Date('2025-07-26T00:00:00') },
+        { type: 'Luna Llena', date: new Date('2025-08-09T00:00:00') },
+        { type: 'Luna Nueva', date: new Date('2025-08-24T00:00:00') },
+        { type: 'Luna Llena', date: new Date('2025-09-07T00:00:00') },
+        { type: 'Luna Nueva', date: new Date('2025-09-22T00:00:00') },
+        { type: 'Luna Llena', date: new Date('2025-10-07T00:00:00') },
+        { type: 'Luna Nueva', date: new Date('2025-10-22T00:00:00') },
+        { type: 'Luna Llena', date: new Date('2025-11-05T00:00:00') },
+        { type: 'Luna Nueva', date: new Date('2025-11-20T00:00:00') },
+        { type: 'Luna Llena', date: new Date('2025-12-05T00:00:00') },
+        { type: 'Luna Nueva', date: new Date('2025-12-20T00:00:00') }
+    ];
 
-        // Función para calcular el tiempo restante
-        function getRemainingTime(date) {
-            const now = new Date();
-            const diff = date - now;
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            return { days, hours, minutes };
+    // Función para calcular el tiempo restante
+    function getRemainingTime(date) {
+        const now = new Date();
+        const diff = date - now;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        return { days, hours, minutes };
+    }
+
+    // Función para mostrar el contador
+    function showMoonCounter() {
+        const now = new Date();
+        const nextPhase = moonPhases.find(phase => phase.date > now);
+
+        if (nextPhase) {
+            const { days, hours, minutes } = getRemainingTime(nextPhase.date);
+            const counterElement = document.getElementById('moon-counter');
+            counterElement.innerHTML = `
+                <h2>Próxima Fase Lunar</h2>
+                <p><strong>${nextPhase.type}</strong> en ${days} días, ${hours} horas y ${minutes} minutos.</p>
+            `;
         }
+    }
 
-        // Función para mostrar el contador
-        function showMoonCounter() {
-            const now = new Date();
-            const nextPhase = moonPhases.find(phase => phase.date > now);
+    // Actualizar el contador cada minuto
+    showMoonCounter();
+    setInterval(showMoonCounter, 60000);
 
-            if (nextPhase) {
-                const { days, hours, minutes } = getRemainingTime(nextPhase.date);
-                const counterElement = document.getElementById('moon-counter');
-                counterElement.innerHTML = `
-                    <h2>Próxima Fase Lunar</h2>
-                    <p><strong>${nextPhase.type}</strong> en ${days} días, ${hours} horas y ${minutes} minutos.</p>
-                `;
-            }
-        }
+    // Empieza el script del botón dinámico
+    const words = ['Crypto', 'Currency', 'Cardano', 'Chainlink', 'Cake', 'Chia', 'Cosmos'];
+    const button = document.getElementById('dynamic-button');
+    const optionsContainer = document.getElementById('dynamic-options');
 
-        // Actualizar el contador cada minuto
-        showMoonCounter();
-        setInterval(showMoonCounter, 60000);
-        /* Empieza el script del botón dinámico */
+    function showOptions() {
+        optionsContainer.innerHTML = '';
+        const filteredWords = words.filter(word => word.toLowerCase().startsWith('c'));
+        filteredWords.forEach(word => {
+            const option = document.createElement('div');
+            option.textContent = word;
+            optionsContainer.appendChild(option);
+        });
+        optionsContainer.classList.add('visible');
+    }
 
-// Lista de palabras que comienzan con "C"
-const words = ['Crypto', 'Currency', 'Cardano', 'Chainlink', 'Cake', 'Chia', 'Cosmos'];
+    function hideOptions() {
+        optionsContainer.classList.remove('visible');
+    }
 
-// Referencias al botón y al contenedor
-const button = document.getElementById('dynamic-button');
-const optionsContainer = document.getElementById('dynamic-options');
-
-// Función para mostrar las palabras dinámicas
-function showOptions() {
-  optionsContainer.innerHTML = ''; // Limpia las opciones previas
-  const filteredWords = words.filter(word => word.toLowerCase().startsWith('c')); // Filtra las palabras
-  filteredWords.forEach(word => {
-    const option = document.createElement('div'); // Crea una nueva opción
-    option.textContent = word; // Asigna el texto de la palabra
-    optionsContainer.appendChild(option); // Agrega la opción al contenedor
-  });
-  optionsContainer.classList.add('visible'); // Muestra el contenedor
-}
-
-// Ocultar las opciones cuando el cursor sale
-function hideOptions() {
-  optionsContainer.classList.remove('visible');
-}
-
-// Event listeners para mostrar y ocultar
-button.addEventListener('mouseover', showOptions);
-button.addEventListener('mouseout', hideOptions);
-optionsContainer.addEventListener('mouseout', hideOptions);
-
-/* Fin del script del botón dinámico */
-
-   
-    
-    </script>
+    button.addEventListener('mouseover', showOptions);
+    button.addEventListener('mouseout', hideOptions);
+    optionsContainer.addEventListener('mouseout', hideOptions);
+</script>
 </body>
 </html>

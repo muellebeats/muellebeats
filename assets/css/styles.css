@@ -231,3 +231,11 @@ footer {
     padding: 8px 12px; /* Tamaño más compacto para botones */
     font-size: 13px;
 }
+#chart-container {
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    margin: auto;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+}

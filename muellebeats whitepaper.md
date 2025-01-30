@@ -1,17 +1,64 @@
-Muelle & Beats.
-Priorizando el caracter anonimo siguiendo el modelo sobre el cual actuo en su momento Bitcoin y por ejemplo el artista "Bansky". 
-Con esto nuestra finalidad es aumentar el misterio sobre la obra, quienes estan detras de su realizacion y nuestro proceso creativo.
-Operamos dentro de los rubros del arte, la comunicacion y la moda. 
-Dentro del arte actuamos especificamente dentro del ambiente musical, como arte visual, plastico. 
-Priorizamos el hecho de contar con una reunion, pop up, workshop o meet & greet mensual (una vez por mes o una vez cada 30 dias) con el fin de trabajar sobre los objetivos en comun. Ponerse al dia entre los miembros, integrantes o asistentes. Enfatizar sobre tematicas presentes para poder planificar a futuro sobre posibles eventos. 
-La locacion de estas reuniones puede ser rotativa con el fin de que el lugar seleccionado promueva la creatividad, productividad, un buen estado de animo y actividades como lluvia de ideas y networking.
-Desde Muelle & Beats, vamos a contar con una propuesta en materia indumentaria, ofreciendo al espectador/consumidor una linea de merch. 
-Este merch puede ser renovado teniendo en cuenta la demanda del consumidor y los recursos nuestros. 
-Apalancadonos en fechas conmemorativas, patrias o festividades evaluaremos la posibilidad de lanzar indumentaria limitada haciendo homenaje a tal tematica. Ejemplo: 14 de Febrero. Temporada Verano, Invierno. Etc.
-Uno de nuestros objetivos a desarrollar como entidad es la realizacion de una biblioteca fisica propia con el fin de enriquecer las herramientas de nuestros miembros y nutrir la sed de aprender sobre materias nuevas, tanto asi como promover la lectura por ocio para evitar el uso de aparator electronicos (celulares, tablets, reels, tik tok).
-A la hora de crear arte barajamos 3 metodos o modalidades diferentes. 
-Session sobre material ya grabado de parte del artista. 
-Session con el fin de crear material nuevo de parte del artista + productor/es y vocalistas.
-Session en vivo en formato de video straming o en un lugar fisico con espectadores con el fin de crear y mostrar arte, actuando bajo el concepto de un show o evento en vivo, donde el publico enriquece la atmosfera en general y el performance de los artistas, eligiendo asi protagonistas idoneos para actuar bajo un gran publico. 
-En caso de contar con todas las instalaciones, software y personal necesario, elevamos la propuesta de mantener una radio ya sea en vivo o un segmento que se suba a la nube, diaria, semanal o mensualmente en formato de Radio, principalmente en los generos musicales de "Hip Hop" y "House".
-Evaluamos la posibilidad de ofrecer nuestros servicios de produccion, mix de sonido y asesoria a artistas calificados que asi lo requieran y deseen que le brindemos nuestra vision y gusto musical, visual. 
+# Muelle & Beats
+
+## Filosofía y Propósito
+En **Muelle & Beats** priorizamos el carácter anónimo, siguiendo el modelo que en su momento inspiró Bitcoin y el trabajo del artista "Banksy". Nuestra finalidad es aumentar el misterio alrededor de la obra, las personas detrás de su realización y nuestro proceso creativo.
+
+Operamos dentro de los rubros del **arte**, la **comunicación** y la **moda**, actuando específicamente en el ámbito musical, el arte visual y el plástico.
+
+---
+
+## Encuentros y Networking
+Creemos en la importancia de reunirnos mensualmente para:
+- Trabajar sobre objetivos en común.
+- Ponernos al día entre miembros, integrantes o asistentes.
+- Enfatizar temáticas presentes y planificar futuros eventos.
+
+Las reuniones pueden realizarse en locaciones rotativas para:
+- Promover la creatividad y productividad.
+- Mantener un buen estado de ánimo.
+- Fomentar actividades como lluvias de ideas y networking.
+
+---
+
+## Merchandising y Propuesta en Indumentaria
+Ofrecemos una **línea de merch** que será renovada según:
+- La demanda del consumidor.
+- Los recursos disponibles.
+
+Además, planeamos lanzar colecciones de **edición limitada** para conmemorar fechas especiales como:
+- 14 de febrero.
+- Temporada de verano o invierno.
+
+---
+
+## Biblioteca Física
+Uno de nuestros objetivos es desarrollar una **biblioteca física propia** para:
+- Enriquecer las herramientas de nuestros miembros.
+- Nutrir la sed de aprendizaje en nuevas materias.
+- Promover la lectura por ocio, minimizando el uso de dispositivos electrónicos como celulares, tablets o redes sociales.
+
+---
+
+## Modalidades de Creación Artística
+A la hora de crear arte, trabajamos bajo tres modalidades:
+1. **Sesión sobre material ya grabado:** Donde el artista añade su estilo único.
+2. **Sesión para crear material nuevo:** Colaboración entre artistas, productores y vocalistas.
+3. **Sesión en vivo:**
+   - En formato de video streaming o en un lugar físico.
+   - Bajo el concepto de un show o evento en vivo.
+   - Con público que enriquezca la atmósfera y el performance.
+
+---
+
+## Radio y Contenido Multimedia
+Planeamos mantener una **radio online** en vivo o con segmentos grabados, que podrían subirse:
+- Diariamente, semanalmente o mensualmente.
+- Focalizados en los géneros musicales de "Hip Hop" y "House".
+
+---
+
+## Servicios Adicionales
+Evaluamos ofrecer:
+- Servicios de producción musical.
+- Mezcla de sonido.
+- Asesoría para artistas calificados que busquen nuestra visión y estilo único, tanto musical como visual.

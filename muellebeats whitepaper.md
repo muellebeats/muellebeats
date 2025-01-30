@@ -24,6 +24,7 @@ Las reuniones pueden realizarse en locaciones rotativas para:
 Ofrecemos una **línea de merch** que será renovada según:
 - La demanda del consumidor.
 - Los recursos disponibles.
+- - Priorizamos una linea de indumentaria basica de uso diario, con nuestro logo, slogan, motto. Viendo posible en un futuro cercano complejizar nuestros diseños, costuras, colores, con el fin de crear una prenda mas detallada e inedita.
 
 Además, planeamos lanzar colecciones de **edición limitada** para conmemorar fechas especiales como:
 - 14 de febrero.

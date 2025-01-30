@@ -62,3 +62,10 @@ Evaluamos ofrecer:
 - Servicios de producción musical.
 - Mezcla de sonido.
 - Asesoría para artistas calificados que busquen nuestra visión y estilo único, tanto musical como visual.
+
+  ## RoadMap
+
+- Para el primer trimestre de 2025 visualizamos funcionalmente nuestras meetings presenciales 1 vez cada 4 semanas. En lugar rotativos.
+- Al realizarse en caracter de 1 vez por año, para el segundo semestre de 2025 vemos posible realizar nuestro evento masivo en el ambito del entertaiment, arte. 
+- Para estar en contacto con nuestro publico, espectador y oyente buscamos realizar presentaciones en vivo regularmente con el fin de visibilizar nuestros avances y progresiones en materia artistica, musical, performance. Tratando de implementar actos nuevos o transciciones.
+- Vemos posible para 2025 o 2026 implementar arte visual hecho con CGI. 

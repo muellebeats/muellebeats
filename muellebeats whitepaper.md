@@ -1,4 +1,6 @@
 # Muelle & Beats
+"Music can be a strong positive influence"
+"Cabos Sueltos"
 
 ## Filosofía y Propósito
 En **Muelle & Beats** priorizamos el carácter anónimo, siguiendo el modelo que en su momento inspiró Bitcoin y el trabajo del artista "Banksy". Nuestra finalidad es aumentar el misterio alrededor de la obra, las personas detrás de su realización y nuestro proceso creativo.

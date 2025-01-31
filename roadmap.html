@@ -66,7 +66,7 @@
 
         <div class="button-container">
             <button onclick="showContent('fines')">Fines</button>
-            <button onclick="showContent('principios')">Principios</button>
+            <button onclick="showPrincipios()">Principios</button>
             <button onclick="showContent('bases')">Bases</button>
             <button onclick="showContent('objetivos')">Objetivos</button>
         </div>
@@ -78,7 +78,9 @@
 
         <section id="principios" class="content-section">
             <h2>Principios</h2>
-            <p>Descripción de los principios del proyecto...</p>
+            <div id="principios_content">
+                <!-- Aquí se llenará con los principios desde el backend -->
+            </div>
         </section>
 
         <section id="bases" class="content-section">
@@ -107,6 +109,23 @@
                 selectedSection.style.display = 'block';
             }
         }
+
+        async function showPrincipios() {
+            const response = await fetch('http://127.0.0.1:5000/get_principios');
+            const data = await response.json();
+            
+            const principiosContainer = document.getElementById('principios_content');
+            principiosContainer.innerHTML = `
+                <ul>
+                    <li><strong>Principio 1:</strong> ${data.principio_1}</li>
+                    <li><strong>Principio 2:</strong> ${data.principio_2}</li>
+                    <li><strong>Principio 3:</strong> ${data.principio_3}</li>
+                </ul>
+            `;
+            
+            showContent('principios');
+        }
     </script>
 </body>
 </html>
+

@@ -75,4 +75,7 @@ Evaluamos ofrecer:
 - Vemos posible para 2025 o 2026 implementar arte visual hecho con CGI.
 
 - ## Temas a Desarrollar.
-- Reels y X (Tweets). 
+- Reels y X (Tweets).
+- 
+- # Visualizamos
+- El talento como algo unico e inedito donde cada artista puede expresar su vision y oido. Con la particularidad de que nuestra experiencia le cambia la vida a individuos por que de la forma que trabajamos hacemos que ese arte que lleva dentro suyo cada artista, pueda sacarlo y replicarlo cuantas veces quiera para crear una obra, una performance y de esa forma mostrarse al mundo exterior con el objetivo de suceder y en un futuro a corto y mediano plazo lograr hacer shows en vivo y posicionarse en un lugar estrategico gracias a sus dones, habilidades y expresion.

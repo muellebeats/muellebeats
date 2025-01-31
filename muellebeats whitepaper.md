@@ -4,7 +4,8 @@
 "Cabos Sueltos"
 
 ## Filosofía y Propósito
-En **Muelle & Beats** priorizamos el carácter anónimo, siguiendo el modelo que en su momento inspiró Bitcoin y el trabajo del artista "Banksy". Nuestra finalidad es aumentar el misterio alrededor de la obra, las personas detrás de su realización y nuestro proceso creativo.
+En **Muelle & Beats** priorizamos el carácter anónimo, siguiendo el modelo que en su momento inspiró Bitcoin y el trabajo del artista "Banksy".
+Nuestra finalidad es aumentar el misterio alrededor de la obra, las personas detrás de su realización y nuestro proceso creativo.
 
 Operamos dentro de los rubros del **arte**, la **comunicación** y la **moda**, actuando específicamente en el ámbito musical, el arte visual y el plástico.
 
@@ -79,3 +80,6 @@ Evaluamos ofrecer:
 - 
 - # Visualizamos
 - El talento como algo unico e inedito donde cada artista puede expresar su vision y oido. Con la particularidad de que nuestra experiencia le cambia la vida a individuos por que de la forma que trabajamos hacemos que ese arte que lleva dentro suyo cada artista, pueda sacarlo y replicarlo cuantas veces quiera para crear una obra, una performance y de esa forma mostrarse al mundo exterior con el objetivo de suceder y en un futuro a corto y mediano plazo lograr hacer shows en vivo y posicionarse en un lugar estrategico gracias a sus dones, habilidades y expresion.
+- - # Fomentamos
+  - El hecho de anexarnos, unirnos, colaborar en formato capsula con cualquier organizacion, artista, manager, estudio musical/fotografico/visual o colectivo que persiga objetivos similares a los nuestros y compartan una vision similar.
+  - 

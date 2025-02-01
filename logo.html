@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logo</title>
     <style>
+        /* Estilos generales */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -13,11 +14,25 @@
             flex-direction: column;
             align-items: center;
             background-color: #f4f4f4;
+            overflow: hidden;
         }
+
+        /* Estilo para el video de fondo */
+        video.background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Lo coloca detrás del contenido */
+        }
+
         h1 {
             margin-top: 20px;
             color: #333;
         }
+
         p {
             color: #555;
             text-align: center;
@@ -25,6 +40,7 @@
             margin: 10px 20px;
             font-size: 1.1em;
         }
+
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -34,6 +50,7 @@
             max-width: 1200px;
             box-sizing: border-box;
         }
+
         .gallery img {
             width: 100%;
             height: auto;
@@ -41,10 +58,12 @@
             border-radius: 10px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .gallery img:hover {
             transform: scale(1.05);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
+
         @media (max-width: 768px) {
             .gallery {
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -53,10 +72,16 @@
     </style>
 </head>
 <body>
+
+    <!-- Video de fondo -->
+    <video class="background-video" autoplay loop muted>
+        <source src="anmAzul.mp4" type="video/mp4">
+        Tu navegador no soporta este formato de video.
+    </video>
+
     <h1>Logo</h1>
 
-    <!-- Holding. Soluciones y desarrollo de sistemas para scalping, daytrading, intraday y reversal patterns. -->
-    <p style="color: red;"> <!-- Escribe tu texto aquí en este lugar -->
+    <p style="color: red;">
         Nuestras motivaciones desde lo visual y funcional vienen de Aphex Twin, visualmente de marcas como Kappa y de los circuitos de Fórmula 1.
     </p>
 
@@ -64,24 +89,17 @@
         <a href="index.html" style="text-decoration: none; display: inline-block; margin: 10px auto; padding: 15px 30px; background-color: #007BFF; color: #fff; border-radius: 5px; font-size: 18px; font-weight: bold; transition: background-color 0.3s ease, transform 0.2s ease; text-align: center;">Volver a Inicio</a>
     </div>
 
-    <!-- Aquí también puedes agregar más texto si lo deseas -->
     <div style="color: red; text-align: center;">
-        <!-- Escribe más texto aquí -->
-        <p> Holding. Soluciones y desarrollo de sistemas para scalping, daytrading, intraday y reversal patterns.</p>
+        <p>Holding. Soluciones y desarrollo de sistemas para scalping, daytrading, intraday y reversal patterns.</p>
     </div>
 
     <div class="gallery">
-        <!-- Imagen 1 -->
         <img src="https://github.com/muellebeats/pradeep-/blob/main/image/jpgblack.png?raw=true" alt="Imagen 1">
-
-        <!-- Imagen 2 -->
         <img src="https://github.com/muellebeats/pradeep-/blob/main/image/2jpg.png?raw=true" alt="Imagen 2">
-
-        <!-- Imagen 3 -->
         <img src="https://github.com/muellebeats/pradeep-/blob/main/image/1jpg.png?raw=true" alt="Imagen 3">
-
-        <!-- Imagen 4 -->
         <img src="https://github.com/muellebeats/pradeep-/blob/main/image/12%20(1).jpg?raw=true" alt="Imagen 4">
     </div>
+
 </body>
 </html>
+

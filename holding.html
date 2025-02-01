@@ -6,39 +6,37 @@
     <title>Muelle Beats</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
     <style>
-        /* Estilo para que el video cubra toda la pantalla */
-        body, html {
+        body {
             margin: 0;
             padding: 0;
-            height: 100%;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            font-size: 2rem;
+            font-family: Arial, sans-serif;
+            text-align: center;
         }
-        
-        .video-container {
+        #background-video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
-        }
-
-        video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            min-width: 100%;
-            min-height: 100%;
+            object-fit: cover;
+            z-index: -1;
         }
     </style>
 </head>
 <body>
-    <div class="video-container">
-        <video autoplay muted loop>
-            <source src="./assets/video/anmRosa.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
+    <video autoplay muted loop id="background-video">
+        <source src="./assets/video/anmRosa.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div>Holding & Trading</div>
 </body>
 </html>
+

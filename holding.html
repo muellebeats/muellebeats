@@ -32,28 +32,27 @@
             z-index: -1;
         }
 
-        .tweet-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
+      .tweet-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Asegura que ocupe todo el alto de la ventana */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .tweet {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-            }
+.tweet {
+    position: absolute;
+    width: auto; /* Ajusta automáticamente el tamaño */
+    max-width: 90%; /* Evita que se salga del contenedor */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
 
-        /* Posiciones de los tweets */
-        .tweet:nth-child(1) { top: 20%; left: 10%; }
-        .tweet:nth-child(2) { top: 50%; left: 70%; }
-        .tweet:nth-child(3) { top: 75%; left: 30%; }
-      .tweet.active {
-        opacity: 1;
-    }
+.tweet.active {
+    opacity: 1;
+}
+
 </style>
 </head>
 <body>

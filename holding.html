@@ -33,22 +33,28 @@
         }
 
         .tweet-container {
-            position: absolute;
+            position: relative;
             width: 100%;
             height: 100%;
         }
 
         .tweet {
-            position: absolute;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-        }
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+            }
 
         /* Posiciones de los tweets */
         .tweet:nth-child(1) { top: 20%; left: 10%; }
         .tweet:nth-child(2) { top: 50%; left: 70%; }
         .tweet:nth-child(3) { top: 75%; left: 30%; }
-    </style>
+      .tweet.active {
+        opacity: 1;
+    }
+</style>
 </head>
 <body>
     <!-- Video de fondo -->
@@ -96,28 +102,33 @@
 </div>
 
      
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const tweets = document.querySelectorAll(".tweet");
-            let currentTweetIndex = 0;
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const tweets = document.querySelectorAll(".tweet");
+        let currentTweetIndex = 0;
 
-            function showTweet(index) {
-                tweets.forEach((tweet, i) => {
-                    tweet.style.opacity = i === index ? "1" : "0";
-                });
-            }
+        function showTweet(index) {
+            tweets.forEach((tweet, i) => {
+                if (i === index) {
+                    tweet.classList.add("active");
+                } else {
+                    tweet.classList.remove("active");
+                }
+            });
+        }
 
-            function rotateTweets() {
-                currentTweetIndex = (currentTweetIndex + 1) % tweets.length;
-                showTweet(currentTweetIndex);
-            }
-
-            // Inicializa la visibilidad de los tweets
+        function rotateTweets() {
+            currentTweetIndex = (currentTweetIndex + 1) % tweets.length;
             showTweet(currentTweetIndex);
+        }
 
-            // Cambia de tweet cada 3 segundos
-            setInterval(rotateTweets, 3000);
-        });
-    </script>
+        // Inicializa la visibilidad del primer tweet
+        showTweet(currentTweetIndex);
+
+        // Cambia de tweet cada 4 segundos
+        setInterval(rotateTweets, 4000);
+    });
+</script>
+
 </body>
 </html>

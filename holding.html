@@ -32,28 +32,51 @@
             z-index: -1;
         }
 
-      .tweet-container {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* Asegura que ocupe todo el alto de la ventana */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .tweet-container {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Asegura que ocupe todo el alto de la ventana */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.tweet {
-    position: absolute;
-    width: auto; /* Ajusta automáticamente el tamaño */
-    max-width: 90%; /* Evita que se salga del contenedor */
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
+        .tweet {
+            position: absolute;
+            width: auto; /* Ajusta automáticamente el tamaño */
+            max-width: 90%; /* Evita que se salga del contenedor */
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
 
-.tweet.active {
-    opacity: 1;
-}
+        .tweet.active {
+            opacity: 1;
+        }
 
-</style>
+        /* Botón para redirigir */
+        .redirect-button {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-family: Arial, sans-serif;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            z-index: 10;
+        }
+
+        .redirect-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            color: black;
+            border-color: white;
+        }
+    </style>
 </head>
 <body>
     <!-- Video de fondo -->
@@ -87,47 +110,49 @@
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
         </div>
+
+        <div class="tweet">
+            <div style="transform: scale(0.6); transform-origin: top left; width: fit-content;">
+                <blockquote class="twitter-tweet">
+                    <p lang="zxx" dir="ltr">
+                        <a href="https://t.co/ZFNtNKB7OR">pic.twitter.com/ZFNtNKB7OR</a>
+                    </p>&mdash; naiive (@naiivememe) 
+                    <a href="https://twitter.com/naiivememe/status/1886265982077014328?ref_src=twsrc%5Etfw">February 3, 2025</a>
+                </blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+        </div>
     </div>
-    <div class="tweet">
-    <div style="transform: scale(0.6); transform-origin: top left; width: fit-content;">
-        <blockquote class="twitter-tweet">
-            <p lang="zxx" dir="ltr">
-                <a href="https://t.co/ZFNtNKB7OR">pic.twitter.com/ZFNtNKB7OR</a>
-            </p>&mdash; naiive (@naiivememe) 
-            <a href="https://twitter.com/naiivememe/status/1886265982077014328?ref_src=twsrc%5Etfw">February 3, 2025</a>
-        </blockquote>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </div>
-</div>
 
-     
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const tweets = document.querySelectorAll(".tweet");
-        let currentTweetIndex = 0;
+    <!-- Botón para redirigir -->
+    <a href="software.html" class="redirect-button">Explorar software</a>
 
-        function showTweet(index) {
-            tweets.forEach((tweet, i) => {
-                if (i === index) {
-                    tweet.classList.add("active");
-                } else {
-                    tweet.classList.remove("active");
-                }
-            });
-        }
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const tweets = document.querySelectorAll(".tweet");
+            let currentTweetIndex = 0;
 
-        function rotateTweets() {
-            currentTweetIndex = (currentTweetIndex + 1) % tweets.length;
+            function showTweet(index) {
+                tweets.forEach((tweet, i) => {
+                    if (i === index) {
+                        tweet.classList.add("active");
+                    } else {
+                        tweet.classList.remove("active");
+                    }
+                });
+            }
+
+            function rotateTweets() {
+                currentTweetIndex = (currentTweetIndex + 1) % tweets.length;
+                showTweet(currentTweetIndex);
+            }
+
+            // Inicializa la visibilidad del primer tweet
             showTweet(currentTweetIndex);
-        }
 
-        // Inicializa la visibilidad del primer tweet
-        showTweet(currentTweetIndex);
-
-        // Cambia de tweet cada 4 segundos
-        setInterval(rotateTweets, 4000);
-    });
-</script>
-
+            // Cambia de tweet cada 4 segundos
+            setInterval(rotateTweets, 4000);
+        });
+    </script>
 </body>
 </html>

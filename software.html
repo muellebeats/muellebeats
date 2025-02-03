@@ -31,6 +31,29 @@
             z-index: -1;
             filter: brightness(0.6); /* Filtro para hacerlo más tenue */
         }
+             /* Botón para redirigir */
+        .redirect-button {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-family: Arial, sans-serif;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            z-index: 10;
+        }
+
+        .redirect-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            color: black;
+            border-color: white;
+        }
     </style>
 </head>
 <body>

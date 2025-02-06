@@ -11,23 +11,10 @@
         <div class="auth-card">
             <h1 class="auth-title">LOGIN TO MUELLE BEATS</h1>
             <form id="loginForm" onsubmit="redirectToDashboard(event)">
-                <!-- Email Field -->
+                <!-- Token Field -->
                 <div class="input-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                </div>
-
-                <!-- Password Field -->
-                <div class="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
-                </div>
-
-                <!-- Remember Me Checkbox -->
-                <div class="input-group">
-                    <label>
-                        <input type="checkbox" id="rememberMe" name="rememberMe"> Remember Me
-                    </label>
+                    <label for="token">Access Token</label>
+                    <input type="password" id="token" name="token" placeholder="Enter your access token" required>
                 </div>
 
                 <!-- Login Button -->
@@ -35,21 +22,20 @@
             </form>
             <div class="auth-footer">
                 <p>
-                    Don't have an account? <a href="register.html" class="link">Sign Up</a>
+                    Don't have a token? <a href="request-token.html" class="link">Request One</a>
                 </p>
             </div>
         </div>
     </div>
 
     <script>
-        // Redirigir al dashboard con los datos del formulario
+        // Redirigir al dashboard usando el token
         function redirectToDashboard(event) {
             event.preventDefault(); // Evita la acción predeterminada del formulario
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+            const token = document.getElementById('token').value;
 
-            // Redirigir al dashboard con los datos del usuario
-            window.location.href = `dashboard.html?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
+            // Redirigir al dashboard con el token
+            window.location.href = `dashboard.html?token=${encodeURIComponent(token)}`;
         }
     </script>
 </body>

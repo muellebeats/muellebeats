@@ -32,27 +32,6 @@
             z-index: -1;
         }
 
-        .tweet-container {
-            position: relative;
-            width: 100%;
-            height: 100vh; /* Asegura que ocupe todo el alto de la ventana */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .tweet {
-            position: absolute;
-            width: auto; /* Ajusta automáticamente el tamaño */
-            max-width: 90%; /* Evita que se salga del contenedor */
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .tweet.active {
-            opacity: 1;
-        }
-
         /* Botón para redirigir */
         .redirect-button {
             position: absolute;
@@ -85,74 +64,7 @@
         Your browser does not support the video tag.
     </video>
 
-    <!-- Contenedor de tweets -->
-    <div class="tweet-container">
-        <div class="tweet">
-            <div style="transform: scale(0.6); transform-origin: top left; width: fit-content;">
-                <blockquote class="twitter-tweet">
-                    <p lang="en" dir="ltr">Billionaire Fund Manager Howard Marks, 
-                        <a href="https://t.co/SJM9CT6F49">pic.twitter.com/SJM9CT6F49</a>
-                    </p>&mdash; ₕₐₘₚₜₒₙ — e/acc (@hamptonism) 
-                    <a href="https://twitter.com/hamptonism/status/1886116569266233672?ref_src=twsrc%5Etfw">February 2, 2025</a>
-                </blockquote>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
-        </div>
-
-        <div class="tweet">
-            <div style="transform: scale(0.6); transform-origin: top left; width: fit-content;">
-                <blockquote class="twitter-tweet">
-                    <p lang="vi" dir="ltr">Yếu tố tâm linh ko đùa đc đâu ... đã gái lại còn lẩu Trung Hoa. Toác đấy nghiện ơi 
-                        <a href="https://t.co/QvpgZwgBMs">pic.twitter.com/QvpgZwgBMs</a>
-                    </p>&mdash; Lê Nin (@LeninUGReal) 
-                    <a href="https://twitter.com/LeninUGReal/status/1635543543627522048?ref_src=twsrc%5Etfw">March 14, 2023</a>
-                </blockquote>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
-        </div>
-
-        <div class="tweet">
-            <div style="transform: scale(0.6); transform-origin: top left; width: fit-content;">
-                <blockquote class="twitter-tweet">
-                    <p lang="zxx" dir="ltr">
-                        <a href="https://t.co/ZFNtNKB7OR">pic.twitter.com/ZFNtNKB7OR</a>
-                    </p>&mdash; naiive (@naiivememe) 
-                    <a href="https://twitter.com/naiivememe/status/1886265982077014328?ref_src=twsrc%5Etfw">February 3, 2025</a>
-                </blockquote>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
-        </div>
-    </div>
-
     <!-- Botón para redirigir -->
     <a href="software.html" class="redirect-button">Explorar software</a>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const tweets = document.querySelectorAll(".tweet");
-            let currentTweetIndex = 0;
-
-            function showTweet(index) {
-                tweets.forEach((tweet, i) => {
-                    if (i === index) {
-                        tweet.classList.add("active");
-                    } else {
-                        tweet.classList.remove("active");
-                    }
-                });
-            }
-
-            function rotateTweets() {
-                currentTweetIndex = (currentTweetIndex + 1) % tweets.length;
-                showTweet(currentTweetIndex);
-            }
-
-            // Inicializa la visibilidad del primer tweet
-            showTweet(currentTweetIndex);
-
-            // Cambia de tweet cada 4 segundos
-            setInterval(rotateTweets, 4000);
-        });
-    </script>
 </body>
 </html>

@@ -40,6 +40,25 @@
             display: inline-block;
         }
 
+        /* Estilo para las banderas */
+        .flags {
+            display: flex;
+            gap: 10px;
+            align-items: center; /* Asegura que estén alineadas verticalmente */
+        }
+
+        .flags .flag {
+            height: 24px; /* Ajusta la altura de las banderas */
+            width: auto; /* Mantiene las proporciones */
+            border-radius: 4px; /* Opcional, para bordes redondeados */
+            cursor: pointer;
+        }
+
+        .flags .flag:hover {
+            transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+            transition: transform 0.2s ease;
+        }
+
         /* Ajustar brillo del video */
         #background-video {
             filter: brightness(1.2); /* Aumentar brillo del video */
@@ -70,6 +89,14 @@
     <div class="container">
         <!-- Botón de Donar -->
         <a href="https://ceneka.net/muellebeats" class="btn btn-primary">Donar</a>
+        <!-- Banderas -->
+        <div class="flags">
+            <img src="./assets/img/argentina.png" alt="Argentina" class="flag">
+            <img src="./assets/img/uruguay.png" alt="Uruguay" class="flag">
+            <img src="./assets/img/chile.png" alt="Chile" class="flag">
+            <img src="./assets/img/colombia.png" alt="Colombia" class="flag">
+            <img src="./assets/img/mexico.png" alt="México" class="flag">
+        </div>
     </div>
 </nav>
 

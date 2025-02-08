@@ -281,3 +281,23 @@ button:hover {
 }
 /* Fin del estilo del botón dinámico */
 
+/* Estilo para los iconos */
+.iconos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+    background-color: #333; /* Fondo oscuro para resaltar los iconos */
+}
+
+.icono i {
+    color: #fff; /* Color blanco para los iconos */
+    font-size: 30px; /* Tamaño adecuado */
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.icono:hover i {
+    color: #f05a24; /* Cambiar color en hover */
+    transform: scale(1.2); /* Efecto de zoom al pasar el ratón */
+}
+

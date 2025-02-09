@@ -69,6 +69,13 @@
             transform: scale(1.2);
             color: #f05a24;
         }
+
+        /* Moon and Season Counters */
+        #moon-counter, #season-counter {
+            margin: 20px 0;
+            text-align: center;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -114,18 +121,25 @@
 
 <!-- Moon Phase Counter -->
 <div id="moon-counter"></div>
+<!-- Season Counter -->
+<div id="season-counter"></div>
 
 <script>
     // Fechas de las fases lunares en 2025
     const moonPhases = [
-        { type: 'Luna Llena', date: new Date('2025-01-13T23:27:00') },
-        { type: 'Luna Nueva', date: new Date('2025-01-29T00:00:00') },
         { type: 'Luna Llena', date: new Date('2025-02-12T00:00:00') },
         { type: 'Luna Nueva', date: new Date('2025-02-27T00:00:00') },
         { type: 'Luna Llena', date: new Date('2025-03-14T00:00:00') },
         { type: 'Luna Nueva', date: new Date('2025-03-29T00:00:00') },
         { type: 'Luna Llena', date: new Date('2025-04-12T00:00:00') },
         { type: 'Luna Nueva', date: new Date('2025-04-28T00:00:00') }
+    ];
+
+    const seasons = [
+        { name: 'Otoño', date: new Date('2025-03-20T00:00:00') },
+        { name: 'Invierno', date: new Date('2025-06-21T00:00:00') },
+        { name: 'Primavera', date: new Date('2025-09-23T00:00:00') },
+        { name: 'Verano', date: new Date('2025-12-21T00:00:00') }
     ];
 
     function getRemainingTime(date) {
@@ -151,8 +165,24 @@
         }
     }
 
+    function showSeasonCounter() {
+        const now = new Date();
+        const nextSeason = seasons.find(season => season.date > now);
+
+        if (nextSeason) {
+            const { days, hours, minutes } = getRemainingTime(nextSeason.date);
+            const counterElement = document.getElementById('season-counter');
+            counterElement.innerHTML = `
+                <h2>Próxima Estación</h2>
+                <p><strong>${nextSeason.name}</strong> en ${days} días, ${hours} horas y ${minutes} minutos.</p>
+            `;
+        }
+    }
+
     showMoonCounter();
+    showSeasonCounter();
     setInterval(showMoonCounter, 60000);
+    setInterval(showSeasonCounter, 60000);
 </script>
 </body>
 </html>

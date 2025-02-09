@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muelle Beats</title>
-     <!-- Enlace a Font Awesome -->
+    <!-- Enlace a Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <link rel="stylesheet" href="./assets/css/styles.css">
@@ -64,6 +64,26 @@
             transition: transform 0.2s ease;
         }
 
+        /* Estilo para los iconos de redes sociales */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .social-icons i {
+            font-size: 24px; /* Tamaño más grande */
+            color: white;
+            transition: transform 0.2s ease, color 0.2s ease;
+            cursor: pointer;
+        }
+
+        .social-icons i:hover {
+            transform: scale(1.2); /* Zoom al pasar el mouse */
+            color: #f05a24; /* Cambiar color al pasar el mouse */
+        }
+
         /* Ajustar brillo del video */
         #background-video {
             filter: brightness(1.2);
@@ -86,31 +106,6 @@
         .hero-subtitle {
             color: #dcdcdc;
         }
-
-        /* Estilo para los iconos de redes sociales al final */
-        .social-icons {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
-            z-index: 1000;
-        }
-
-       .social-icons {
-    display: flex;
-    justify-content: flex-start; /* Alinea los iconos a la izquierda */
-    margin-left: 20px; /* Espaciado desde el borde izquierdo */
-    position: relative;
-    bottom: 0; /* Manténlos en la parte inferior si es necesario */
-    transition: transform 0.2s ease; /* Efecto suave al pasar el ratón */
-}
-
-.social-icons i:hover {
-    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
-};
-        }
     </style>
 </head>
 <body>
@@ -125,6 +120,12 @@
             <img src="./assets/img/colombia.jpg" alt="Colombia" class="flag">
             <img src="./assets/img/mexico.jpg" alt="México" class="flag">
             <img src="./assets/img/españa.jpg" alt="España" class="flag">
+        </div>
+        <!-- Iconos de Redes Sociales -->
+        <div class="social-icons">
+            <a href="https://x.com/muellebeats" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/muellebeats/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@MuelleBeats" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
     </div>
 </nav>
@@ -148,15 +149,6 @@
 
 <!-- Moon Phase Counter -->
 <div id="moon-counter"></div>
-
-<!-- Iconos de Redes Sociales -->
-<div class="social-icons">
-    <!-- Reemplaza los enlaces '#' con los enlaces reales de tus redes sociales -->
-    <a href="https://x.com/muellebeats" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://www.instagram.com/muellebeats/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.youtube.com/@MuelleBeats" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-   
-</div>
 
 <script>
     // Fechas de las fases lunares en 2025
@@ -199,4 +191,3 @@
 </script>
 </body>
 </html>
-

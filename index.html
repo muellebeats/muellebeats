@@ -16,6 +16,8 @@
             margin: 0;
             font-family: Arial, sans-serif;
         }
+
+        /* Estilo base para los botones */
         .button {
             background-color: white;
             color: black;
@@ -25,23 +27,43 @@
             cursor: pointer;
             font-size: 18px;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px; /* Tamaño fijo para asegurar simetría */
+            height: 80px; /* Tamaño fijo para asegurar simetría */
+            transition: transform 0.2s ease, background-color 0.2s ease;
         }
+
+        /* Hover para simular redes sociales */
         .button:hover {
             background-color: gray;
+            transform: scale(1.1);
         }
+
+        /* Iconos o imágenes dentro de los botones */
         .button img {
             height: 30px;
             width: auto;
             display: block;
         }
+
+        /* Centrar texto e íconos verticalmente */
+        .button-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
-    <a href="muelle.html" class="button">Muelle & Beats</a>
+    <a href="muelle.html" class="button">
+        <span class="button-text">Muelle & Beats</span>
+    </a>
     <a href="holding.html" class="button">
         <img src="./image/2jpg.png" alt="Trading">
     </a>
 </body>
 </html>
+
 

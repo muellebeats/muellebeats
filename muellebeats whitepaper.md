@@ -92,6 +92,7 @@ Desarrollo de arte y contenido en formato CGI.
 
   # Comunicacion
     Discord es el canal principal de comunicación utilizado para la comunicación diaria, responder preguntas de desarrollo y recopilar contenido relacionado a Muelle & Beats.
-
+# Fines
+Consideramos el hecho de vender un porcentaje del proyecto a una firma privada con el fin de alcanzar el desarrollo esperado gracias al ingreso de capital externo.
 
 

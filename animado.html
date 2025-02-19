@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animación: Cabra y Gato</title>
+  <style>
+    /* Configuración básica */
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+    }
+    svg {
+      width: 100vw;
+      height: 100vh;
+      display: block;
+    }
+    
+    /* Animación de la cabra: se mueve de izquierda a derecha y salta (sube y baja) */
+    @keyframes goatMove {
+      0%   { transform: translate(0, 0); }
+      25%  { transform: translate(25vw, -20px); }
+      50%  { transform: translate(50vw, 0); }
+      75%  { transform: translate(75vw, -20px); }
+      100% { transform: translate(100vw, 0); }
+    }
+    
+    /* Animación del gato: se mueve de izquierda a derecha siguiendo a la cabra.
+       Se le agrega un pequeño retraso para simular que va detrás */
+    @keyframes catMove {
+      0%   { transform: translate(0, 0); }
+      25%  { transform: translate(25vw, 0); }
+      50%  { transform: translate(50vw, 0); }
+      75%  { transform: translate(75vw, 0); }
+      100% { transform: translate(100vw, 0); }
+    }
+    
+    .goat {
+      animation: goatMove 8s linear infinite;
+    }
+    .cat {
+      animation: catMove 8s linear infinite;
+      animation-delay: 0.5s; /* pequeña demora para que aparezca detrás */
+    }
+    
+    /* Las formas se dibujan en color blanco */
+    .goat, .cat {
+      fill: white;
+      stroke: white;
+      stroke-width: 1;
+    }
+  </style>
+</head>
+<body>
+  <svg viewBox="0 0 800 200">
+    <!-- Cabra: dibujada de forma simplificada -->
+    <g class="goat">
+      <!-- Cuerpo: un rectángulo -->
+      <rect x="0" y="100" width="40" height="20" />
+      <!-- Cabeza: un círculo -->
+      <circle cx="50" cy="110" r="10" />
+      <!-- Dos "cuernos": pequeños triángulos -->
+      <polygon points="55,100 60,90 65,100" />
+      <polygon points="55,100 50,90 45,100" />
+      <!-- Piernas: dos líneas -->
+      <line x1="10" y1="120" x2="10" y2="140" />
+      <line x1="30" y1="120" x2="30" y2="140" />
+    </g>
+    
+    <!-- Gato: dibujo simplificado -->
+    <g class="cat">
+      <!-- Cuerpo: una elipse -->
+      <ellipse cx="0" cy="110" rx="20" ry="10" />
+      <!-- Cabeza: un círculo -->
+      <circle cx="25" cy="105" r="8" />
+      <!-- Orejas: dos triángulos -->
+      <polygon points="28,95 32,85 36,95" />
+      <polygon points="22,95 18,85 14,95" />
+      <!-- Cola: una curva (path) -->
+      <path d="M -10 110 Q -20 100, -10 90" fill="none"/>
+    </g>
+  </svg>
+</body>
+</html>

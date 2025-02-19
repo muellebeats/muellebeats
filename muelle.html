@@ -1,380 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muelle Beats</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Muelle Beats</title>
+  <!-- Enlace a Font Awesome (para íconos) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
 
-    <!-- Enlace a Font Awesome (para íconos) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ----------------------------------
+       RESET Y ESTILOS BÁSICOS
+    ---------------------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden; /* para evitar scroll horizontal */
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    <!-- Tus estilos principales -->
-    <style>
-        /* ----------------------------------
-           NAVBAR
-        ---------------------------------- */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #1a1a1a;
-        }
+    /* ----------------------------------
+       NAVBAR
+    ---------------------------------- */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #1a1a1a;
+    }
+    .flags {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .flag {
+      height: 20px;
+      width: auto;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .flag:hover {
+      transform: scale(1.1);
+    }
+    .btn-primary {
+      padding: 10px 20px;
+      background-color: #f05a24;
+      color: white;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .btn-primary:hover {
+      background-color: #d04820;
+    }
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+    .social-icons i {
+      font-size: 24px;
+      color: white;
+      transition: transform 0.2s ease, color 0.2s ease;
+      cursor: pointer;
+    }
+    .social-icons i:hover {
+      transform: scale(1.2);
+      color: #f05a24;
+    }
 
-        /* Flags styling */
-        .flags {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
+    /* ----------------------------------
+       HERO (VIDEO DE FONDO)
+    ---------------------------------- */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      object-fit: cover;
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .hero-title {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .hero-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+    }
+    .hero-buttons .btn {
+      padding: 15px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .btn-primary.large-btn {
+      background-color: #f05a24;
+      color: white;
+    }
+    .btn-primary.large-btn:hover {
+      background-color: #d04820;
+    }
+    .btn-secondary.large-btn {
+      background-color: #444;
+      color: white;
+    }
+    .btn-secondary.large-btn:hover {
+      background-color: #333;
+    }
 
-        .flags .flag {
-            height: 20px;
-            width: auto;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+    /* ----------------------------------
+       CONTADORES (LUNA Y OTOÑO)
+    ---------------------------------- */
+    .counters {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .counters h2 {
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+    .counters p {
+      font-size: 18px;
+    }
 
-        .flags .flag:hover {
-            transform: scale(1.1);
-            transition: transform 0.2s ease;
-        }
-
-        /* Botón Donar */
-        .navbar .btn-primary {
-            padding: 10px 20px;
-            background-color: #f05a24;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        .navbar .btn-primary:hover {
-            background-color: #d04820;
-        }
-
-        /* Social media icons */
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .social-icons i {
-            font-size: 24px;
-            color: white;
-            transition: transform 0.2s ease, color 0.2s ease;
-            cursor: pointer;
-        }
-
-        .social-icons i:hover {
-            transform: scale(1.2);
-            color: #f05a24;
-        }
-
-        /* ----------------------------------
-           HERO SECTION
-        ---------------------------------- */
-        .hero {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            color: white;
-        }
-
-        #background-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            object-fit: cover;
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hero-title {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-        }
-
-        .hero-buttons .btn {
-            padding: 15px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-primary.large-btn {
-            background-color: #f05a24;
-            color: white;
-        }
-
-        .btn-primary.large-btn:hover {
-            background-color: #d04820;
-        }
-
-        .btn-secondary.large-btn {
-            background-color: #444;
-            color: white;
-        }
-
-        .btn-secondary.large-btn:hover {
-            background-color: #333;
-        }
-
-        /* ----------------------------------
-           MOON & SEASON COUNTERS
-        ---------------------------------- */
-        #moon-counter, #season-counter {
-            margin: 20px 0;
-            text-align: center;
-            color: white;
-        }
-
-        #moon-counter h2, #season-counter h2 {
-            margin-bottom: 10px;
-            font-size: 24px;
-        }
-
-        #moon-counter p, #season-counter p {
-            font-size: 18px;
-        }
-
-        /* ----------------------------------
-           NUEVO LANZAMIENTO
-        ---------------------------------- */
-        .new-release-section {
-            padding: 40px 20px;
-            background-color: #1a1a1a; /* mismo color de fondo para coherencia */
-            text-align: center;
-            color: white;
-        }
-
-        .new-release-section h2 {
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
-
-        .new-release-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            max-width: 800px;
-            margin: 0 auto; /* centrar horizontalmente */
-        }
-
-        .new-release-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 2px solid #f05a24; /* pequeño borde naranja */
-        }
-
-        .new-release-info {
-            text-align: left;
-        }
-
-        .new-release-info h3 {
-            margin-bottom: 10px;
-            font-size: 22px;
-            color: #f05a24;
-        }
-
-        .new-release-info p {
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-
-        .new-release-info .btn-primary {
-            padding: 10px 20px;
-            background-color: #f05a24;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        .new-release-info .btn-primary:hover {
-            background-color: #d04820;
-        }
-
-        /* Adaptación responsive para la sección de lanzamiento */
-        @media (min-width: 768px) {
-            .new-release-container {
-                flex-direction: row;
-                justify-content: center;
-                align-items: flex-start;
-            }
-            .new-release-info {
-                max-width: 400px;
-                margin-left: 20px;
-                text-align: left;
-            }
-        }
-    </style>
+    /* ----------------------------------
+       RECOMENDACIÓN (ESTILO "YOUTUBE")
+    ---------------------------------- */
+    .recommendation {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      width: 300px; /* ajusta el ancho a tu gusto */
+      background-color: #1a1a1a;
+      border-left: 3px solid #f05a24;
+      padding: 20px;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+      z-index: 9999; /* por encima de otros elementos */
+    }
+    .recommendation h3 {
+      color: #f05a24;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+    .recommendation img {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      border: 2px solid #f05a24;
+    }
+    .recommendation p {
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+    .recommendation a.btn-primary {
+      display: inline-block;
+      text-align: center;
+      padding: 10px 20px;
+      background-color: #f05a24;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .recommendation a.btn-primary:hover {
+      background-color: #d04820;
+    }
+    /* Ajuste responsivo si quieres ocultarlo en pantallas muy pequeñas */
+    @media (max-width: 500px) {
+      .recommendation {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
-<!-- Navbar -->
-<nav class="navbar">
+  <!-- Navbar -->
+  <nav class="navbar">
     <!-- Flags -->
     <div class="flags">
-        <img src="./assets/img/argentina.jpg" alt="Argentina" class="flag">
-        <img src="./assets/img/uruguay.jpg" alt="Uruguay" class="flag">
-        <img src="./assets/img/chile.jpg" alt="Chile" class="flag">
-        <img src="./assets/img/colombia.jpg" alt="Colombia" class="flag">
-        <img src="./assets/img/mexico.jpg" alt="México" class="flag">
-        <img src="./assets/img/españa.jpg" alt="España" class="flag">
+      <img src="./assets/img/argentina.jpg" alt="Argentina" class="flag" />
+      <img src="./assets/img/uruguay.jpg" alt="Uruguay" class="flag" />
+      <img src="./assets/img/chile.jpg" alt="Chile" class="flag" />
+      <img src="./assets/img/colombia.jpg" alt="Colombia" class="flag" />
+      <img src="./assets/img/mexico.jpg" alt="México" class="flag" />
+      <img src="./assets/img/españa.jpg" alt="España" class="flag" />
     </div>
-
     <!-- Botón Donar -->
-    <a href="https://ceneka.net/muellebeats" class="btn btn-primary">Donar</a>
-
+    <a href="https://ceneka.net/muellebeats" class="btn-primary">Donar</a>
     <!-- Social Media Icons -->
     <div class="social-icons">
-        <a href="https://x.com/muellebeats" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.instagram.com/muellebeats/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.youtube.com/@MuelleBeats" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://x.com/muellebeats" target="_blank" title="Twitter"
+        ><i class="fab fa-twitter"></i
+      ></a>
+      <a
+        href="https://www.instagram.com/muellebeats/"
+        target="_blank"
+        title="Instagram"
+        ><i class="fab fa-instagram"></i
+      ></a>
+      <a
+        href="https://www.youtube.com/@MuelleBeats"
+        target="_blank"
+        title="YouTube"
+        ><i class="fab fa-youtube"></i
+      ></a>
     </div>
-</nav>
+  </nav>
 
-<!-- Hero Section -->
-<div class="hero">
+  <!-- Hero Section -->
+  <div class="hero">
     <video autoplay muted loop id="background-video">
-        <source src="./assets/video/162002-824623598_small.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+      <source src="./assets/video/162002-824623598_small.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
     </video>
     <div class="overlay"></div>
     <div class="hero-content">
-        <h1 class="hero-title">Muelle & Beats</h1>
-        <p class="hero-subtitle">Musica & Nautica, House & Hip Hop.</p>
-        <div class="hero-buttons">
-            <a href="roadmap.html" class="btn btn-primary large-btn">Remote</a>
-            <a href="auth.html" class="btn btn-secondary large-btn">Socios</a>
-        </div>
+      <h1 class="hero-title">Muelle & Beats</h1>
+      <p class="hero-subtitle">Musica & Nautica, House & Hip Hop.</p>
+      <div class="hero-buttons">
+        <a href="roadmap.html" class="btn btn-primary large-btn">Remote</a>
+        <a href="auth.html" class="btn btn-secondary large-btn">Socios</a>
+      </div>
     </div>
-</div>
+  </div>
 
-<!-- Moon Phase Counter -->
-<div id="moon-counter"></div>
-<!-- Season Counter -->
-<div id="season-counter"></div>
+  <!-- Contadores (Luna y Otoño) -->
+  <div class="counters">
+    <div id="moon-counter"></div>
+    <div id="season-counter"></div>
+  </div>
 
-<!-- Sección Nuevo Lanzamiento -->
-<div class="new-release-section">
-    <h2>Nuevo Lanzamiento</h2>
-    <div class="new-release-container">
-        <!-- Ajusta la ruta de la imagen según tu estructura de carpetas -->
-        <img src="./image/WhatsApp Image 2025-02-19 at 18.17.19.jpeg " alt="Nuevo Lanzamiento" class="new-release-image">
+  <!-- Recomendación (estilo "YouTube") -->
+  <div class="recommendation">
+    <h3>Nuevo Lanzamiento</h3>
+    <!-- Ajusta la ruta de la imagen según tu carpeta -->
+    <img
+      src="./image/WhatsApp Image 2025-02-19 at 18.17.19.jpeg"
+      alt="Nuevo Lanzamiento"
+    />
+    <p>
+      ¡Lo último de Muelle & Beats!<br />
+      Mezclando sonidos House y Hip Hop con un toque náutico.
+    </p>
+    <a href="#" class="btn-primary">Escuchar</a>
+  </div>
 
-        <div class="new-release-info">
-            <h3>¡Lo último de Muelle & Beats!</h3>
-            <p>
-                Te presentamos nuestro nuevo lanzamiento musical, mezclando sonidos House y Hip Hop con un toque náutico.
-                <br><br>
-                Disfruta del videoclip y comparte tu experiencia con nosotros.
-            </p>
-            <a href="#" class="btn-primary">Escuchar</a>
-        </div>
-    </div>
-</div>
+  <script>
+    /* 
+      Mantenemos la cuenta para la próxima fase lunar y 
+      la cuenta regresiva para el inicio de Otoño.
+    */
 
-<script>
-    // Fechas de las fases lunares en 2025
-    const moonPhases = [
-        { type: 'Luna Llena', date: new Date('2025-02-12T00:00:00') },
-        { type: 'Luna Nueva', date: new Date('2025-02-27T00:00:00') },
-        { type: 'Luna Llena', date: new Date('2025-03-14T00:00:00') },
-        { type: 'Luna Nueva', date: new Date('2025-03-29T00:00:00') },
-        { type: 'Luna Llena', date: new Date('2025-04-12T00:00:00') },
-        { type: 'Luna Nueva', date: new Date('2025-04-28T00:00:00') }
-    ];
+    // Próxima fase lunar (ejemplo: Luna Llena 12/Feb/2025)
+    const nextMoonPhase = {
+      type: "Luna Llena",
+      date: new Date("2025-02-12T00:00:00"),
+    };
 
-    const seasons = [
-        { name: 'Otoño', date: new Date('2025-03-20T00:00:00') },
-        { name: 'Invierno', date: new Date('2025-06-21T00:00:00') },
-        { name: 'Primavera', date: new Date('2025-09-23T00:00:00') },
-        { name: 'Verano', date: new Date('2025-12-21T00:00:00') }
-    ];
+    // Próxima estación: Otoño (ejemplo: 20/Mar/2025)
+    const autumn = {
+      name: "Otoño",
+      date: new Date("2025-03-20T00:00:00"),
+    };
 
-    function getRemainingTime(date) {
-        const now = new Date();
-        const diff = date - now;
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        return { days, hours, minutes };
+    // Función para calcular el tiempo restante
+    function getRemainingTime(targetDate) {
+      const now = new Date();
+      const diff = targetDate - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      return { days, hours, minutes };
     }
 
+    // Mostrar la cuenta para la luna
     function showMoonCounter() {
-        const now = new Date();
-        const nextPhase = moonPhases.find(phase => phase.date > now);
-
-        if (nextPhase) {
-            const { days, hours, minutes } = getRemainingTime(nextPhase.date);
-            const counterElement = document.getElementById('moon-counter');
-            counterElement.innerHTML = `
-                <h2>Próxima Fase Lunar</h2>
-                <p><strong>${nextPhase.type}</strong> en ${days} días, ${hours} horas y ${minutes} minutos.</p>
-            `;
-        }
+      const { days, hours, minutes } = getRemainingTime(nextMoonPhase.date);
+      const moonElement = document.getElementById("moon-counter");
+      moonElement.innerHTML = `
+        <h2>Próxima Fase Lunar</h2>
+        <p><strong>${nextMoonPhase.type}</strong> en 
+        ${days} días, ${hours} horas y ${minutes} minutos.</p>
+      `;
     }
 
+    // Mostrar la cuenta para el otoño
     function showSeasonCounter() {
-        const now = new Date();
-        const nextSeason = seasons.find(season => season.date > now);
-
-        if (nextSeason) {
-            const { days, hours, minutes } = getRemainingTime(nextSeason.date);
-            const counterElement = document.getElementById('season-counter');
-            counterElement.innerHTML = `
-                <h2>Próxima Estación</h2>
-                <p><strong>${nextSeason.name}</strong> en ${days} días, ${hours} horas y ${minutes} minutos.</p>
-            `;
-        }
+      const { days, hours, minutes } = getRemainingTime(autumn.date);
+      const seasonElement = document.getElementById("season-counter");
+      seasonElement.innerHTML = `
+        <h2>Próxima Estación</h2>
+        <p><strong>${autumn.name}</strong> en 
+        ${days} días, ${hours} horas y ${minutes} minutos.</p>
+      `;
     }
 
+    // Inicializamos y actualizamos cada minuto
     showMoonCounter();
     showSeasonCounter();
     setInterval(showMoonCounter, 60000);
     setInterval(showSeasonCounter, 60000);
-</script>
+  </script>
 </body>
 </html>

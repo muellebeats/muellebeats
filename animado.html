@@ -1,156 +1,104 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Animación Cabra y Gato - 8 Horizontal</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animación de Fantasmas</title>
+  <!-- Incluimos la librería p5.js desde CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
   <style>
-    html, body {
-      margin: 0; 
-      padding: 0; 
-      background: #000; /* Fallback si SVG no se ve */
-    }
-    svg {
-      display: block;
-      width: 100vw;
-      height: 100vh;
-      background: black; /* Fondo por defecto */
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #202020;
     }
   </style>
 </head>
 <body>
-<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <script>
+    let ghosts = [];
 
-  <!-- 
-    1) Degradado radial para el fondo 
-       (le da un toque más “cinematográfico” o “profesional”).
-  -->
-  <defs>
-    <radialGradient id="bgGradient" cx="50%" cy="50%" r="80%">
-      <stop offset="0%" stop-color="#222"/>
-      <stop offset="50%" stop-color="#111"/>
-      <stop offset="100%" stop-color="#000"/>
-    </radialGradient>
-  </defs>
+    function setup() {
+      createCanvas(400, 400);
+    
+      // Creamos 10 fantasmas.
+      // ¡Prueba cambiarlo a 100 para ver más!
+      for (var i = 0; i < 10; i++) {
+        ghosts.push(new Ghost());
+      }
+    
+      noStroke();
+    }
 
-  <!-- 
-    2) Rectángulo de fondo que cubre todo el viewBox 
-       con el degradado definido.
-  -->
-  <rect x="0" y="0" width="800" height="400" fill="url(#bgGradient)" />
+    function draw() {
+      background(32);
+      for (const ghost of ghosts) {
+        ghost.moveAndDraw();
+      }
+    }
 
-  <!-- 
-    3) Definimos un "path" con forma de 8 (horizontal)
-       centrado en (400, 200).
-       Ajusta los puntos si quieres cambiar la forma.
-  -->
-  <path id="figure8"
-        d="M 400,200
-           C 300,100  200,100  200,200
-           C 200,300  300,300  400,200
-           C 500,100  600,100  600,200
-           C 600,300  500,300  400,200
-           Z"
-        fill="none" 
-        stroke="none" />
+    // Clase que maneja cada fantasma.
+    class Ghost {
+      constructor() {
+        this.tail = [];
+        this.tailLength = 30;
 
-  <!-- 
-    4) Grupo de la CABRA “angelical”.
-       Usamos paths para darle un aspecto más estilizado.
-       La dibujamos centrada en (0,0) para facilitar la animación.
-       Luego la escalamos un poco con "transform" para que no sea tan grande.
-  -->
-  <g id="goat" fill="#fff" stroke="#fff" stroke-width="1" transform="scale(0.7)">
-    <!-- Cuerpo (una elipse) -->
-    <ellipse cx="0" cy="0" rx="40" ry="25" />
-    <!-- Cabeza (otra elipse) -->
-    <ellipse cx="45" cy="0" rx="15" ry="12" />
-    <!-- Cuernos (dos path curvos) -->
-    <path d="M 55 -10 C 60 -20, 70 -20, 65 -10" />
-    <path d="M 35 -10 C 30 -20, 20 -20, 25 -10" />
-    <!-- Halo encima de la cabeza -->
-    <circle cx="45" cy="-20" r="7" fill="none" stroke-width="2" />
-    <!-- Patas (líneas o pequeños rectángulos) -->
-    <line x1="-15" y1="25" x2="-15" y2="40" />
-    <line x1="15"  y1="25" x2="15"  y2="40" />
-    <!-- Cola (pequeño triángulo) -->
-    <polygon points=" -40,0 -50,0 -45,5 " />
-  </g>
+        // Tamaño y posición inicial aleatoria.
+        this.ghostSize = random(10, 100);
+        this.ghostX = random(width);
+        this.ghostY = random(height);
 
-  <!-- 
-    5) Animación de la cabra con <animateMotion>:
-       - Recorre el camino "figure8" en 8s.
-       - Se repite indefinidamente.
-       - "rotate=auto" hace que gire siguiendo la tangente del camino.
-  -->
-  <animateMotion 
-    xlink:href="#goat"
-    dur="8s"
-    repeatCount="indefinite"
-    rotate="auto"
-    path="
-      M 400,200
-      C 300,100  200,100  200,200
-      C 200,300  300,300  400,200
-      C 500,100  600,100  600,200
-      C 600,300  500,300  400,200
-      Z
-    "
-  />
-  <!-- 
-    6) “Salto” o “bamboleo” adicional de la cabra con <animateTransform>.
-       Movemos un poco en Y (arriba/abajo) para simular un trote o salto.
-    -->
-  <animateTransform
-    xlink:href="#goat"
-    attributeName="transform"
-    attributeType="XML"
-    type="translate"
-    values="0,-3; 0,3; 0,-3"
-    dur="0.6s"
-    repeatCount="indefinite"
-    additive="sum"
-  />
+        // Variables para que cada fantasma siga un camino único.
+        this.cosOffset = random(100);
+        this.wiggliness = random(2, 10);
+        this.floatiness = random(2, 10);
 
-  <!-- 
-    7) Grupo del GATO.
-       Similar: usamos paths y formas para un estilo caricaturesco.
-  -->
-  <g id="cat" fill="#fff" stroke="#fff" stroke-width="1" transform="scale(0.6)">
-    <!-- Cuerpo (elipse) -->
-    <ellipse cx="0" cy="0" rx="35" ry="20" />
-    <!-- Cabeza (elipse) -->
-    <ellipse cx="40" cy="0" rx="12" ry="10" />
-    <!-- Orejas -->
-    <path d="M 35 -10 L 30 -25 L 25 -10 Z" />
-    <path d="M 45 -10 L 50 -25 L 55 -10 Z" />
-    <!-- Cola (curva) -->
-    <path d="M -35 0 Q -50 -10, -40 -20" stroke-width="2" fill="none" />
-    <!-- Patas -->
-    <line x1="-15" y1="20" x2="-15" y2="35" />
-    <line x1="15"  y1="20" x2="15"  y2="35" />
-  </g>
+        // Color aleatorio para cada fantasma.
+        this.r = random(255);
+        this.g = random(255);
+        this.b = random(255);
+      }
 
-  <!-- 
-    8) Animación del gato:
-       - Recorre el mismo camino con 1s de retraso (begin="1s").
-       - No tiene salto adicional (solo rotate=auto).
-  -->
-  <animateMotion
-    xlink:href="#cat"
-    begin="1s"
-    dur="8s"
-    repeatCount="indefinite"
-    rotate="auto"
-    path="
-      M 400,200
-      C 300,100  200,100  200,200
-      C 200,300  300,300  400,200
-      C 500,100  600,100  600,200
-      C 600,300  500,300  400,200
-      Z
-    "
-  />
+      moveAndDraw() {
+        // Movimiento horizontal oscilante.
+        this.ghostX += cos((this.cosOffset + frameCount) / 10) * this.wiggliness;
+        // Movimiento vertical ascendente.
+        this.ghostY -= this.floatiness;
+        // Si el fantasma se sale de la pantalla por arriba, lo reiniciamos abajo.
+        if (this.ghostY < -this.ghostSize) {
+          this.ghostY = height + this.ghostSize;
+        }
 
-</svg>
+        // Agregar la posición actual al inicio de la cola.
+        this.tail.unshift({ x: this.ghostX, y: this.ghostY });
+        // Limitar el tamaño de la cola.
+        if (this.tail.length > this.tailLength) {
+          this.tail.pop();
+        }
+
+        // Dibujar la cola: los puntos se hacen más pequeños y transparentes.
+        for (let index = 0; index < this.tail.length; index++) {
+          const tailPoint = this.tail[index];
+          const pointSize = this.ghostSize * (this.tail.length - index) / this.tail.length;
+          const pointAlpha = 255 * (this.tail.length - index) / this.tail.length;
+          fill(this.r, this.g, this.b, pointAlpha);
+          ellipse(tailPoint.x, tailPoint.y, pointSize);
+        }
+
+        // Dibujar la cara del fantasma.
+        fill(32);
+        ellipse(this.ghostX - this.ghostSize * 0.2,
+                this.ghostY - this.ghostSize * 0.1,
+                this.ghostSize * 0.2);
+        ellipse(this.ghostX + this.ghostSize * 0.2,
+                this.ghostY - this.ghostSize * 0.1,
+                this.ghostSize * 0.2);
+        ellipse(this.ghostX,
+                this.ghostY + this.ghostSize * 0.2,
+                this.ghostSize * 0.2);
+      }
+    }
+  </script>
 </body>
 </html>

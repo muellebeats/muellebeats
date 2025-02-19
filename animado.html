@@ -2,84 +2,114 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Animación: Cabra y Gato</title>
+  <title>Animación Cabra y Gato en 8</title>
   <style>
-    /* Configuración básica */
-    body {
+    /* El body ocupa toda la pantalla y fondo negro */
+    html, body {
       margin: 0;
+      padding: 0;
       background: black;
-      overflow: hidden;
     }
     svg {
+      display: block;
       width: 100vw;
       height: 100vh;
-      display: block;
-    }
-    
-    /* Animación de la cabra: se mueve de izquierda a derecha y salta (sube y baja) */
-    @keyframes goatMove {
-      0%   { transform: translate(0, 0); }
-      25%  { transform: translate(25vw, -20px); }
-      50%  { transform: translate(50vw, 0); }
-      75%  { transform: translate(75vw, -20px); }
-      100% { transform: translate(100vw, 0); }
-    }
-    
-    /* Animación del gato: se mueve de izquierda a derecha siguiendo a la cabra.
-       Se le agrega un pequeño retraso para simular que va detrás */
-    @keyframes catMove {
-      0%   { transform: translate(0, 0); }
-      25%  { transform: translate(25vw, 0); }
-      50%  { transform: translate(50vw, 0); }
-      75%  { transform: translate(75vw, 0); }
-      100% { transform: translate(100vw, 0); }
-    }
-    
-    .goat {
-      animation: goatMove 8s linear infinite;
-    }
-    .cat {
-      animation: catMove 8s linear infinite;
-      animation-delay: 0.5s; /* pequeña demora para que aparezca detrás */
-    }
-    
-    /* Las formas se dibujan en color blanco */
-    .goat, .cat {
-      fill: white;
-      stroke: white;
-      stroke-width: 1;
+      /* Fondo negro para que se vea bien */
+      background-color: black;
     }
   </style>
 </head>
 <body>
-  <svg viewBox="0 0 800 200">
-    <!-- Cabra: dibujada de forma simplificada -->
-    <g class="goat">
-      <!-- Cuerpo: un rectángulo -->
-      <rect x="0" y="100" width="40" height="20" />
-      <!-- Cabeza: un círculo -->
-      <circle cx="50" cy="110" r="10" />
-      <!-- Dos "cuernos": pequeños triángulos -->
-      <polygon points="55,100 60,90 65,100" />
-      <polygon points="55,100 50,90 45,100" />
-      <!-- Piernas: dos líneas -->
-      <line x1="10" y1="120" x2="10" y2="140" />
-      <line x1="30" y1="120" x2="30" y2="140" />
-    </g>
-    
-    <!-- Gato: dibujo simplificado -->
-    <g class="cat">
-      <!-- Cuerpo: una elipse -->
-      <ellipse cx="0" cy="110" rx="20" ry="10" />
-      <!-- Cabeza: un círculo -->
-      <circle cx="25" cy="105" r="8" />
-      <!-- Orejas: dos triángulos -->
-      <polygon points="28,95 32,85 36,95" />
-      <polygon points="22,95 18,85 14,95" />
-      <!-- Cola: una curva (path) -->
-      <path d="M -10 110 Q -20 100, -10 90" fill="none"/>
-    </g>
-  </svg>
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Definimos el “camino” con forma de 8 -->
+  <defs>
+    <!-- 
+      Este path describe un “8” centrado aproximadamente en (200,100).
+      Puedes modificar los puntos de control para cambiar la forma.
+    -->
+    <path id="figure8" d="
+      M 200,100
+      C 100,0   0,0   0,100
+      C 0,200  100,200  200,100
+      C 300,0  400,0    400,100
+      C 400,200 300,200 200,100
+      Z
+    " fill="none" stroke="none"/>
+  </defs>
+
+  <!-- Grupo de la cabra “angelical” -->
+  <g id="goat" fill="white" stroke="white" stroke-width="1">
+    <!-- Cuerpo: rectángulo -->
+    <rect x="-20" y="-10" width="40" height="20" rx="3" ry="3" />
+    <!-- Cabeza: círculo -->
+    <circle cx="30" cy="0" r="8" />
+    <!-- Cuernos: pequeños triángulos -->
+    <polygon points="36,-5 40,-15 44,-5" />
+    <polygon points="24,-5 20,-15 16,-5" />
+    <!-- Halo (ángel): un pequeño círculo encima de la cabeza -->
+    <circle cx="30" cy="-15" r="5" fill="none" stroke-width="1.5"/>
+    <!-- Patas (líneas) -->
+    <line x1="-10" y1="10" x2="-10" y2="20" />
+    <line x1="10" y1="10" x2="10" y2="20" />
+  </g>
+
+  <!-- Animación de la cabra: recorre la ruta en 8s y “salta” (bamboleo vertical) -->
+  <animateMotion
+    xlink:href="#goat"
+    dur="8s"
+    repeatCount="indefinite"
+    rotate="auto"  <!-- opcional: gira según la tangente del camino -->
+    path="
+      M 200,100
+      C 100,0   0,0   0,100
+      C 0,200  100,200  200,100
+      C 300,0  400,0    400,100
+      C 400,200 300,200 200,100
+      Z
+    "
+  />
+  <!-- “Salto” adicional con un ligero movimiento vertical usando animateTransform -->
+  <animateTransform
+    xlink:href="#goat"
+    attributeName="transform"
+    attributeType="XML"
+    type="translate"
+    values="0,-2; 0,2; 0,-2"
+    dur="0.5s"
+    repeatCount="indefinite"
+  />
+
+  <!-- Grupo del gato -->
+  <g id="cat" fill="white" stroke="white" stroke-width="1">
+    <!-- Cuerpo: elipse -->
+    <ellipse cx="0" cy="0" rx="18" ry="10" />
+    <!-- Cabeza: círculo -->
+    <circle cx="20" cy="0" r="8" />
+    <!-- Orejas: triángulos -->
+    <polygon points="25,-5 29,-15 33,-5" />
+    <polygon points="15,-5 11,-15 7,-5" />
+    <!-- Cola: línea curva -->
+    <path d="M -18 0 Q -28 -10, -18 -20" fill="none" stroke-width="2" />
+  </g>
+
+  <!-- Animación del gato: mismo camino, pero con 1s de retraso y sin salto extra -->
+  <animateMotion
+    xlink:href="#cat"
+    begin="1s"
+    dur="8s"
+    repeatCount="indefinite"
+    rotate="auto"
+    path="
+      M 200,100
+      C 100,0   0,0   0,100
+      C 0,200  100,200  200,100
+      C 300,0  400,0    400,100
+      C 400,200 300,200 200,100
+      Z
+    "
+  />
+</svg>
 </body>
 </html>
+

@@ -4,7 +4,7 @@ let cellW, cellH;
 
 function preload() {
   // Carga tu imagen. Asegúrate de tener una imagen en la carpeta "assets"
-  img = loadImage('assets/tu-imagen.jpg');
+  img = loadImage('image/jpgblack.png');
 }
 
 function setup() {

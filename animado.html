@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Animación de Fantasmas</title>
-  <!-- Incluimos la librería p5.js desde CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
   <style>
     body {
@@ -20,14 +19,13 @@
     let ghosts = [];
 
     function setup() {
-      createCanvas(400, 400);
-    
-      // Creamos 10 fantasmas.
-      // ¡Prueba cambiarlo a 100 para ver más!
-      for (var i = 0; i < 10; i++) {
+      createCanvas(windowWidth, windowHeight); // Hace el canvas del tamaño de la pantalla
+
+      // Crear 20 fantasmas (puedes aumentar este número)
+      for (let i = 0; i < 20; i++) {
         ghosts.push(new Ghost());
       }
-    
+
       noStroke();
     }
 
@@ -38,46 +36,52 @@
       }
     }
 
-    // Clase que maneja cada fantasma.
+    // Ajustar el canvas cuando se cambia el tamaño de la ventana
+    function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);
+    }
+
     class Ghost {
       constructor() {
         this.tail = [];
         this.tailLength = 30;
 
-        // Tamaño y posición inicial aleatoria.
-        this.ghostSize = random(10, 100);
+        // Tamaño y posición aleatoria
+        this.ghostSize = random(20, 100);
         this.ghostX = random(width);
         this.ghostY = random(height);
 
-        // Variables para que cada fantasma siga un camino único.
+        // Movimiento aleatorio
         this.cosOffset = random(100);
         this.wiggliness = random(2, 10);
         this.floatiness = random(2, 10);
 
-        // Color aleatorio para cada fantasma.
+        // Color aleatorio
         this.r = random(255);
         this.g = random(255);
         this.b = random(255);
       }
 
       moveAndDraw() {
-        // Movimiento horizontal oscilante.
+        // Movimiento horizontal oscilante
         this.ghostX += cos((this.cosOffset + frameCount) / 10) * this.wiggliness;
-        // Movimiento vertical ascendente.
+        // Movimiento vertical ascendente
         this.ghostY -= this.floatiness;
-        // Si el fantasma se sale de la pantalla por arriba, lo reiniciamos abajo.
+
+        // Reiniciar si sale de la pantalla
         if (this.ghostY < -this.ghostSize) {
           this.ghostY = height + this.ghostSize;
         }
 
-        // Agregar la posición actual al inicio de la cola.
+        // Agregar la posición actual a la cola
         this.tail.unshift({ x: this.ghostX, y: this.ghostY });
-        // Limitar el tamaño de la cola.
+
+        // Limitar el tamaño de la cola
         if (this.tail.length > this.tailLength) {
           this.tail.pop();
         }
 
-        // Dibujar la cola: los puntos se hacen más pequeños y transparentes.
+        // Dibujar la cola con efecto de desvanecimiento
         for (let index = 0; index < this.tail.length; index++) {
           const tailPoint = this.tail[index];
           const pointSize = this.ghostSize * (this.tail.length - index) / this.tail.length;
@@ -86,17 +90,11 @@
           ellipse(tailPoint.x, tailPoint.y, pointSize);
         }
 
-        // Dibujar la cara del fantasma.
+        // Dibujar la cara del fantasma
         fill(32);
-        ellipse(this.ghostX - this.ghostSize * 0.2,
-                this.ghostY - this.ghostSize * 0.1,
-                this.ghostSize * 0.2);
-        ellipse(this.ghostX + this.ghostSize * 0.2,
-                this.ghostY - this.ghostSize * 0.1,
-                this.ghostSize * 0.2);
-        ellipse(this.ghostX,
-                this.ghostY + this.ghostSize * 0.2,
-                this.ghostSize * 0.2);
+        ellipse(this.ghostX - this.ghostSize * 0.2, this.ghostY - this.ghostSize * 0.1, this.ghostSize * 0.2);
+        ellipse(this.ghostX + this.ghostSize * 0.2, this.ghostY - this.ghostSize * 0.1, this.ghostSize * 0.2);
+        ellipse(this.ghostX, this.ghostY + this.ghostSize * 0.2, this.ghostSize * 0.2);
       }
     }
   </script>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Iniciar pixel.js</title>
+  <!-- Cargamos la librería p5.js desde CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #202020;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #fff;
+    }
+    #sketch-container {
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Botón para iniciar el sketch -->
+  <button id="iniciar">Iniciar pixe.js</button>
+  
+  <!-- Contenedor donde se insertará el canvas -->
+  <div id="sketch-container"></div>
+  
+  <!-- Tu script pixe.js (asegúrate de que esté en la misma carpeta o ajustar la ruta) -->
+  <script src="pixe.js"></script>
+  
+  <script>
+    // Suponemos que en pixe.js tienes definido el sketch
+    // por ejemplo, algo como: 
+    // const sketch = (p) => { p.setup = function(){...}; p.draw = function(){...}; };
+    // Si tu función se llama diferente, actualiza el nombre "sketch" en la siguiente línea.
+    document.getElementById("iniciar").addEventListener("click", function() {
+      // Se crea una nueva instancia de p5 utilizando el sketch y se coloca en el contenedor
+      new p5(sketch, "sketch-container");
+      // Ocultar el botón tras iniciar el sketch
+      this.style.display = "none";
+    });
+  </script>
+</body>
+</html>

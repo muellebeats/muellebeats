@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jardín al Aire Libre</title>
+  <style>
+    /* Estilos para eliminar márgenes y ocupar toda la pantalla */
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #87ceeb; /* Color de respaldo, en caso de no verse el canvas */
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gardenCanvas"></canvas>
+  <script>
+    // Configuración del canvas
+    const canvas = document.getElementById('gardenCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    // Actualiza el canvas al redimensionar la ventana
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      initGarden();
+    });
+    
+    /* Función para dibujar el cielo con degradado */
+    function drawSky() {
+      const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+      gradient.addColorStop(0, "#87ceeb"); // azul cielo
+      gradient.addColorStop(1, "#fff");    // cercano al horizonte
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+    
+    /* Función para dibujar el sol */
+    function drawSun() {
+      ctx.save();
+      const sunX = canvas.width * 0.85;
+      const sunY = canvas.height * 0.15;
+      const sunRadius = 50;
+      ctx.beginPath();
+      ctx.arc(sunX, sunY, sunRadius, 0, Math.PI * 2);
+      ctx.fillStyle = "yellow";
+      ctx.fill();
+      ctx.restore();
+    }
+    
+    /* Clase para las nubes */
+    class Cloud {
+      constructor(x, y, scale, speed) {
+        this.x = x;
+        this.y = y;
+        this.scale = scale;
+        this.speed = speed;
+      }
+      update() {
+        this.x += this.speed;
+        if (this.x - 100 * this.scale > canvas.width) {
+          this.x = -100 * this.scale;
+        }
+      }
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.scale(this.scale, this.scale);
+        ctx.fillStyle = "rgba(255,255,255,0.8)";
+        ctx.beginPath();
+        ctx.arc(0, 0, 20, Math.PI * 0.5, Math.PI * 1.5);
+        ctx.arc(25, -10, 20, Math.PI, Math.PI * 1.85);
+        ctx.arc(50, 0, 20, Math.PI * 1.37, Math.PI * 1.91);
+        ctx.arc(25, 10, 20, Math.PI * 1.5, Math.PI * 0.5);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+    
+    /* Clase para los árboles */
+    class Tree {
+      constructor(x, y, trunkHeight, trunkWidth, canopyRadius) {
+        this.x = x;
+        this.y = y;
+        this.trunkHeight = trunkHeight;
+        this.trunkWidth = trunkWidth;
+        this.canopyRadius = canopyRadius;
+      }
+      draw() {
+        ctx.save();
+        // Tronco
+        ctx.fillStyle = "#8B4513";
+        ctx.fillRect(this.x - this.trunkWidth/2, this.y - this.trunkHeight, this.trunkWidth, this.trunkHeight);
+        // Copa
+        ctx.beginPath();
+        ctx.arc(this.x, this.y - this.trunkHeight, this.canopyRadius, 0, Math.PI * 2);
+        ctx.fillStyle = "green";
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+    
+    /* Clase para las flores */
+    class Flower {
+      constructor(x, y, petalCount, petalLength, petalWidth) {
+        this.x = x;
+        this.y = y;
+        this.petalCount = petalCount;
+        this.petalLength = petalLength;
+        this.petalWidth = petalWidth;
+        this.color = `hsl(${Math.floor(Math.random()*360)}, 70%, 60%)`;
+      }
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        // Dibujar pétalos
+        for (let i = 0; i < this.petalCount; i++) {
+          ctx.rotate((Math.PI * 2) / this.petalCount);
+          ctx.beginPath();
+          ctx.ellipse(0, -this.petalLength, this.petalWidth, this.petalLength, 0, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.fill();
+        }
+        // Centro de la flor
+        ctx.beginPath();
+        ctx.arc(0, 0, this.petalWidth, 0, Math.PI * 2);
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+    
+    // Arrays para los elementos del jardín
+    let clouds = [];
+    let trees = [];
+    let flowers = [];
+    
+    /* Función para inicializar el jardín */
+    function initGarden() {
+      // Nubes
+      clouds = [];
+      for(let i = 0; i < 5; i++){
+        let x = Math.random() * canvas.width;
+        let y = Math.random() * canvas.height * 0.3;
+        let scale = 0.5 + Math.random();
+        let speed = 0.2 + Math.random() * 0.5;
+        clouds.push(new Cloud(x, y, scale, speed));
+      }
+      
+      // Árboles: ubicados en la parte inferior del canvas
+      trees = [];
+      for(let i = 0; i < 8; i++){
+        let x = Math.random() * canvas.width;
+        let y = canvas.height * 0.7 + Math.random() * canvas.height * 0.3;
+        let trunkHeight = 50 + Math.random() * 50;
+        let trunkWidth = 10 + Math.random() * 10;
+        let canopyRadius = 30 + Math.random() * 20;
+        trees.push(new Tree(x, y, trunkHeight, trunkWidth, canopyRadius));
+      }
+      
+      // Flores: también en la zona inferior
+      flowers = [];
+      for(let i = 0; i < 50; i++){
+        let x = Math.random() * canvas.width;
+        let y = canvas.height * 0.7 + Math.random() * canvas.height * 0.3;
+        let petalCount = 5 + Math.floor(Math.random() * 3);
+        let petalLength = 5 + Math.random() * 10;
+        let petalWidth = 2 + Math.random() * 3;
+        flowers.push(new Flower(x, y, petalCount, petalLength, petalWidth));
+      }
+    }
+    
+    /* Función para dibujar todo el jardín */
+    function drawGarden() {
+      // Cielo y sol
+      drawSky();
+      drawSun();
+      
+      // Nubes (actualizar posición y dibujar)
+      for (let cloud of clouds) {
+        cloud.update();
+        cloud.draw();
+      }
+      
+      // Dibuja los árboles (sin animación)
+      for (let tree of trees) {
+        tree.draw();
+      }
+      
+      // Dibuja las flores
+      for (let flower of flowers) {
+        flower.draw();
+      }
+      
+      // Dibuja el suelo (parte inferior)
+      ctx.fillStyle = "#228B22";
+      ctx.fillRect(0, canvas.height * 0.7, canvas.width, canvas.height * 0.3);
+    }
+    
+    /* Animación: se actualiza el jardín en cada frame */
+    function animate() {
+      drawGarden();
+      requestAnimationFrame(animate);
+    }
+    
+    // Inicializa y arranca la animación
+    initGarden();
+    animate();
+  </script>
+</body>
+</html>

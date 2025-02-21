@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Jardin Exotick</title>
   <!-- Fuente curva (ejemplo Google Fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +11,6 @@
     rel="stylesheet"
   >
   <style>
-    /* Estilo de página */
     body {
       margin: 0;
       padding: 0;
@@ -21,19 +20,19 @@
       overflow: hidden;
       display: flex;
       justify-content: center;
-      align-items: flex-start; /* Para que caigan desde arriba */
+      align-items: flex-start; /* Para que inicien arriba */
       font-family: 'Pacifico', cursive; /* fuente curva */
     }
 
-    /* Contenedor que cae */
+    /* Contenedor de ambas palabras */
     .container {
       position: relative;
-      display: inline-block; /* lado a lado */
-      top: -100%;            /* arranca arriba de la pantalla */
+      display: inline-block;  /* Para que estén en la misma línea */
+      top: -100%;             /* Inician fuera de la pantalla */
       animation: drop 1.5s ease forwards;
     }
 
-    /* Animación de caída + rebote */
+    /* Caída con rebote */
     @keyframes drop {
       0% {
         top: -100%;
@@ -42,76 +41,61 @@
         top: 40vh;  /* posición base */
       }
       90% {
-        top: 35vh;  /* rebote */
+        top: 35vh;  /* pequeño rebote */
       }
       100% {
         top: 40vh;  /* final */
       }
     }
 
-    /* Cada palabra */
+    /* Palabras en línea: “jardin exotick” */
     .word {
       display: inline-block;
-      margin: 0 5px;
+      margin: 0 8px;   /* pequeño margen para separarlas */
       font-size: 50px;
       color: #333;
     }
-
-    /* “exotick” en negrita */
     .exotick {
-      font-weight: bold;
+      font-weight: bold; /* negrita para “exotick” */
     }
 
     /*
-      Pasados 2s, activamos .swap para cruzar palabras:
-      - "jardin" se desplaza a la derecha (+80px)
-      - "exotick" se desplaza a la izquierda (-80px)
-      Al terminar, "exotick" queda visualmente a la izquierda
-      y "jardin" a la derecha, sin solaparse.
+      Pasados 2s, activamos la clase .swap,
+      donde cada palabra se anima para quedar en orden invertido:
+      “exotick jardin” en la misma línea.
     */
-    .swap #jardin {
-      animation: moveRight 1s ease forwards;
+    .swap .jardin {
+      animation: swapToRight 0.8s ease forwards;
     }
-    .swap #exotick {
-      animation: moveLeft 1s ease forwards;
+    .swap .exotick {
+      animation: swapToLeft 0.8s ease forwards;
     }
 
-    @keyframes moveRight {
-      0% {
-        transform: translateX(0);
-      }
-      50% {
-        transform: translateY(-20px) scale(0.9);
-      }
-      100% {
-        transform: translateX(80px); /* Ajusta según tu preferencia */
-      }
+    /* 
+      "jardin" se mueve a la derecha unos 120px,
+      "exotick" se mueve a la izquierda unos 120px,
+      evitando superposición.
+    */
+    @keyframes swapToRight {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(120px); }
     }
-    @keyframes moveLeft {
-      0% {
-        transform: translateX(0);
-      }
-      50% {
-        transform: translateY(-20px) scale(1.1);
-      }
-      100% {
-        transform: translateX(-80px); /* Ajusta según tu preferencia */
-      }
+    @keyframes swapToLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-120px); }
     }
   </style>
 </head>
 <body>
   <div class="container" id="container">
-    <!-- Palabras iniciales: “jardin exotick” -->
-    <span class="word" id="jardin">jardin</span>
+    <span class="word jardin" id="jardin">jardin</span>
     <span class="word exotick" id="exotick">exotick</span>
   </div>
 
   <script>
     /*
-      Tras 2 segundos, disparamos la clase .swap 
-      para que se crucen y queden “exotick jardin” lado a lado
-      sin superposición.
+      Tras 2 segundos, añadimos .swap al contenedor
+      para que “jardin” y “exotick” intercambien posiciones.
     */
     setTimeout(() => {
       document.getElementById('container').classList.add('swap');
@@ -119,4 +103,5 @@
   </script>
 </body>
 </html>
+
 

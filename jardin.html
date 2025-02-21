@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jardin Exotick</title>
+  <!-- Ejemplo de fuente curvada (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" 
+    rel="stylesheet"
+  >
+  <style>
+    /* Ajusta el fondo y centra en pantalla */
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Contenedor general */
+    .container {
+      position: relative;
+      font-family: 'Pacifico', cursive; /* Fuente curvada */
+      font-size: 50px;
+      color: #333;
+    }
+
+    /* Cada palabra se posiciona de forma absoluta y cae */
+    .word {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      /* Animación de caída y rebote */
+      animation: drop 3s ease forwards;
+    }
+
+    .jardin {
+      /* “jardin” comienza su animación de inmediato */
+      animation-delay: 0s;
+    }
+
+    .exotick {
+      font-weight: bold;
+      /* “exotick” comienza con un ligero retraso y opacidad 0 */
+      animation: dropExotick 3s ease forwards;
+      animation-delay: 0.5s;
+      opacity: 0;
+    }
+
+    /* Animación base para “jardin” */
+    @keyframes drop {
+      0% {
+        top: -200px;
+      }
+      80% {
+        top: 0px;
+      }
+      90% {
+        top: -20px; /* rebote */
+      }
+      100% {
+        top: 0px; /* aterriza */
+      }
+    }
+
+    /* Animación para “exotick” (incluye aparición) */
+    @keyframes dropExotick {
+      0% {
+        top: -200px;
+        opacity: 0;
+      }
+      70% {
+        top: 0px;
+        opacity: 1;
+      }
+      80% {
+        top: -20px; /* rebote */
+      }
+      100% {
+        top: 0px;
+        opacity: 1;
+      }
+    }
+
+    /* 
+      Tras ambas caídas, cambiamos z-index para que “exotick” 
+      pase por delante de “jardin” y quede el orden final 
+      “jardin exotick” con exotick en primer plano.
+    */
+    .final {
+      animation: reorder 0.5s forwards;
+      animation-delay: 3.5s; /* se activa 3.5s después del inicio */
+    }
+
+    @keyframes reorder {
+      100% {
+        z-index: 2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="word jardin" id="jardin">jardin</div>
+    <div class="word exotick" id="exotick">exotick</div>
+  </div>
+
+  <script>
+    /*
+      Al cabo de 3.5s, añadimos la clase "final" a ambas palabras
+      para que “exotick” quede con z-index mayor y pase al frente.
+    */
+    setTimeout(() => {
+      document.getElementById('jardin').classList.add('final');
+      document.getElementById('exotick').classList.add('final');
+    }, 3500);
+  </script>
+</body>
+</html>

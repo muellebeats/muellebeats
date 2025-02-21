@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Jardin Exotick</title>
-  <!-- Fuente Curva (ej. Google Fonts) -->
+  <!-- Fuente de ejemplo (Google Fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link 
@@ -11,107 +11,112 @@
     rel="stylesheet"
   >
   <style>
+    /* Estilos base */
     body {
       margin: 0;
       padding: 0;
       background: #f5f5f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      width: 100vw;
       height: 100vh;
       overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; /* para que caigan desde arriba */
+      font-family: 'Pacifico', cursive; /* fuente curva */
     }
+
+    /* Contenedor que caerá desde arriba */
     .container {
       position: relative;
-      font-family: 'Pacifico', cursive; /* Estilo curvo */
-      font-size: 50px;
-      perspective: 1000px; /* Para posibles efectos 3D */
-    }
-    .word {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      top: -150px;  /* Empiezan fuera de la vista, arriba */
+      display: inline-block; /* las palabras en línea */
+      top: -100%;            /* inicia fuera de la pantalla (arriba) */
       animation: drop 1.5s ease forwards;
     }
-    /* Palabra "jardin" */
-    .jardin {
-      z-index: 2; /* "jardin" delante inicialmente */
-      animation-delay: 0s; /* Empieza inmediatamente */
-    }
-    /* Palabra "exotick" */
-    .exotick {
-      z-index: 1; /* Detrás de "jardin" */
-      font-weight: bold;
-      animation-delay: 0.2s; /* Cae un pelín después */
-    }
-    /* Animación de caída y rebote */
+
+    /* Animación de caída con rebote */
     @keyframes drop {
       0% {
-        top: -150px;
+        top: -100%;
       }
       80% {
-        top: 0px;
+        top: 40vh;  /* aterriza aproximadamente en el medio */
       }
       90% {
-        top: -20px; /* Rebote */
+        top: 35vh;  /* rebote hacia arriba */
       }
       100% {
-        top: 0px;
+        top: 40vh;  /* posición final */
       }
     }
+
+    /* Cada palabra */
+    .word {
+      display: inline-block;
+      margin: 0 5px;
+      font-size: 50px;
+      color: #333;
+    }
+
+    /* “exotick” en negrita */
+    .exotick {
+      font-weight: bold;
+    }
+
     /*
-      Cuando se active la clase .swap (después de 2s),
-      hacemos que las palabras se crucen en el aire:
-      - "jardin" se mueve a la derecha
-      - "exotick" se mueve a la izquierda
-      - Cambiamos z-index para que "exotick" quede delante
+      Al cabo de 2s de haberse mostrado, añadimos la clase .swap
+      para intercambiar posiciones con una pequeña animación.
     */
-    .swap .jardin {
+    .swap #jardin {
       animation: moveRight 1s ease forwards;
     }
-    .swap .exotick {
+    .swap #exotick {
       animation: moveLeft 1s ease forwards;
     }
+
+    /* 
+      “jardin” se desplaza ligeramente a la derecha, 
+      y “exotick” se desplaza a la izquierda para cruzarse.
+      El resultado final es que “exotick” queda primero y “jardin” al lado derecho.
+    */
     @keyframes moveRight {
       0% {
-        transform: translateX(-50%);
+        transform: translateX(0);
       }
       50% {
-        transform: translateX(-50%) translateY(-30px) scale(0.9);
-        z-index: 2; /* brevemente encima, simulando cruce */
+        transform: translateY(-20px) scale(0.9);
       }
       100% {
-        transform: translateX(30px);
-        z-index: 1; /* termina detrás */
+        transform: translateX(120px);
       }
     }
     @keyframes moveLeft {
       0% {
-        transform: translateX(-50%);
+        transform: translateX(0);
       }
       50% {
-        transform: translateX(-50%) translateY(-30px) scale(1.1);
-        z-index: 2; /* en el pico del cruce, adelante */
+        transform: translateY(-20px) scale(1.1);
       }
       100% {
         transform: translateX(-120px);
-        z-index: 2; /* se queda adelante */
       }
     }
   </style>
 </head>
 <body>
   <div class="container" id="container">
-    <div class="word jardin" id="jardin">jardin</div>
-    <div class="word exotick" id="exotick">exotick</div>
+    <span class="word" id="jardin">jardin</span>
+    <span class="word exotick" id="exotick">exotick</span>
   </div>
 
   <script>
-    // Esperamos 2 segundos para iniciar el intercambio
+    /*
+      Después de 2s de haberse iniciado la animación de caída,
+      activamos la clase .swap para intercambiar posiciones.
+    */
     setTimeout(() => {
       document.getElementById('container').classList.add('swap');
     }, 2000);
   </script>
 </body>
 </html>
+

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Jardin Exotick</title>
-  <!-- Fuente de ejemplo (Google Fonts) -->
+  <!-- Fuente curva (ejemplo Google Fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link 
@@ -11,7 +11,7 @@
     rel="stylesheet"
   >
   <style>
-    /* Estilos base */
+    /* Estilo de página */
     body {
       margin: 0;
       padding: 0;
@@ -21,31 +21,31 @@
       overflow: hidden;
       display: flex;
       justify-content: center;
-      align-items: flex-start; /* para que caigan desde arriba */
+      align-items: flex-start; /* Para que caigan desde arriba */
       font-family: 'Pacifico', cursive; /* fuente curva */
     }
 
-    /* Contenedor que caerá desde arriba */
+    /* Contenedor que cae */
     .container {
       position: relative;
-      display: inline-block; /* las palabras en línea */
-      top: -100%;            /* inicia fuera de la pantalla (arriba) */
+      display: inline-block; /* lado a lado */
+      top: -100%;            /* arranca arriba de la pantalla */
       animation: drop 1.5s ease forwards;
     }
 
-    /* Animación de caída con rebote */
+    /* Animación de caída + rebote */
     @keyframes drop {
       0% {
         top: -100%;
       }
       80% {
-        top: 40vh;  /* aterriza aproximadamente en el medio */
+        top: 40vh;  /* posición base */
       }
       90% {
-        top: 35vh;  /* rebote hacia arriba */
+        top: 35vh;  /* rebote */
       }
       100% {
-        top: 40vh;  /* posición final */
+        top: 40vh;  /* final */
       }
     }
 
@@ -63,8 +63,11 @@
     }
 
     /*
-      Al cabo de 2s de haberse mostrado, añadimos la clase .swap
-      para intercambiar posiciones con una pequeña animación.
+      Pasados 2s, activamos .swap para cruzar palabras:
+      - "jardin" se desplaza a la derecha (+80px)
+      - "exotick" se desplaza a la izquierda (-80px)
+      Al terminar, "exotick" queda visualmente a la izquierda
+      y "jardin" a la derecha, sin solaparse.
     */
     .swap #jardin {
       animation: moveRight 1s ease forwards;
@@ -73,11 +76,6 @@
       animation: moveLeft 1s ease forwards;
     }
 
-    /* 
-      “jardin” se desplaza ligeramente a la derecha, 
-      y “exotick” se desplaza a la izquierda para cruzarse.
-      El resultado final es que “exotick” queda primero y “jardin” al lado derecho.
-    */
     @keyframes moveRight {
       0% {
         transform: translateX(0);
@@ -86,7 +84,7 @@
         transform: translateY(-20px) scale(0.9);
       }
       100% {
-        transform: translateX(120px);
+        transform: translateX(80px); /* Ajusta según tu preferencia */
       }
     }
     @keyframes moveLeft {
@@ -97,21 +95,23 @@
         transform: translateY(-20px) scale(1.1);
       }
       100% {
-        transform: translateX(-120px);
+        transform: translateX(-80px); /* Ajusta según tu preferencia */
       }
     }
   </style>
 </head>
 <body>
   <div class="container" id="container">
+    <!-- Palabras iniciales: “jardin exotick” -->
     <span class="word" id="jardin">jardin</span>
     <span class="word exotick" id="exotick">exotick</span>
   </div>
 
   <script>
     /*
-      Después de 2s de haberse iniciado la animación de caída,
-      activamos la clase .swap para intercambiar posiciones.
+      Tras 2 segundos, disparamos la clase .swap 
+      para que se crucen y queden “exotick jardin” lado a lado
+      sin superposición.
     */
     setTimeout(() => {
       document.getElementById('container').classList.add('swap');

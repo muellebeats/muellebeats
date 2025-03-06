@@ -213,6 +213,24 @@
     .recommendation a.btn-primary:hover {
       background-color: #d04820;
     }
+    /* Íconos dentro de la recomendación */
+    .recommendation-icons {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+      justify-content: center;
+    }
+    .recommendation-icons i {
+      font-size: 24px;
+      color: white;
+      transition: transform 0.2s ease, color 0.2s ease;
+      cursor: pointer;
+    }
+    .recommendation-icons i:hover {
+      transform: scale(1.2);
+      color: #f05a24;
+    }
+
     /* Ajuste responsivo si quieres ocultarlo en pantallas muy pequeñas */
     @media (max-width: 500px) {
       .recommendation {
@@ -283,7 +301,6 @@
   <!-- Recomendación (estilo "YouTube") -->
   <div class="recommendation">
     <h3>Nuevo Lanzamiento</h3>
-    <!-- Ajusta la ruta de la imagen según tu carpeta -->
     <img
       src="./image/WhatsApp Image 2025-02-19 at 18.17.19.jpeg"
       alt="Nuevo Lanzamiento"
@@ -292,6 +309,17 @@
       ¡Lo último de Muelle & Beats!<br />
       Mezclando sonidos House y Hip Hop con un toque náutico.
     </p>
+    <!-- Íconos para YouTube y SoundCloud -->
+    <div class="recommendation-icons">
+      <!-- Reemplaza URL_DE_YOUTUBE con tu enlace real -->
+      <a href="https://youtu.be/muBnXK6CU_M?si=VBV3A4DKMP_hOkbF" target="_blank" title="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <!-- Reemplaza URL_DE_SOUNDCLOUD con tu enlace real -->
+      <a href="https://soundcloud.com/muelle-beats/marcando-la-diferencia-muellebeats?si=31999888cf234bf18a8f164a379ab054&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank" title="SoundCloud">
+        <i class="fab fa-soundcloud"></i>
+      </a>
+    </div>
     <a href="#" class="btn-primary">Escuchar</a>
   </div>
 

@@ -157,17 +157,23 @@
     /* ----------------------------------
        CONTADORES (LUNA Y OTOÑO)
     ---------------------------------- */
-    .counters {
-      text-align: center;
-      margin: 20px 0;
-    }
-    .counters h2 {
-      margin-bottom: 10px;
-      font-size: 24px;
-    }
-    .counters p {
-      font-size: 18px;
-    }
+   /* Estilos para alinear los contadores en fila */
+.counters {
+  display: flex; /* Alinear elementos en una fila */
+  justify-content: center; /* Centrar horizontalmente */
+  gap: 40px; /* Espacio entre los contadores */
+  margin: 20px 0;
+}
+
+.counter-box {
+  text-align: center;
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px; /* Ajusta el ancho según lo necesites */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 
     /* ----------------------------------
        RECOMENDACIÓN (ESTILO "YOUTUBE")
@@ -251,10 +257,7 @@
       <img src="./assets/img/mexico.jpg" alt="México" class="flag" />
       <img src="./assets/img/españa.jpg" alt="España" class="flag" />
     </div>
-    <!-- Botón Donar -->
-    <a href="https://ceneka.net/muellebeats" class="btn-primary">Donar</a>
-    <button onclick="window.location.href='altchat.html'" style="padding:10px 20px; background:#007bff; color:white; border:none; border-radius:5px; cursor:pointer;">Contacto</button>
-
+   
     <!-- Social Media Icons -->
     <div class="social-icons">
       <a href="https://x.com/muellebeats" target="_blank" title="Twitter"
@@ -292,11 +295,12 @@
     </div>
   </div>
 
-  <!-- Contadores (Luna y Otoño) -->
-  <div class="counters">
-    <div id="moon-counter"></div>
-    <div id="season-counter"></div>
-  </div>
+ <!-- Contadores (Luna y Otoño) -->
+<div class="counters">
+  <div id="moon-counter" class="counter-box"></div>
+  <div id="season-counter" class="counter-box"></div>
+</div>
+
 
  <!-- Recomendación (Minimalista) -->
 <div class="recommendation">

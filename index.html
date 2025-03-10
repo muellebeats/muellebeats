@@ -321,63 +321,59 @@
     </a>
   </div>
 </div>
-  <script>
-    /* 
-      Mantenemos la cuenta para la próxima fase lunar y 
-      la cuenta regresiva para el inicio de Otoño.
-    */
+ <script>
+  // Definimos la fecha de la próxima Luna Llena después del 10 de marzo de 2025
+  const nextMoonPhase = {
+    type: "Luna Llena",
+    date: new Date("2025-03-14T00:00:00"), // Fecha real de la próxima luna llena
+  };
 
-    // Próxima fase lunar (ejemplo: Luna Llena 12/Feb/2025)
-    const nextMoonPhase = {
-      type: "Luna Llena",
-      date: new Date("2025-02-12T00:00:00"),
-    };
+  // Próxima estación: Otoño (20 de marzo de 2025)
+  const autumn = {
+    name: "Otoño",
+    date: new Date("2025-03-20T00:00:00"),
+  };
 
-    // Próxima estación: Otoño (ejemplo: 20/Mar/2025)
-    const autumn = {
-      name: "Otoño",
-      date: new Date("2025-03-20T00:00:00"),
-    };
+  // Función para calcular el tiempo restante
+  function getRemainingTime(targetDate) {
+    const now = new Date();
+    const diff = targetDate - now;
 
-    // Función para calcular el tiempo restante
-    function getRemainingTime(targetDate) {
-      const now = new Date();
-      const diff = targetDate - now;
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      return { days, hours, minutes };
+    if (diff <= 0) {
+      return { days: 0, hours: 0, minutes: 0 }; // Evita números negativos
     }
 
-    // Mostrar la cuenta para la luna
-    function showMoonCounter() {
-      const { days, hours, minutes } = getRemainingTime(nextMoonPhase.date);
-      const moonElement = document.getElementById("moon-counter");
-      moonElement.innerHTML = `
-        <h2>Próxima Fase Lunar</h2>
-        <p><strong>${nextMoonPhase.type}</strong> en 
-        ${days} días, ${hours} horas y ${minutes} minutos.</p>
-      `;
-    }
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-    // Mostrar la cuenta para el otoño
-    function showSeasonCounter() {
-      const { days, hours, minutes } = getRemainingTime(autumn.date);
-      const seasonElement = document.getElementById("season-counter");
-      seasonElement.innerHTML = `
-        <h2>Próxima Estación</h2>
-        <p><strong>${autumn.name}</strong> en 
-        ${days} días, ${hours} horas y ${minutes} minutos.</p>
-      `;
-    }
+    return { days, hours, minutes };
+  }
 
-    // Inicializamos y actualizamos cada minuto
-    showMoonCounter();
-    showSeasonCounter();
-    setInterval(showMoonCounter, 60000);
-    setInterval(showSeasonCounter, 60000);
-  </script>
+  // Mostrar la cuenta regresiva para la próxima Luna Llena
+  function showMoonCounter() {
+    const { days, hours, minutes } = getRemainingTime(nextMoonPhase.date);
+    document.getElementById("moon-counter").innerHTML = `
+      <h2>Próxima Fase Lunar</h2>
+      <p><strong>${nextMoonPhase.type}</strong> en ${days} días, ${hours} horas y ${minutes} minutos.</p>
+    `;
+  }
+
+  // Mostrar la cuenta regresiva para la llegada del Otoño
+  function showSeasonCounter() {
+    const { days, hours, minutes } = getRemainingTime(autumn.date);
+    document.getElementById("season-counter").innerHTML = `
+      <h2>Próxima Estación</h2>
+      <p><strong>${autumn.name}</strong> en ${days} días, ${hours} horas y ${minutes} minutos.</p>
+    `;
+  }
+
+  // Inicializamos y actualizamos cada minuto
+  showMoonCounter();
+  showSeasonCounter();
+  setInterval(showMoonCounter, 60000);
+  setInterval(showSeasonCounter, 60000);
+</script>
+
 </body>
 </html>
